@@ -189,6 +189,11 @@ export function fromChatCompletionChunk(
       role: "assistant",
       content: delta.content,
     };
+  } else if (delta && "reasoning_content" in delta && delta.reasoning_content) {
+    return {
+      role: "thinking",
+      content: (delta.reasoning_content as string | undefined) || "",
+    };
   } else if (delta?.tool_calls) {
     const toolCalls = delta?.tool_calls
       .filter((tool_call) => !tool_call.type || tool_call.type === "function")
