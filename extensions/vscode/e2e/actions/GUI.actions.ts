@@ -42,14 +42,14 @@ export class GUIActions {
     for (let i = 0; i < iframes.length; i++) {
       const iframe = iframes[i];
       const src = await iframe.getAttribute("src");
-      if (src.includes("extensionId=Continue.continue")) {
+      if (src.includes("extensionId=Rabiloo.ethery")) {
         continueIFrame = iframe;
         break;
       }
     }
 
     if (!continueIFrame) {
-      throw new Error("Could not find Continue iframe");
+      throw new Error("Could not find Ethery iframe");
     }
 
     await driver.switchTo().frame(continueIFrame);
