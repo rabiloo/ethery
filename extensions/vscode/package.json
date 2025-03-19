@@ -1,27 +1,27 @@
 {
-  "name": "continue",
+  "name": "ethery",
   "icon": "media/icon.png",
-  "author": "Continue Dev, Inc",
+  "author": "Rabiloo, Inc",
   "version": "1.1.14",
   "repository": {
     "type": "git",
-    "url": "https://github.com/continuedev/continue"
+    "url": "https://github.com/rabiloo/ethery"
   },
   "extensionKind": [
     "ui",
     "workspace"
   ],
   "bugs": {
-    "url": "https://github.com/continuedev/continue/issues",
+    "url": "https://github.com/rabiloo/ethery/issues",
     "email": "nate@continue.dev"
   },
-  "homepage": "https://continue.dev",
-  "qna": "https://github.com/continuedev/continue/issues/new/choose",
+  "homepage": "https://rabiloo.com",
+  "qna": "https://github.com/rabiloo/ethery/issues/new/choose",
   "license": "Apache-2.0",
-  "displayName": "Continue - Codestral, Claude, and more",
+  "displayName": "Ethery – Coding Beyond Limits",
   "pricing": "Free",
-  "description": "The leading open-source AI code assistant",
-  "publisher": "Continue",
+  "description": "Code Smarter, Not Harder",
+  "publisher": "Rabiloo",
   "engines": {
     "vscode": "^1.70.0",
     "node": ">=20.11.0"
