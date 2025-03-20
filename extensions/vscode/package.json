@@ -85,7 +85,7 @@
       }
     ],
     "configuration": {
-      "title": "Continue",
+      "title": "Ethery",
       "properties": {
         "continue.telemetryEnabled": {
           "type": "boolean",
@@ -530,7 +530,7 @@
       "activitybar": [
         {
           "id": "continue",
-          "title": "Continue",
+          "title": "Ethery",
           "icon": "media/sidebar-icon.png"
         }
       ]
@@ -540,7 +540,7 @@
         {
           "type": "webview",
           "id": "continue.continueGUIView",
-          "name": "Continue",
+          "name": "Ethery",
           "icon": "media/sidebar-icon.png",
           "visibility": "visible"
         }
