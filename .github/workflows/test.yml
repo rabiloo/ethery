@@ -1,0 +1,13 @@
+name: Testing
+
+on: [push]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      # Make a branch, file, commit, and pull request for the learner
+      - name: test command
+        run: |
+          echo "hello world"
+         
