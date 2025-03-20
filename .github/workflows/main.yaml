@@ -202,7 +202,7 @@ jobs:
           files: |
             vsix-artifacts/*.vsix
           token: ${{ secrets.CI_GITHUB_TOKEN }}
-          repository: continuedev/continue
+          repository: rabiloo/ethery
 
   publish:
     runs-on: ubuntu-latest
@@ -231,17 +231,17 @@ jobs:
           path: vsix-artifacts
           merge-multiple: true
 
-      # 2. Publish the extension to VS Code Marketplace
-      - name: Publish to VS Code Marketplace
-        run: |
-          cd extensions/vscode
-          npx vsce publish --packagePath ../../vsix-artifacts/*.vsix
-        env:
-          VSCE_PAT: ${{ secrets.VSCE_TOKEN }}
+      # # 2. Publish the extension to VS Code Marketplace
+      # - name: Publish to VS Code Marketplace
+      #   run: |
+      #     cd extensions/vscode
+      #     npx vsce publish --packagePath ../../vsix-artifacts/*.vsix
+      #   env:
+      #     VSCE_PAT: ${{ secrets.VSCE_TOKEN }}
 
-      # 3. Publish the extension to Open VSX Registry
-      - name: Publish (Open VSX Registry)
-        continue-on-error: true
-        run: |
-          cd extensions/vscode
-          npx ovsx publish -p ${{ secrets.VSX_REGISTRY_TOKEN }} --packagePath ../../vsix-artifacts/*.vsix
+      # # 3. Publish the extension to Open VSX Registry
+      # - name: Publish (Open VSX Registry)
+      #   continue-on-error: true
+      #   run: |
+      #     cd extensions/vscode
+      #     npx ovsx publish -p ${{ secrets.VSX_REGISTRY_TOKEN }} --packagePath ../../vsix-artifacts/*.vsix
