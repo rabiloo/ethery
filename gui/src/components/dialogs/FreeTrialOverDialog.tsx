@@ -3,8 +3,12 @@ import { useDispatch } from "react-redux";
 import { useAppSelector } from "../../redux/hooks";
 import { selectUseHub } from "../../redux/selectors";
 import { setDialogMessage, setShowDialog } from "../../redux/slices/uiSlice";
-import { OnboardingCard } from "../OnboardingCard";
-import { PlatformOnboardingCard } from "../OnboardingCard/platform/PlatformOnboardingCard";
+// import { OnboardingCard } from "../OnboardingCard";
+// import { PlatformOnboardingCard } from "../OnboardingCard/platform/PlatformOnboardingCard";
+import {
+  default as OnboardingCard,
+  default as PlatformOnboardingCard,
+} from "../../components/Empty";
 
 function FreeTrialOverDialog() {
   const dispatch = useDispatch();
