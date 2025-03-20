@@ -695,7 +695,7 @@ jobs:
       - name: Delete continue from test extensions
         run: |
           cd extensions/vscode
-          rm -rf e2e/.test-extensions/continue*
+          rm -rf e2e/.test-extensions/ethery*
 
       - name: Sanitize test file name
         id: sanitize_filename
