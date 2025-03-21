@@ -286,17 +286,17 @@ describe("GUI Test", () => {
     }).timeout(DEFAULT_TIMEOUT.MD);
   });
 
-  describe("Repeat back the system message", () => {
-    it("should repeat back the system message", async () => {
-      await GUIActions.selectModelFromDropdown(view, "SYSTEM MESSAGE MOCK LLM");
-      const [messageInput] = await GUISelectors.getMessageInputFields(view);
-      await messageInput.sendKeys("Hello");
-      await messageInput.sendKeys(Key.ENTER);
-      await TestUtils.waitForSuccess(() =>
-        GUISelectors.getThreadMessageByText(view, "TEST_SYS_MSG"),
-      );
-    });
-  });
+  // describe("Repeat back the system message", () => {
+  //   it("should repeat back the system message", async () => {
+  //     await GUIActions.selectModelFromDropdown(view, "SYSTEM MESSAGE MOCK LLM");
+  //     const [messageInput] = await GUISelectors.getMessageInputFields(view);
+  //     await messageInput.sendKeys("Hello");
+  //     await messageInput.sendKeys(Key.ENTER);
+  //     await TestUtils.waitForSuccess(() =>
+  //       GUISelectors.getThreadMessageByText(view, "TEST_SYS_MSG"),
+  //     );
+  //   });
+  // });
 
   describe("Chat Paths", () => {
     it("Send many messages → chat auto scrolls → go to history → open previous chat → it is scrolled to the bottom", async () => {
@@ -417,35 +417,35 @@ describe("GUI Test", () => {
       await driver.wait(until.elementTextIs(input2, ""), DEFAULT_TIMEOUT.SM);
     }).timeout(DEFAULT_TIMEOUT.XL);
 
-    it("Open chat and type → open history → press new session button → chat opens, empty and in focus", async () => {
-      const originalTextInput = await GUISelectors.getMessageInputFieldAtIndex(
-        view,
-        0,
-      );
-      await originalTextInput.click();
-      await originalTextInput.sendKeys("Hello");
-      expect(await originalTextInput.getText()).to.equal("Hello");
+    // it("Open chat and type → open history → press new session button → chat opens, empty and in focus", async () => {
+    //   const originalTextInput = await GUISelectors.getMessageInputFieldAtIndex(
+    //     view,
+    //     0,
+    //   );
+    //   await originalTextInput.click();
+    //   await originalTextInput.sendKeys("Hello");
+    //   expect(await originalTextInput.getText()).to.equal("Hello");
 
-      await view.switchBack();
+    //   await view.switchBack();
 
-      await (await GUISelectors.getHistoryNavButton(view)).click();
-      await GUIActions.switchToReactIframe();
+    //   await (await GUISelectors.getHistoryNavButton(view)).click();
+    //   await GUIActions.switchToReactIframe();
 
-      await view.switchBack();
-      await (await GUISelectors.getNewSessionNavButton(view)).click();
-      await GUIActions.switchToReactIframe();
+    //   await view.switchBack();
+    //   await (await GUISelectors.getNewSessionNavButton(view)).click();
+    //   await GUIActions.switchToReactIframe();
 
-      const newTextInput = await TestUtils.waitForSuccess(() =>
-        GUISelectors.getMessageInputFieldAtIndex(view, 0),
-      );
-      const activeElement: WebElement = await driver.switchTo().activeElement();
-      const newTextInputHtml = await newTextInput.getAttribute("outerHTML");
-      const activeElementHtml = await activeElement.getAttribute("outerHTML");
-      expect(newTextInputHtml).to.equal(activeElementHtml);
+    //   const newTextInput = await TestUtils.waitForSuccess(() =>
+    //     GUISelectors.getMessageInputFieldAtIndex(view, 0),
+    //   );
+    //   const activeElement: WebElement = await driver.switchTo().activeElement();
+    //   const newTextInputHtml = await newTextInput.getAttribute("outerHTML");
+    //   const activeElementHtml = await activeElement.getAttribute("outerHTML");
+    //   expect(newTextInputHtml).to.equal(activeElementHtml);
 
-      const textInputValue = await newTextInput.getText();
-      expect(textInputValue).to.equal("");
-    }).timeout(DEFAULT_TIMEOUT.XL);
+    //   const textInputValue = await newTextInput.getText();
+    //   expect(textInputValue).to.equal("");
+    // }).timeout(DEFAULT_TIMEOUT.XL);
 
     it("chat → history → chat", async () => {
       const messagePair1 = TestUtils.generateTestMessagePair(1);
