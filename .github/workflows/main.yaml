@@ -201,7 +201,8 @@ jobs:
           tag_name: ${{ github.ref_name }}
           files: |
             vsix-artifacts/*.vsix
-          token: ${{ secrets.CI_GITHUB_TOKEN }}
+          # change PAT to GITHUB_TOKEN for write permissions
+          token: ${{ secrets.GITHUB_TOKEN }}
           repository: rabiloo/ethery
 
   publish:
