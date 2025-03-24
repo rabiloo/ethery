@@ -13,7 +13,8 @@ jobs:
       - name: "Auto-assign issue"
         uses: pozil/auto-assign-issue@v2
         with:
-          repo-token: ${{ secrets.CI_GITHUB_TOKEN }}
+          # with write permissions change PAT to GITHUB_TOKEN
+          repo-token: ${{ secrets.GITHUB_TOKEN }}
           assignees: sestinj,Patrick-Erichsen,tomasz-stefaniak,RomneyDa
           numOfAssignee: 1
       - name: "Add default labels"
