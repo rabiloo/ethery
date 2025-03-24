@@ -1,7 +1,11 @@
 import { ConversationStarterCards } from "../../components/ConversationStarters";
 import { ExploreHubCard } from "../../components/ExploreHubCard";
-import { OnboardingCard } from "../../components/OnboardingCard";
-import { PlatformOnboardingCard } from "../../components/OnboardingCard/platform/PlatformOnboardingCard";
+// import { OnboardingCard } from "../../components/OnboardingCard";
+// import { PlatformOnboardingCard } from "../../components/OnboardingCard/platform/PlatformOnboardingCard";
+import {
+  default as OnboardingCard,
+  default as PlatformOnboardingCard,
+} from "../../components/Empty";
 
 export interface EmptyChatBodyProps {
   useHub: boolean;
