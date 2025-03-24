@@ -9,7 +9,7 @@ import { useNavigate } from "react-router-dom";
 import PageHeader from "../../components/PageHeader";
 import { useNavigationListener } from "../../hooks/useNavigationListener";
 import { fontSize } from "../../util";
-import { AccountButton } from "./AccountButton";
+// import { AccountButton } from "./AccountButton";
 import { HelpCenterSection } from "./HelpCenterSection";
 import { IndexingSettingsSection } from "./IndexingSettingsSection";
 import KeyboardShortcuts from "./KeyboardShortcuts";
@@ -40,12 +40,12 @@ function ConfigPage() {
       component: <IndexingSettingsSection />,
       icon: <CircleStackIcon className="h-4 w-4 flex-shrink-0" />,
     },
-    {
-      id: "help",
-      label: "Help",
-      component: <HelpCenterSection />,
-      icon: <QuestionMarkCircleIcon className="h-4 w-4 flex-shrink-0" />,
-    },
+    // {
+    //   id: "help",
+    //   label: "Help",
+    //   component: <HelpCenterSection />,
+    //   icon: <QuestionMarkCircleIcon className="h-4 w-4 flex-shrink-0" />,
+    // },
     {
       id: "shortcuts",
       label: "Shortcuts",
@@ -61,7 +61,7 @@ function ConfigPage() {
           showBorder
           onTitleClick={() => navigate("/")}
           title="Chat"
-          rightContent={<AccountButton />}
+          // rightContent={<AccountButton />}
         />
 
         {/* Tab Headers */}
