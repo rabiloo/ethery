@@ -13,7 +13,7 @@ import { DEFAULT_TIMEOUT } from "../constants";
 import { GUISelectors } from "../selectors/GUI.selectors";
 import { TestUtils } from "../TestUtils";
 
-describe.skip("Edit Test", () => {
+describe("Edit Test", () => {
   let view: WebView;
   let editor: TextEditor;
   let originalEditorText = "Hello world!";
@@ -64,6 +64,10 @@ describe.skip("Edit Test", () => {
       0,
     );
     await tipTapEditor.clear();
+  });
+
+  after(function () {
+    VSBrowser.instance.quit();
   });
 
   async function getCodeLensWithRetry(editor: TextEditor, text: string) {

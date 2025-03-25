@@ -16,7 +16,7 @@ import { DEFAULT_TIMEOUT } from "../constants";
 import { GUISelectors } from "../selectors/GUI.selectors";
 import { TestUtils } from "../TestUtils";
 
-describe.skip("GUI Test", () => {
+describe("GUI Test", () => {
   let view: WebView;
   let driver: WebDriver;
 
@@ -44,6 +44,10 @@ describe.skip("GUI Test", () => {
       DEFAULT_TIMEOUT.XS,
     );
     await new EditorView().closeAllEditors();
+  });
+
+  after(function () {
+    VSBrowser.instance.quit();
   });
 
   describe("Onboarding", () => {

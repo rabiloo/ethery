@@ -17,7 +17,7 @@ import { expect } from "chai";
 import { TestUtils } from "../TestUtils";
 import { KeyboardShortcutsActions } from "../actions/KeyboardShortcuts.actions";
 
-describe.skip("Keyboard Shortcuts", () => {
+describe("Keyboard Shortcuts", () => {
   let driver: WebDriver;
   let editor: TextEditor;
   let view: WebView;
@@ -47,6 +47,10 @@ describe.skip("Keyboard Shortcuts", () => {
     await view.switchBack();
     await editor.clearText();
     await new EditorView().closeAllEditors();
+  });
+
+  after(function () {
+    VSBrowser.instance.quit();
   });
 
   it("Should correctly undo and redo using keyboard shortcuts when writing a chat message", async () => {
