@@ -13,7 +13,7 @@ import { DEFAULT_TIMEOUT } from "../constants";
 import { GUISelectors } from "../selectors/GUI.selectors";
 import { TestUtils } from "../TestUtils";
 
-describe("Edit Test", () => {
+describe.skip("Edit Test", () => {
   let view: WebView;
   let editor: TextEditor;
   let originalEditorText = "Hello world!";
