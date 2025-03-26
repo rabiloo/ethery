@@ -16,7 +16,7 @@ describe("history Page test", () => {
   it("History text is existed after render", () => {
     renderWithProviders(<HistoryPage />);
     expect(
-      screen.getByText("All session data is saved in ~/.continue/sessions"),
+      screen.getByText("All session data is saved in ~/.ethery/sessions"),
     ).toBeInTheDocument();
   });
 });
