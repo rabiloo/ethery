@@ -147,108 +147,108 @@
     "commands": [
       {
         "command": "continue.applyCodeFromChat",
-        "category": "Continue",
+        "category": "Ethery",
         "title": "Apply code from chat",
         "group": "Continue"
       },
       {
         "command": "continue.acceptDiff",
-        "category": "Continue",
+        "category": "Ethery",
         "title": "Accept Diff",
         "group": "Continue"
       },
       {
         "command": "continue.rejectDiff",
-        "category": "Continue",
+        "category": "Ethery",
         "title": "Reject Diff",
         "group": "Continue",
         "icon": "$(stop)"
       },
       {
         "command": "continue.acceptVerticalDiffBlock",
-        "category": "Continue",
+        "category": "Ethery",
         "title": "Accept Vertical Diff Block",
         "group": "Continue"
       },
       {
         "command": "continue.rejectVerticalDiffBlock",
-        "category": "Continue",
+        "category": "Ethery",
         "title": "Reject Vertical Diff Block",
         "group": "Continue"
       },
       {
         "command": "continue.focusEdit",
-        "category": "Continue",
+        "category": "Ethery",
         "title": "Generate Code",
         "group": "Continue"
       },
       {
         "command": "continue.focusContinueInput",
-        "category": "Continue",
+        "category": "Ethery",
         "title": "Add Highlighted Code to Context and Clear Chat",
         "group": "Continue"
       },
       {
         "command": "continue.focusContinueInputWithoutClear",
-        "category": "Continue",
+        "category": "Ethery",
         "title": "Add Highlighted Code to Context",
         "group": "Continue"
       },
       {
         "command": "continue.debugTerminal",
-        "category": "Continue",
+        "category": "Ethery",
         "title": "Debug Terminal",
         "group": "Continue"
       },
       {
         "command": "continue.exitEditMode",
-        "category": "Continue",
+        "category": "Ethery",
         "title": "Exit Edit Mode",
         "group": "Continue"
       },
       {
         "command": "continue.toggleFullScreen",
-        "category": "Continue",
+        "category": "Ethery",
         "title": "Open in new window",
         "icon": "$(link-external)",
         "group": "Continue"
       },
       {
         "command": "continue.openConfigPage",
-        "category": "Continue",
+        "category": "Ethery",
         "title": "Open Settings",
         "icon": "$(gear)",
         "group": "Continue"
       },
       {
         "command": "continue.toggleTabAutocompleteEnabled",
-        "category": "Continue",
+        "category": "Ethery",
         "title": "Toggle Autocomplete Enabled",
         "group": "Continue"
       },
       {
         "command": "continue.selectFilesAsContext",
-        "category": "Continue",
+        "category": "Ethery",
         "title": "Select Files as Context",
         "group": "Continue"
       },
       {
         "command": "continue.newSession",
-        "category": "Continue",
+        "category": "Ethery",
         "title": "New Session",
         "icon": "$(add)",
         "group": "Continue"
       },
       {
         "command": "continue.viewHistory",
-        "category": "Continue",
+        "category": "Ethery",
         "title": "View History",
         "icon": "$(history)",
         "group": "Continue"
       },
       {
         "command": "continue.viewLogs",
-        "category": "Continue",
+        "category": "Ethery",
         "title": "View History",
         "group": "Continue"
       },
@@ -261,67 +261,67 @@
       },
       {
         "command": "continue.navigateTo",
-        "category": "Continue",
+        "category": "Ethery",
         "title": "Navigate to a path",
         "group": "Continue"
       },
       {
         "command": "continue.writeCommentsForCode",
-        "category": "Continue",
+        "category": "Ethery",
         "title": "Write Comments for this Code",
         "group": "Continue"
       },
       {
         "command": "continue.writeDocstringForCode",
-        "category": "Continue",
+        "category": "Ethery",
         "title": "Write a Docstring for this Code",
         "group": "Continue"
       },
       {
         "command": "continue.fixCode",
-        "category": "Continue",
+        "category": "Ethery",
         "title": "Fix this Code",
         "group": "Continue"
       },
       {
         "command": "continue.optimizeCode",
-        "category": "Continue",
+        "category": "Ethery",
         "title": "Optimize this Code",
         "group": "Continue"
       },
       {
         "command": "continue.fixGrammar",
-        "category": "Continue",
+        "category": "Ethery",
         "title": "Fix Grammar / Spelling",
         "group": "Continue"
       },
       {
         "command": "continue.codebaseForceReIndex",
-        "category": "Continue",
+        "category": "Ethery",
         "title": "Codebase Force Re-Index",
         "group": "Continue"
       },
       {
         "command": "continue.rebuildCodebaseIndex",
-        "category": "Continue",
+        "category": "Ethery",
         "title": "Rebuild codebase index",
         "group": "Continue"
       },
       {
         "command": "continue.docsIndex",
-        "category": "Continue",
+        "category": "Ethery",
         "title": "Docs Index",
         "group": "Continue"
       },
       {
         "command": "continue.docsReIndex",
-        "category": "Continue",
+        "category": "Ethery",
         "title": "Docs Force Re-Index",
         "group": "Continue"
       },
       {
         "command": "continue.focusContinueInput",
-        "category": "Continue",
+        "category": "Ethery",
         "title": "Focus Continue Chat",
         "group": "Continue"
       }
