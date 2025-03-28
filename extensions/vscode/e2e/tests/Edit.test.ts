@@ -66,6 +66,10 @@ describe("Edit Test", () => {
     await tipTapEditor.clear();
   });
 
+  after(function () {
+    VSBrowser.instance.quit();
+  });
+
   async function getCodeLensWithRetry(editor: TextEditor, text: string) {
     let codeLens: CodeLens | undefined;
     await TestUtils.waitForSuccess(async () => {

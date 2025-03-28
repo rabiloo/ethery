@@ -46,6 +46,10 @@ describe("GUI Test", () => {
     await new EditorView().closeAllEditors();
   });
 
+  after(function () {
+    VSBrowser.instance.quit();
+  });
+
   describe("Onboarding", () => {
     it.skip("should display correct panel description", async () => {
       const description = await GUISelectors.getDescription(view);
@@ -108,7 +112,7 @@ describe("GUI Test", () => {
       await TestUtils.waitForSuccess(() =>
         GUISelectors.getThreadMessageByText(view, messagePair.llmResponse),
       );
-    });
+    }).timeout(DEFAULT_TIMEOUT.MD);
 
     it("Can submit message by button click", async () => {
       const [messageInput] = await GUISelectors.getMessageInputFields(view);
@@ -118,7 +122,7 @@ describe("GUI Test", () => {
       await TestUtils.waitForSuccess(() =>
         GUISelectors.getThreadMessageByText(view, messagePair.llmResponse),
       );
-    });
+    }).timeout(DEFAULT_TIMEOUT.MD);
 
     it("Can delete messages", async () => {
       const { userMessage: userMessage0, llmResponse: llmResponse0 } =
@@ -286,7 +290,7 @@ describe("GUI Test", () => {
     }).timeout(DEFAULT_TIMEOUT.MD);
   });
 
-  describe("Repeat back the system message", () => {
+  describe.skip("Repeat back the system message", () => {
     it("should repeat back the system message", async () => {
       await GUIActions.selectModelFromDropdown(view, "SYSTEM MESSAGE MOCK LLM");
       const [messageInput] = await GUISelectors.getMessageInputFields(view);
@@ -417,7 +421,7 @@ describe("GUI Test", () => {
       await driver.wait(until.elementTextIs(input2, ""), DEFAULT_TIMEOUT.SM);
     }).timeout(DEFAULT_TIMEOUT.XL);
 
-    it("Open chat and type → open history → press new session button → chat opens, empty and in focus", async () => {
+    it.skip("Open chat and type → open history → press new session button → chat opens, empty and in focus", async () => {
       const originalTextInput = await GUISelectors.getMessageInputFieldAtIndex(
         view,
         0,

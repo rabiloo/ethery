@@ -49,6 +49,10 @@ describe("Keyboard Shortcuts", () => {
     await new EditorView().closeAllEditors();
   });
 
+  after(function () {
+    VSBrowser.instance.quit();
+  });
+
   it("Should correctly undo and redo using keyboard shortcuts when writing a chat message", async () => {
     await GUIActions.executeFocusContinueInputShortcut(driver);
     ({ view } = await GUIActions.switchToReactIframe());
