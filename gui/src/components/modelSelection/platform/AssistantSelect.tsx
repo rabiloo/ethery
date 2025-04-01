@@ -262,7 +262,7 @@ export default function AssistantSelect() {
                 }}
               />
 
-              <ListboxOption
+              {/* <ListboxOption
                 value={"new-assistant"}
                 fontSizeModifier={-2}
                 onClick={session ? onNewAssistant : () => login(false)}
@@ -271,7 +271,7 @@ export default function AssistantSelect() {
                   <PlusIcon className="h-4 w-4 flex-shrink-0" />
                   New Assistant
                 </div>
-              </ListboxOption>
+              </ListboxOption> */}
 
               <div
                 className="my-0 h-[0.5px]"
