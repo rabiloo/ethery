@@ -325,7 +325,7 @@ export default function AssistantSelect() {
             </div>
 
             <div className="flex flex-col">
-              <div className="flex flex-row items-center">
+              {/*<div className="flex flex-row items-center">
                 <ListboxOption
                   value={"new-assistant"}
                   fontSizeModifier={-2}
@@ -342,7 +342,7 @@ export default function AssistantSelect() {
                     New Assistant
                   </div>
                 </ListboxOption>
-              </div>
+              </div> */}
 
               <div
                 className="text-description flex items-center justify-between gap-1.5 px-2 py-1"
