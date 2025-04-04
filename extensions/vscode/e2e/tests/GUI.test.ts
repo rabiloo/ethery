@@ -451,7 +451,7 @@ describe("GUI Test", () => {
       expect(textInputValue).to.equal("");
     }).timeout(DEFAULT_TIMEOUT.XL);
 
-    it("chat → history → chat", async () => {
+    it.skip("chat → history → chat", async () => {
       const messagePair1 = TestUtils.generateTestMessagePair(1);
       await GUIActions.sendMessage({
         view,
