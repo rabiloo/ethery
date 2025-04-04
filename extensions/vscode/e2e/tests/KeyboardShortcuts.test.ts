@@ -50,9 +50,7 @@ describe("Keyboard Shortcuts", () => {
   });
 
   after(function () {
-    this.timeout(DEFAULT_TIMEOUT.XL);
     VSBrowser.instance.quit();
-    console.log('is after all');
   });
 
   it("Should correctly undo and redo using keyboard shortcuts when writing a chat message", async () => {
@@ -199,6 +197,5 @@ describe("Keyboard Shortcuts", () => {
     expect(codeblockContent).to.equal(text);
 
     await GUIActions.executeFocusContinueInputShortcut(driver);
-    console.log('is over last test');
   }).timeout(DEFAULT_TIMEOUT.XL);
 });

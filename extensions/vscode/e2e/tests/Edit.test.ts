@@ -67,7 +67,6 @@ describe("Edit Test", () => {
   });
 
   after(function () {
-    this.timeout(DEFAULT_TIMEOUT.XL);
     VSBrowser.instance.quit();
   });
 
