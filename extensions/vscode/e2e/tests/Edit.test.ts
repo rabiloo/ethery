@@ -1,9 +1,9 @@
 import { expect } from "chai";
 import {
-  WebView,
-  VSBrowser,
-  TextEditor,
   CodeLens,
+  TextEditor,
+  VSBrowser,
+  WebView,
 } from "vscode-extension-tester";
 
 import { EditActions } from "../actions/Edit.actions";
@@ -64,6 +64,10 @@ describe("Edit Test", () => {
       0,
     );
     await tipTapEditor.clear();
+  });
+
+  after(function () {
+    VSBrowser.instance.quit();
   });
 
   async function getCodeLensWithRetry(editor: TextEditor, text: string) {

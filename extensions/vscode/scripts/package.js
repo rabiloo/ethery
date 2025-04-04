@@ -27,6 +27,6 @@ exec(command, (error) => {
     throw error;
   }
   console.log(
-    "vsce package completed - extension created at extensions/vscode/build/continue-{version}.vsix",
+    "vsce package completed - extension created at extensions/vscode/build/ethery-{version}.vsix",
   );
 });

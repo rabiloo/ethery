@@ -108,7 +108,7 @@ export class VsCodeExtension {
 
     // Config Handler with output channel
     const outputChannel = vscode.window.createOutputChannel(
-      "Continue - LLM Prompt/Completion",
+      "Ethery - LLM Prompt/Completion",
     );
     const inProcessMessenger = new InProcessMessenger<
       ToCoreProtocol,
