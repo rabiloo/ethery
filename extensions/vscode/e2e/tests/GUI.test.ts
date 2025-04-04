@@ -46,8 +46,8 @@ describe("GUI Test", () => {
     await new EditorView().closeAllEditors();
   });
 
-  after(function () {
-    VSBrowser.instance.quit();
+  after(async function () {
+    await VSBrowser.instance.quit();
   });
 
   describe("Onboarding", () => {
@@ -421,35 +421,38 @@ describe("GUI Test", () => {
       await driver.wait(until.elementTextIs(input2, ""), DEFAULT_TIMEOUT.SM);
     }).timeout(DEFAULT_TIMEOUT.XL);
 
-    it.skip("Open chat and type → open history → press new session button → chat opens, empty and in focus", async () => {
-      const originalTextInput = await GUISelectors.getMessageInputFieldAtIndex(
-        view,
-        0,
-      );
-      await originalTextInput.click();
-      await originalTextInput.sendKeys("Hello");
-      expect(await originalTextInput.getText()).to.equal("Hello");
+    it.skip(
+      "Open chat and type → open history → press new session button → chat opens, empty and in focus",
+      async () => {
+        const originalTextInput =
+          await GUISelectors.getMessageInputFieldAtIndex(view, 0);
+        await originalTextInput.click();
+        await originalTextInput.sendKeys("Hello");
+        expect(await originalTextInput.getText()).to.equal("Hello");
 
-      await view.switchBack();
+        await view.switchBack();
 
-      await (await GUISelectors.getHistoryNavButton(view)).click();
-      await GUIActions.switchToReactIframe();
+        await (await GUISelectors.getHistoryNavButton(view)).click();
+        await GUIActions.switchToReactIframe();
 
-      await view.switchBack();
-      await (await GUISelectors.getNewSessionNavButton(view)).click();
-      await GUIActions.switchToReactIframe();
+        await view.switchBack();
+        await (await GUISelectors.getNewSessionNavButton(view)).click();
+        await GUIActions.switchToReactIframe();
 
-      const newTextInput = await TestUtils.waitForSuccess(() =>
-        GUISelectors.getMessageInputFieldAtIndex(view, 0),
-      );
-      const activeElement: WebElement = await driver.switchTo().activeElement();
-      const newTextInputHtml = await newTextInput.getAttribute("outerHTML");
-      const activeElementHtml = await activeElement.getAttribute("outerHTML");
-      expect(newTextInputHtml).to.equal(activeElementHtml);
+        const newTextInput = await TestUtils.waitForSuccess(() =>
+          GUISelectors.getMessageInputFieldAtIndex(view, 0),
+        );
+        const activeElement: WebElement = await driver
+          .switchTo()
+          .activeElement();
+        const newTextInputHtml = await newTextInput.getAttribute("outerHTML");
+        const activeElementHtml = await activeElement.getAttribute("outerHTML");
+        expect(newTextInputHtml).to.equal(activeElementHtml);
 
-      const textInputValue = await newTextInput.getText();
-      expect(textInputValue).to.equal("");
-    }).timeout(DEFAULT_TIMEOUT.XL);
+        const textInputValue = await newTextInput.getText();
+        expect(textInputValue).to.equal("");
+      },
+    ).timeout(DEFAULT_TIMEOUT.XL);
 
     it.skip("chat → history → chat", async () => {
       const messagePair1 = TestUtils.generateTestMessagePair(1);
