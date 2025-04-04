@@ -66,8 +66,9 @@ describe("Edit Test", () => {
     await tipTapEditor.clear();
   });
 
-  after(async function () {
-    await VSBrowser.instance.quit();
+  after(function () {
+    this.timeout(DEFAULT_TIMEOUT.XL);
+    VSBrowser.instance.quit();
   });
 
   async function getCodeLensWithRetry(editor: TextEditor, text: string) {

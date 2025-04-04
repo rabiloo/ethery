@@ -46,8 +46,9 @@ describe("GUI Test", () => {
     await new EditorView().closeAllEditors();
   });
 
-  after(async function () {
-    await VSBrowser.instance.quit();
+  after(function () {
+    this.timeout(DEFAULT_TIMEOUT.XL);
+    VSBrowser.instance.quit();
   });
 
   describe("Onboarding", () => {

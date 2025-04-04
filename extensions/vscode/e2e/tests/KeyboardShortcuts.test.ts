@@ -49,8 +49,9 @@ describe("Keyboard Shortcuts", () => {
     await new EditorView().closeAllEditors();
   });
 
-  after(async function () {
-    await VSBrowser.instance.quit();
+  after(function () {
+    this.timeout(DEFAULT_TIMEOUT.XL);
+    VSBrowser.instance.quit();
   });
 
   it("Should correctly undo and redo using keyboard shortcuts when writing a chat message", async () => {
