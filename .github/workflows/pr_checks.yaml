@@ -13,7 +13,7 @@ on:
 
 jobs:
   install-root:
-    runs-on: ubuntu-latest
+    runs-on: self-hosted
     steps:
       - uses: actions/checkout@v4
 
@@ -33,7 +33,7 @@ jobs:
 
   install-core:
     needs: install-root
-    runs-on: ubuntu-latest
+    runs-on: self-hosted
     steps:
       - uses: actions/checkout@v4
 
@@ -61,7 +61,7 @@ jobs:
 
   core-checks:
     needs: install-core
-    runs-on: ubuntu-latest
+    runs-on: self-hosted
     steps:
       - uses: actions/checkout@v4
 
@@ -91,7 +91,7 @@ jobs:
 
   install-gui:
     needs: [install-root, install-core]
-    runs-on: ubuntu-latest
+    runs-on: self-hosted
     steps:
       - uses: actions/checkout@v4
 
@@ -123,7 +123,7 @@ jobs:
 
   gui-checks:
     needs: install-gui
-    runs-on: ubuntu-latest
+    runs-on: self-hosted
     steps:
       - uses: actions/checkout@v4
 
@@ -154,7 +154,7 @@ jobs:
 
   binary-checks:
     needs: [install-root, install-core]
-    runs-on: ubuntu-latest
+    runs-on: self-hosted
     steps:
       - uses: actions/checkout@v4
 
@@ -191,7 +191,7 @@ jobs:
 
   install-vscode:
     needs: [install-root, install-core]
-    runs-on: ubuntu-latest
+    runs-on: self-hosted
     steps:
       - uses: actions/checkout@v4
 
@@ -225,7 +225,7 @@ jobs:
 
   vscode-checks:
     needs: install-vscode
-    runs-on: ubuntu-latest
+    runs-on: self-hosted
     steps:
       - uses: actions/checkout@v4
 
@@ -257,7 +257,7 @@ jobs:
 
   core-tests:
     needs: install-core
-    runs-on: ubuntu-latest
+    runs-on: self-hosted
     steps:
       - uses: actions/checkout@v4
 
@@ -284,7 +284,7 @@ jobs:
           AZURE_FOUNDRY_API_KEY: ${{ secrets.AZURE_FOUNDRY_API_KEY }}
 
   vscode-get-test-file-matrix:
-    runs-on: ubuntu-latest
+    runs-on: self-hosted
     needs: [install-root, install-vscode]
     outputs:
       test_file_matrix: ${{ steps.vscode-get-test-file-matrix.outputs.test_file_matrix }}
@@ -319,7 +319,7 @@ jobs:
           echo "Test files: ${{ steps.vscode-get-test-file-matrix.outputs.test_file_matrix }}"
 
   vscode-package-extension:
-    runs-on: ubuntu-latest
+    runs-on: self-hosted
     needs: [install-vscode, install-core]
     steps:
       - uses: actions/checkout@v4
@@ -352,7 +352,7 @@ jobs:
           path: extensions/vscode/build
 
   vscode-download-e2e-dependencies:
-    runs-on: ubuntu-latest
+    runs-on: self-hosted
     needs: [install-vscode, install-core]
     steps:
       - uses: actions/checkout@v4
@@ -395,7 +395,7 @@ jobs:
         install-vscode,
         install-core,
       ]
-    runs-on: ubuntu-latest
+    runs-on: self-hosted
     # Tests requiring secrets need approval from maintainers
     strategy:
       fail-fast: false
@@ -477,7 +477,7 @@ jobs:
 
   gui-tests:
     needs: [install-gui, install-core]
-    runs-on: ubuntu-latest
+    runs-on: self-hosted
     steps:
       - uses: actions/checkout@v4
 
@@ -509,7 +509,7 @@ jobs:
 
   jetbrains-tests:
     needs: [install-root, core-checks]
-    runs-on: ubuntu-latest
+    runs-on: self-hosted
     steps:
       - uses: actions/checkout@v4
       - uses: actions/cache@v4
@@ -610,7 +610,7 @@ jobs:
   # so that creators of new jobs can add them to this list
   require-all-checks-to-pass:
     if: always()
-    runs-on: ubuntu-latest
+    runs-on: self-hosted
     needs:
       - install-root
       - install-core
