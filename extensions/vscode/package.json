@@ -254,7 +254,7 @@
       {
         "command": "continue.viewLogs",
         "category": "Ethery",
-        "title": "View History",
+        "title": "View Logs",
         "group": "Continue"
       },
       {
