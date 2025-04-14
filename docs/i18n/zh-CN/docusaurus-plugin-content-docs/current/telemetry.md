@@ -25,7 +25,7 @@ Continue 收集并报告 **匿名** 使用信息，来帮助我们提高产品�
 
 ## 如何退出
 
-你可以通过修改位于 `~/.continue` 目录中 `config.json` 文件禁用匿名遥测。这个文件通常包含以下条目：
+你可以通过修改位于 `~/.ethery` 目录中 `config.json` 文件禁用匿名遥测。这个文件通常包含以下条目：
 
 ```json title="config.json"
 {
@@ -37,7 +37,7 @@ Continue 收集并报告 **匿名** 使用信息，来帮助我们提高产品�
 
 ### 通过配置文件禁用遥测的步骤
 
-1. 用你的文件编辑器打开 `~/.continue/config.json` 文件。
+1. 用你的文件编辑器打开 `~/.ethery/config.json` 文件。
 2. 定位到 `"allowAnonymousTelemetry"` 设置。
 3. 将值从 `true` 修改为 `false` 。
 4. 保存文件。

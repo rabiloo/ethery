@@ -147,7 +147,7 @@ Icon?
 notes.md
 
 manual-testing-sandbox/.idea/**
-manual-testing-sandbox/.continue/**
+manual-testing-sandbox/.ethery/**
 extensions/intellij/.idea/**
 
 **/.idea/workspace.xml
@@ -158,7 +158,7 @@ extensions/intellij/.idea/**
 
 
 extensions/intellij/bin
-extensions/.continue-debug/
+extensions/.ethery-debug/
 
 *.vsix
 
@@ -166,5 +166,5 @@ extensions/.continue-debug/
 *.iml
 
 .continuerules
-**/.continue/assistants/
+**/.ethery/assistants/
 keys
