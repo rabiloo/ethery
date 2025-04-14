@@ -1,7 +1,7 @@
 {
   "name": "ethery",
   "icon": "media/icon.png",
-  "author": "Rabiloo, Inc",
+  "author": "Rabiloo Co., Ltd.",
   "version": "1.1.23",
   "repository": {
     "type": "git",
@@ -13,7 +13,7 @@
   ],
   "bugs": {
     "url": "https://github.com/rabiloo/ethery/issues",
-    "email": "nate@continue.dev"
+    "email": "duydq@rabiloo.com"
   },
   "homepage": "https://rabiloo.com",
   "qna": "https://github.com/rabiloo/ethery/issues/new/choose",
@@ -90,17 +90,17 @@
         "ethery.telemetryEnabled": {
           "type": "boolean",
           "default": true,
-          "markdownDescription": "Continue collects anonymous usage data, cleaned of PII, to help us improve the product for our users. Read more  at [continue.dev › Telemetry](https://docs.continue.dev/telemetry)."
+          "markdownDescription": "Ethery collects anonymous usage data, cleaned of PII, to help us improve the product for our users. Read more  at [continue.dev › Telemetry](https://docs.continue.dev/telemetry)."
         },
         "ethery.enableContinueForTeams": {
           "type": "boolean",
           "default": false,
-          "markdownDescription": "Enable Continue for teams beta features. To sign in, click the gear icon to go to the settings page, and click Sign In."
+          "markdownDescription": "Enable Ethery for teams beta features. To sign in, click the gear icon to go to the settings page, and click Sign In."
         },
         "ethery.showInlineTip": {
           "type": "boolean",
           "default": true,
-          "description": "Show inline suggestion to use the Continue keyboard shortcuts (e.g. \"Cmd/Ctrl L to select code, Cmd/Ctrl I to edit\")."
+          "description": "Show inline suggestion to use the Ethery keyboard shortcuts (e.g. \"Cmd/Ctrl L to select code, Cmd/Ctrl I to edit\")."
         },
         "ethery.disableQuickFix": {
           "type": "boolean",
@@ -115,17 +115,17 @@
         "ethery.enableTabAutocomplete": {
           "type": "boolean",
           "default": true,
-          "markdownDescription": "Enable Continue's tab autocomplete feature. Read our walkthrough to learn about configuration and how to share feedback: [continue.dev › Walkthrough: Tab Autocomplete (beta)](https://docs.continue.dev/features/tab-autocomplete)"
+          "markdownDescription": "Enable Ethery's tab autocomplete feature. Read our walkthrough to learn about configuration and how to share feedback: [continue.dev › Walkthrough: Tab Autocomplete (beta)](https://docs.continue.dev/features/tab-autocomplete)"
         },
         "ethery.pauseTabAutocompleteOnBattery": {
           "type": "boolean",
           "default": false,
-          "markdownDescription": "Pause Continue's tab autocomplete feature when your battery is low."
+          "markdownDescription": "Pause Ethery's tab autocomplete feature when your battery is low."
         },
         "ethery.pauseCodebaseIndexOnStart": {
           "type": "boolean",
           "default": false,
-          "markdownDescription": "Pause Continue's codebase index on start."
+          "markdownDescription": "Pause Ethery's codebase index on start."
         },
         "ethery.enableConsole": {
           "type": "boolean",
@@ -151,394 +151,394 @@
     },
     "commands": [
       {
-        "command": "continue.applyCodeFromChat",
+        "command": "ethery.applyCodeFromChat",
         "category": "Ethery",
         "title": "Apply code from chat",
-        "group": "Continue"
+        "group": "Ethery"
       },
       {
-        "command": "continue.acceptDiff",
+        "command": "ethery.acceptDiff",
         "category": "Ethery",
         "title": "Accept Diff",
-        "group": "Continue"
+        "group": "Ethery"
       },
       {
-        "command": "continue.rejectDiff",
+        "command": "ethery.rejectDiff",
         "category": "Ethery",
         "title": "Reject Diff",
-        "group": "Continue",
+        "group": "Ethery",
         "icon": "$(stop)"
       },
       {
-        "command": "continue.acceptVerticalDiffBlock",
+        "command": "ethery.acceptVerticalDiffBlock",
         "category": "Ethery",
         "title": "Accept Vertical Diff Block",
-        "group": "Continue"
+        "group": "Ethery"
       },
       {
-        "command": "continue.rejectVerticalDiffBlock",
+        "command": "ethery.rejectVerticalDiffBlock",
         "category": "Ethery",
         "title": "Reject Vertical Diff Block",
-        "group": "Continue"
+        "group": "Ethery"
       },
       {
-        "command": "continue.focusEdit",
+        "command": "ethery.focusEdit",
         "category": "Ethery",
         "title": "Generate Code",
-        "group": "Continue"
+        "group": "Ethery"
       },
       {
-        "command": "continue.focusContinueInput",
+        "command": "ethery.focusContinueInput",
         "category": "Ethery",
         "title": "Add Highlighted Code to Context and Clear Chat",
-        "group": "Continue"
+        "group": "Ethery"
       },
       {
-        "command": "continue.focusContinueInputWithoutClear",
+        "command": "ethery.focusContinueInputWithoutClear",
         "category": "Ethery",
         "title": "Add Highlighted Code to Context",
-        "group": "Continue"
+        "group": "Ethery"
       },
       {
-        "command": "continue.debugTerminal",
+        "command": "ethery.debugTerminal",
         "category": "Ethery",
         "title": "Debug Terminal",
-        "group": "Continue"
+        "group": "Ethery"
       },
       {
-        "command": "continue.exitEditMode",
+        "command": "ethery.exitEditMode",
         "category": "Ethery",
         "title": "Exit Edit Mode",
-        "group": "Continue"
+        "group": "Ethery"
       },
       {
-        "command": "continue.toggleFullScreen",
+        "command": "ethery.toggleFullScreen",
         "category": "Ethery",
         "title": "Open in new window",
         "icon": "$(link-external)",
-        "group": "Continue"
+        "group": "Ethery"
       },
       {
-        "command": "continue.openConfigPage",
+        "command": "ethery.openConfigPage",
         "category": "Ethery",
         "title": "Open Settings",
         "icon": "$(gear)",
-        "group": "Continue"
+        "group": "Ethery"
       },
       {
-        "command": "continue.toggleTabAutocompleteEnabled",
+        "command": "ethery.toggleTabAutocompleteEnabled",
         "category": "Ethery",
         "title": "Toggle Autocomplete Enabled",
-        "group": "Continue"
+        "group": "Ethery"
       },
       {
-        "command": "continue.selectFilesAsContext",
+        "command": "ethery.selectFilesAsContext",
         "category": "Ethery",
         "title": "Select Files as Context",
-        "group": "Continue"
+        "group": "Ethery"
       },
       {
-        "command": "continue.newSession",
+        "command": "ethery.newSession",
         "category": "Ethery",
         "title": "New Session",
         "icon": "$(add)",
-        "group": "Continue"
+        "group": "Ethery"
       },
       {
-        "command": "continue.viewHistory",
+        "command": "ethery.viewHistory",
         "category": "Ethery",
         "title": "View History",
         "icon": "$(history)",
-        "group": "Continue"
+        "group": "Ethery"
       },
       {
-        "command": "continue.viewLogs",
+        "command": "ethery.viewLogs",
         "category": "Ethery",
         "title": "View Logs",
-        "group": "Continue"
+        "group": "Ethery"
       },
       {
-        "command": "continue.clearConsole",
-        "category": "Continue",
+        "command": "ethery.clearConsole",
+        "category": "Ethery",
         "title": "Clear Console",
         "icon": "$(clear-all)",
-        "group": "Continue"
+        "group": "Ethery"
       },
       {
-        "command": "continue.navigateTo",
+        "command": "ethery.navigateTo",
         "category": "Ethery",
         "title": "Navigate to a path",
-        "group": "Continue"
+        "group": "Ethery"
       },
       {
-        "command": "continue.writeCommentsForCode",
+        "command": "ethery.writeCommentsForCode",
         "category": "Ethery",
         "title": "Write Comments for this Code",
-        "group": "Continue"
+        "group": "Ethery"
       },
       {
-        "command": "continue.writeDocstringForCode",
+        "command": "ethery.writeDocstringForCode",
         "category": "Ethery",
         "title": "Write a Docstring for this Code",
-        "group": "Continue"
+        "group": "Ethery"
       },
       {
-        "command": "continue.fixCode",
+        "command": "ethery.fixCode",
         "category": "Ethery",
         "title": "Fix this Code",
-        "group": "Continue"
+        "group": "Ethery"
       },
       {
-        "command": "continue.optimizeCode",
+        "command": "ethery.optimizeCode",
         "category": "Ethery",
         "title": "Optimize this Code",
-        "group": "Continue"
+        "group": "Ethery"
       },
       {
-        "command": "continue.fixGrammar",
+        "command": "ethery.fixGrammar",
         "category": "Ethery",
         "title": "Fix Grammar / Spelling",
-        "group": "Continue"
+        "group": "Ethery"
       },
       {
-        "command": "continue.codebaseForceReIndex",
+        "command": "ethery.codebaseForceReIndex",
         "category": "Ethery",
         "title": "Codebase Force Re-Index",
-        "group": "Continue"
+        "group": "Ethery"
       },
       {
-        "command": "continue.rebuildCodebaseIndex",
+        "command": "ethery.rebuildCodebaseIndex",
         "category": "Ethery",
         "title": "Rebuild codebase index",
-        "group": "Continue"
+        "group": "Ethery"
       },
       {
-        "command": "continue.docsIndex",
+        "command": "ethery.docsIndex",
         "category": "Ethery",
         "title": "Docs Index",
-        "group": "Continue"
+        "group": "Ethery"
       },
       {
-        "command": "continue.docsReIndex",
+        "command": "ethery.docsReIndex",
         "category": "Ethery",
         "title": "Docs Force Re-Index",
-        "group": "Continue"
+        "group": "Ethery"
       },
       {
-        "command": "continue.focusContinueInput",
+        "command": "ethery.focusContinueInput",
         "category": "Ethery",
-        "title": "Focus Continue Chat",
-        "group": "Continue"
+        "title": "Focus Ethery Chat",
+        "group": "Ethery"
       }
     ],
     "keybindings": [
       {
-        "command": "continue.focusContinueInput",
+        "command": "ethery.focusContinueInput",
         "mac": "cmd+l",
         "key": "ctrl+l"
       },
       {
-        "command": "continue.focusContinueInputWithoutClear",
+        "command": "ethery.focusContinueInputWithoutClear",
         "mac": "cmd+shift+l",
         "key": "ctrl+shift+l"
       },
       {
-        "command": "continue.acceptDiff",
+        "command": "ethery.acceptDiff",
         "mac": "shift+cmd+enter",
         "key": "shift+ctrl+enter",
-        "when": "continue.diffVisible"
+        "when": "ethery.diffVisible"
       },
       {
-        "command": "continue.rejectDiff",
+        "command": "ethery.rejectDiff",
         "mac": "shift+cmd+backspace",
         "key": "shift+ctrl+backspace",
-        "when": "continue.diffVisible"
+        "when": "ethery.diffVisible"
       },
       {
-        "command": "continue.rejectDiff",
+        "command": "ethery.rejectDiff",
         "mac": "cmd+z",
         "key": "ctrl+z",
-        "when": "continue.diffVisible"
+        "when": "ethery.diffVisible"
       },
       {
-        "command": "continue.quickEditHistoryUp",
+        "command": "ethery.quickEditHistoryUp",
         "mac": "up",
         "key": "up",
-        "when": "false && continue.quickEditHistoryFocused"
+        "when": "false && ethery.quickEditHistoryFocused"
       },
       {
-        "command": "continue.quickEditHistoryDown",
+        "command": "ethery.quickEditHistoryDown",
         "mac": "down",
         "key": "down",
-        "when": "false && continue.quickEditHistoryFocused"
+        "when": "false && ethery.quickEditHistoryFocused"
       },
       {
-        "command": "continue.acceptVerticalDiffBlock",
+        "command": "ethery.acceptVerticalDiffBlock",
         "mac": "alt+cmd+y",
         "key": "alt+ctrl+y"
       },
       {
-        "command": "continue.rejectVerticalDiffBlock",
+        "command": "ethery.rejectVerticalDiffBlock",
         "mac": "alt+cmd+n",
         "key": "alt+ctrl+n"
       },
       {
-        "command": "continue.focusEdit",
+        "command": "ethery.focusEdit",
         "title": "Edit code with natural language",
         "mac": "cmd+i",
         "key": "ctrl+i"
       },
       {
-        "command": "continue.focusEditWithoutClear",
+        "command": "ethery.focusEditWithoutClear",
         "mac": "cmd+shift+i",
         "key": "ctrl+shift+i"
       },
       {
-        "command": "continue.exitEditMode",
+        "command": "ethery.exitEditMode",
         "mac": "escape",
         "key": "escape",
-        "when": "continue.inEditMode && editorFocus"
+        "when": "ethery.inEditMode && editorFocus"
       },
       {
-        "command": "continue.debugTerminal",
+        "command": "ethery.debugTerminal",
         "mac": "cmd+shift+r",
         "key": "ctrl+shift+r"
       },
       {
-        "command": "continue.toggleFullScreen",
+        "command": "ethery.toggleFullScreen",
         "mac": "cmd+k cmd+m",
         "key": "ctrl+k ctrl+m",
         "when": "!terminalFocus"
       },
       {
-        "command": "continue.toggleTabAutocompleteEnabled",
+        "command": "ethery.toggleTabAutocompleteEnabled",
         "mac": "cmd+k cmd+a",
         "key": "ctrl+k ctrl+a",
         "when": "!terminalFocus"
       },
       {
-        "command": "continue.applyCodeFromChat",
+        "command": "ethery.applyCodeFromChat",
         "mac": "alt+a",
         "key": "alt+a"
       }
     ],
     "submenus": [
       {
-        "id": "continue.continueSubMenu",
-        "label": "Continue"
+        "id": "ethery.continueSubMenu",
+        "label": "Ethery"
       }
     ],
     "menus": {
       "commandPalette": [
         {
-          "command": "continue.focusContinueInput"
+          "command": "ethery.focusContinueInput"
         },
         {
-          "command": "continue.focusContinueInputWithoutClear"
+          "command": "ethery.focusContinueInputWithoutClear"
         },
         {
-          "command": "continue.debugTerminal"
+          "command": "ethery.debugTerminal"
         },
         {
-          "command": "continue.toggleFullScreen"
+          "command": "ethery.toggleFullScreen"
         },
         {
-          "command": "continue.newSession"
+          "command": "ethery.newSession"
         }
       ],
       "editor/context": [
         {
-          "submenu": "continue.continueSubMenu",
+          "submenu": "ethery.continueSubMenu",
           "group": "0_acontinue"
         }
       ],
       "editor/title/run": [
         {
-          "command": "continue.rejectDiff",
-          "group": "Continue",
-          "when": "continue.streamingDiff"
+          "command": "ethery.rejectDiff",
+          "group": "Ethery",
+          "when": "ethery.streamingDiff"
         }
       ],
-      "continue.continueSubMenu": [
+      "ethery.continueSubMenu": [
         {
-          "command": "continue.focusContinueInputWithoutClear",
-          "group": "Continue",
+          "command": "ethery.focusContinueInputWithoutClear",
+          "group": "Ethery",
           "when": "editorHasSelection"
         },
         {
-          "command": "continue.writeCommentsForCode",
-          "group": "Continue",
+          "command": "ethery.writeCommentsForCode",
+          "group": "Ethery",
           "when": "editorHasSelection && !editorReadonly"
         },
         {
-          "command": "continue.writeDocstringForCode",
-          "group": "Continue",
+          "command": "ethery.writeDocstringForCode",
+          "group": "Ethery",
           "when": "editorHasSelection && !editorReadonly"
         },
         {
-          "command": "continue.fixCode",
-          "group": "Continue",
+          "command": "ethery.fixCode",
+          "group": "Ethery",
           "when": "editorHasSelection && !editorReadonly"
         },
         {
-          "command": "continue.optimizeCode",
-          "group": "Continue",
+          "command": "ethery.optimizeCode",
+          "group": "Ethery",
           "when": "editorHasSelection && !editorReadonly"
         },
         {
-          "command": "continue.fixGrammar",
-          "group": "Continue",
+          "command": "ethery.fixGrammar",
+          "group": "Ethery",
           "when": "editorHasSelection && editorLangId == 'markdown' && !editorReadonly"
         }
       ],
       "explorer/context": [
         {
-          "command": "continue.selectFilesAsContext",
+          "command": "ethery.selectFilesAsContext",
           "group": "1_debug@1"
         }
       ],
       "view/title": [
         {
-          "command": "continue.newSession",
+          "command": "ethery.newSession",
           "group": "navigation@1",
-          "when": "view == continue.continueGUIView"
+          "when": "view == ethery.continueGUIView"
         },
         {
-          "command": "continue.viewHistory",
+          "command": "ethery.viewHistory",
           "group": "navigation@2",
-          "when": "view == continue.continueGUIView"
+          "when": "view == ethery.continueGUIView"
         },
         {
-          "command": "continue.toggleFullScreen",
+          "command": "ethery.toggleFullScreen",
           "group": "navigation@3",
-          "when": "view == continue.continueGUIView"
+          "when": "view == ethery.continueGUIView"
         },
         {
-          "command": "continue.openConfigPage",
+          "command": "ethery.openConfigPage",
           "group": "navigation@4",
-          "when": "view == continue.continueGUIView"
+          "when": "view == ethery.continueGUIView"
         },
         {
-          "command": "continue.clearConsole",
+          "command": "ethery.clearConsole",
           "group": "navigation@1",
-          "when": "view == continue.continueConsoleView"
+          "when": "view == ethery.continueConsoleView"
         }
       ],
       "editor/title": [
         {
-          "command": "continue.newSession",
+          "command": "ethery.newSession",
           "group": "navigation@1",
-          "when": "activeWebviewPanelId == continue.continueGUIView"
+          "when": "activeWebviewPanelId == ethery.continueGUIView"
         },
         {
-          "command": "continue.viewHistory",
+          "command": "ethery.viewHistory",
           "group": "navigation@2",
-          "when": "activeWebviewPanelId == continue.continueGUIView"
+          "when": "activeWebviewPanelId == ethery.continueGUIView"
         }
       ],
       "terminal/context": [
         {
-          "command": "continue.debugTerminal",
+          "command": "ethery.debugTerminal",
           "group": "navigation@top"
         }
       ]
@@ -554,7 +554,7 @@
       "panel": [
         {
           "id": "continueConsole",
-          "title": "Continue Console",
+          "title": "Ethery Console",
           "icon": "$(window)"
         }
       ]
@@ -563,7 +563,7 @@
       "continue": [
         {
           "type": "webview",
-          "id": "continue.continueGUIView",
+          "id": "ethery.continueGUIView",
           "name": "Ethery",
           "icon": "media/sidebar-icon.png",
           "visibility": "visible"
@@ -572,17 +572,17 @@
       "continueConsole": [
         {
           "type": "webview",
-          "id": "continue.continueConsoleView",
-          "name": "Continue Console",
+          "id": "ethery.continueConsoleView",
+          "name": "Ethery Console",
           "icon": "$(window)",
           "visibility": "visible",
-          "when": "config.continue.enableConsole"
+          "when": "config.ethery.enableConsole"
         }
       ]
     },
     "jsonValidation": [
       {
-        "fileMatch": "**/.continue*/config.json",
+        "fileMatch": "**/.ethery*/config.json",
         "url": "./config_schema.json"
       },
       {

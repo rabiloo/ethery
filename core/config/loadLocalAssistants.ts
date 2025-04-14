@@ -9,7 +9,7 @@ import { getGlobalAssistantsPath } from "../util/paths";
 import { localPathToUri } from "../util/pathToUri";
 import { joinPathsToUri } from "../util/uri";
 
-export const ASSISTANTS_FOLDER = ".continue/assistants";
+export const ASSISTANTS_FOLDER = ".ethery/assistants";
 
 export function isLocalAssistantFile(uri: string): boolean {
   if (!uri.endsWith(".yaml") && !uri.endsWith(".yml")) {

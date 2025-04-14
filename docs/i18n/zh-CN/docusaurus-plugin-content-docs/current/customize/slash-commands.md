@@ -52,7 +52,7 @@ Comment 工作就像 `/Edit` ，除了它将自动地给 LLM 注释代码的提�
     {
       "name": "share",
       "description": "Export the current chat session to markdown",
-      "params": { "outputDir": "~/.continue/session-transcripts" }
+      "params": { "outputDir": "~/.ethery/session-transcripts" }
     }
   ]
 }

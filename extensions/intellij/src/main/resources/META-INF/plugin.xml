@@ -54,7 +54,7 @@
 
     <actions>
         <action class="com.github.continuedev.continueintellijextension.editor.InlineEditAction"
-                id="continue.inlineEdit"
+                id="ethery.inlineEdit"
                 description="Inline Edit"
                 text="Inline Edit">
             <keyboard-shortcut keymap="$default"
@@ -64,7 +64,7 @@
             <override-text place="GoToAction" text="Ethery: Edit Code"/>
         </action>
 
-        <action id="continue.acceptDiff"
+        <action id="ethery.acceptDiff"
                 class="com.github.continuedev.continueintellijextension.actions.AcceptDiffAction"
                 text="Accept Diff" description="Accept Diff">
             <keyboard-shortcut keymap="$default"
@@ -74,7 +74,7 @@
             <override-text place="GoToAction" text="Ethery: Accept Diff"/>
         </action>
 
-        <action id="continue.rejectDiff"
+        <action id="ethery.rejectDiff"
                 class="com.github.continuedev.continueintellijextension.actions.RejectDiffAction"
                 text="Reject Diff" description="Reject Diff">
             <keyboard-shortcut keymap="$default"
@@ -84,7 +84,7 @@
             <override-text place="GoToAction" text="Ethery: Reject Diff"/>
         </action>
 
-        <action id="continue.acceptVerticalDiffBlock"
+        <action id="ethery.acceptVerticalDiffBlock"
                 class="com.github.continuedev.continueintellijextension.actions.AcceptDiffAction"
                 text="Accept Diff" description="Accept Vertical Diff Block">
             <keyboard-shortcut keymap="$default"
@@ -94,7 +94,7 @@
             <override-text place="GoToAction" text="Ethery: Accept Vertical Diff Block"/>
         </action>
 
-        <action id="continue.rejectVerticalDiffBlock"
+        <action id="ethery.rejectVerticalDiffBlock"
                 class="com.github.continuedev.continueintellijextension.actions.RejectDiffAction"
                 text="Reject Diff" description="Reject Vertical Diff Block">
             <keyboard-shortcut keymap="$default"
@@ -104,7 +104,7 @@
             <override-text place="GoToAction" text="Ethery: Reject Vertical Diff Block"/>
         </action>
 
-        <action id="continue.focusContinueInputWithoutClear"
+        <action id="ethery.focusContinueInputWithoutClear"
                 class="com.github.continuedev.continueintellijextension.actions.FocusContinueInputWithoutClearAction"
                 text="Add selected code to context"
                 description="Focus Ethery Input With Edit">
@@ -115,7 +115,7 @@
             <override-text place="GoToAction" text="Ethery: Add Highlighted Code to Context"/>
         </action>
 
-        <action id="continue.newContinueSession"
+        <action id="ethery.newContinueSession"
                 icon="AllIcons.General.Add"
                 class="com.github.continuedev.continueintellijextension.actions.NewContinueSessionAction"
                 text="New Session"
@@ -124,7 +124,7 @@
             <override-text place="GoToAction" text="New Session"/>
         </action>
 
-        <action id="continue.viewHistory"
+        <action id="ethery.viewHistory"
                 icon="AllIcons.Vcs.History"
                 class="com.github.continuedev.continueintellijextension.actions.ViewHistoryAction"
                 text="View History"
@@ -132,7 +132,7 @@
             <override-text place="GoToAction" text="View History"/>
         </action>
 
-        <action id="continue.openConfigPage"
+        <action id="ethery.openConfigPage"
                 class="com.github.continuedev.continueintellijextension.actions.OpenConfigAction"
                 icon="AllIcons.General.GearPlain"
                 text="Ethery Config"
@@ -141,12 +141,12 @@
         </action>
 
         <group id="ContinueSidebarActionsGroup">
-            <reference ref="continue.newContinueSession"/>
-            <reference ref="continue.viewHistory"/>
-            <reference ref="continue.openConfigPage"/>
+            <reference ref="ethery.newContinueSession"/>
+            <reference ref="ethery.viewHistory"/>
+            <reference ref="ethery.openConfigPage"/>
         </group>
 
-        <action id="continue.focusContinueInput"
+        <action id="ethery.focusContinueInput"
                 class="com.github.continuedev.continueintellijextension.actions.FocusContinueInputAction"
                 text="Add selected code to context"
                 description="Focus Ethery Input">

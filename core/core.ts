@@ -123,7 +123,7 @@ export class Core {
     private readonly messenger: IMessenger<ToCoreProtocol, FromCoreProtocol>,
     private readonly ide: IDE,
   ) {
-    // Ensure .continue directory is created
+    // Ensure .ethery directory is created
     migrateV1DevDataFiles();
 
     this.codebaseIndexingState = {

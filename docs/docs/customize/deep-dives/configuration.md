@@ -19,8 +19,8 @@ Local user-level configuration is stored and can be edited in your home director
 
 To open `config.yaml`, you can click the "gear" icon in the header of the Continue Chat sidebar to open the settings page, and then click `Open Assistant configuration` to open the file. When editing this file, you can see the available options suggested as you type, or check the reference below.
 
-- `~/.continue/config.yaml` (MacOS / Linux)
-- `%USERPROFILE%\.continue\config.yaml` (Windows)
+- `~/.ethery/config.yaml` (MacOS / Linux)
+- `%USERPROFILE%\.ethery\config.yaml` (Windows)
 
 When you save a config file from the IDE, Continue will automatically refresh to take into account your changes. A config file is automatically created the first time you use Continue, and always automatically generated with default values if it doesn't exist.
 
@@ -35,8 +35,8 @@ View the `config.json` migration guide [here](../../yaml-migration.md)
 - [`config.json`](../../json-reference.md) - The original configuration format which is stored in a file at the same location as `config.yaml`
 - [`.continuerc.json`](#continuercjson) - Workspace-level configuration
 - [`config.ts`](#configts) - Advanced configuration (probably unnecessary) - a TypeScript file in your home directory that can be used to programmatically modify (_merged_) the `config.json` schema:
-  - `~/.continue/config.ts` (MacOS / Linux)
-  - `%USERPROFILE%\.continue\config.ts` (Windows)
+  - `~/.ethery/config.ts` (MacOS / Linux)
+  - `%USERPROFILE%\.ethery\config.ts` (Windows)
 
 ### `.continuerc.json`
 
@@ -55,7 +55,7 @@ Example
 
 ### `config.ts`
 
-`config.yaml` or `config.json` can handle the vast majority of necessary configuration, so we recommend using it whenever possible. However, if you need to programmatically extend Continue configuration, you can use a `config.ts` file, placed at `~/.continue/config.ts` (MacOS / Linux) or `%USERPROFILE%\.continue\config.ts` (Windows).
+`config.yaml` or `config.json` can handle the vast majority of necessary configuration, so we recommend using it whenever possible. However, if you need to programmatically extend Continue configuration, you can use a `config.ts` file, placed at `~/.ethery/config.ts` (MacOS / Linux) or `%USERPROFILE%\.ethery\config.ts` (Windows).
 
 `config.ts` must export a `modifyConfig` function, like:
 
