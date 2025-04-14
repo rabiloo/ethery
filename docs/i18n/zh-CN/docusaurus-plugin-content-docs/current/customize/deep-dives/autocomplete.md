@@ -101,7 +101,7 @@ ollama run starcoder2:3b
 2. 确保你下载了 Ollama 。
 3. 运行 `ollama run starcoder2:3b` 确认模型下载完成。
 4. 确保任何其他补全提供者被禁用（例如 Copilot ），它们可能会干扰。
-5. 检查输出的日志，查找可能得错误（ cmd/ctrl+shift+p -> "Toggle Developer Tools" -> "Console" tab 在 VS Code 中，~/.continue/logs/core.log 在 JetBrains 中）。
+5. 检查输出的日志，查找可能得错误（ cmd/ctrl+shift+p -> "Toggle Developer Tools" -> "Console" tab 在 VS Code 中，~/.ethery/logs/core.log 在 JetBrains 中）。
 6. 检查 VS Code 设置，确保 `"editor.inlineSuggest.enabled"` 设置为 `true` （使用 `cmd/ctrl+,` 然后搜索这个并勾选方框）
 7. 如果你仍然有问题，请在我们的 [Discord](https://discord.gg/vapESyrFmJ) 让我们知道，我们将会尽快提供帮助。
 

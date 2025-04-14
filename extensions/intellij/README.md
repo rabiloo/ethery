@@ -38,6 +38,6 @@ Agent equips the Chat model with the tools needed to handle a wide range of codi
 
 ## License
 
-[Apache 2.0 © 2023-2024 Continue Dev, Inc.](./LICENSE)
+[Apache 2.0 © 2025-2026 Rabiloo Co., Ltd.](./LICENSE)
 
 <!-- Plugin description end -->

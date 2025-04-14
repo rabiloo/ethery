@@ -6,9 +6,9 @@ import com.intellij.openapi.vfs.newvfs.events.VFileEvent
 
 class AsyncFileSaveListener(private val continuePluginService: ContinuePluginService) : AsyncFileListener {
     private val configFilePatterns = listOf(
-        ".continue/config.json",
-        ".continue/config.ts",
-        ".continue/config.yaml",
+        ".ethery/config.json",
+        ".ethery/config.ts",
+        ".ethery/config.yaml",
         ".continuerc.json"
     )
 
