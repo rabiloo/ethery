@@ -100,7 +100,7 @@ export const DEFAULT_IGNORE_DIRS = [
   "bin/",
   ".pytest_cache/",
   ".vscode-test/",
-  ".continue/",
+  ".ethery/",
   "__pycache__/",
   "site-packages/",
   ".gradle/",

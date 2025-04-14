@@ -2,9 +2,9 @@ binary/bin
 binary/build
 binary/out
 binary/tmp
-core/.continue-test
+core/.ethery-test
 docs/.docusaurus
-extensions/.continue-debug
+extensions/.ethery-debug
 extensions/vscode/continue_rc_schema.json
 extensions/vscode/.vscode-test
 extensions/vscode/bin

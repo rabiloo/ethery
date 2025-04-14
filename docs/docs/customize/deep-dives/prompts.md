@@ -12,7 +12,7 @@ Prompts were previously defined in a `.prompt` file format, but for consistency 
 
 Below is a quick example of setting up a prompt file:
 
-1. Create a folder called `.continue/rules` at the top level of your workspace
+1. Create a folder called `.ethery/rules` at the top level of your workspace
 2. Add a file called `review-prompt.md` to this folder.
 3. Write the following contents to `review-prompt.md` and save.
 

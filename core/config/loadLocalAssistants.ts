@@ -11,7 +11,7 @@ import { localPathToUri } from "../util/pathToUri";
 import { joinPathsToUri } from "../util/uri";
 
 export const ASSISTANTS = "assistants";
-export const ASSISTANTS_FOLDER = `.continue/${ASSISTANTS}`;
+export const ASSISTANTS_FOLDER = `.ethery/${ASSISTANTS}`;
 
 export function isLocalDefinitionFile(uri: string): boolean {
   if (!uri.endsWith(".yaml") && !uri.endsWith(".yml") && !uri.endsWith(".md")) {
