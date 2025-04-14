@@ -6,7 +6,7 @@
 .\server.exe -c 4096 --host 0.0.0.0 -t 16 --mlock -m models\meta\llama\codellama-7b-instruct.Q8_0.gguf
 ```
 
-在它设置和运行之后，修改 `~/.continue/config.json` 像这样：
+在它设置和运行之后，修改 `~/.ethery/config.json` 像这样：
 
 ```json title="config.json"
 {

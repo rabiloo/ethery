@@ -421,7 +421,7 @@ const GLOBAL_IGNORE_PATTERNS: &[&str] = &[
 
 fn global_ignore_path() -> PathBuf {
     let mut path = get_my_home().unwrap().unwrap();
-    path.push(".continue");
+    path.push(".ethery");
     path.push(".continueignore");
     path
 }

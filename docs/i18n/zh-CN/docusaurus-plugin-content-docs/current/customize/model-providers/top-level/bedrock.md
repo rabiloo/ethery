@@ -31,7 +31,7 @@ Bedrock 当前不支持任何自动补全模型。
 
 我们推荐配置 [`amazon.titan-embed-text-v2:0`](https://docs.aws.amazon.com/bedrock/latest/devguide/models.html#amazon.titan-embed-text-v2-0) 作为你的嵌入模型。
 
-```json title="~/.continue/config.json"
+```json title="~/.ethery/config.json"
 {
   "embeddingsProvider": {
     "title": "Embeddings Model",

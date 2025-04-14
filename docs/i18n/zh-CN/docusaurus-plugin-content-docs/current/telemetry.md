@@ -5,7 +5,6 @@ keywords: [遥测, 匿名, 使用信息, 选择退出]
 ---
 
 ## 概述
-
 Continue 收集并报告 **匿名** 使用信息，来帮助我们提高产品。这个数据允许我们有效地理解用户交互，并优化用户体验。你可以在任何时候选择退出遥测收集，如果你倾向与不分享你的使用信息。
 
 我们使用 [Posthog](https://posthog.com/) ，一个产品分析的开源平台，来收集并存储这个数据。为了透明，你可以 [在这里](https://github.com/continuedev/continue/blob/main/gui/src/hooks/CustomPostHogProvider.tsx) 检查实现代码，或者查看我们的 [官方隐私策略](https://continue.dev/privacy) 。
@@ -26,7 +25,7 @@ Continue 收集并报告 **匿名** 使用信息，来帮助我们提高产品�
 
 ## 如何退出
 
-你可以通过修改位于 `~/.continue` 目录中 `config.json` 文件禁用匿名遥测。这个文件通常包含以下条目：
+你可以通过修改位于 `~/.ethery` 目录中 `config.json` 文件禁用匿名遥测。这个文件通常包含以下条目：
 
 ```json title="config.json"
 {
@@ -38,7 +37,7 @@ Continue 收集并报告 **匿名** 使用信息，来帮助我们提高产品�
 
 ### 通过配置文件禁用遥测的步骤
 
-1. 用你的文件编辑器打开 `~/.continue/config.json` 文件。
+1. 用你的文件编辑器打开 `~/.ethery/config.json` 文件。
 2. 定位到 `"allowAnonymousTelemetry"` 设置。
 3. 将值从 `true` 修改为 `false` 。
 4. 保存文件。
