@@ -135,7 +135,7 @@ export class VerticalDiffManager {
 
     this.disableDocumentChangeListener();
 
-    vscode.commands.executeCommand("setContext", "continue.diffVisible", false);
+    vscode.commands.executeCommand("setContext", "ethery.diffVisible", false);
   }
 
   async acceptRejectVerticalDiffBlock(
@@ -166,7 +166,7 @@ export class VerticalDiffManager {
       return;
     }
 
-    // Disable listening to file changes while continue makes changes
+    // Disable listening to file changes while ethery makes changes
     this.disableDocumentChangeListener();
 
     // CodeLens object removed from editorToVerticalDiffCodeLens here
@@ -193,7 +193,7 @@ export class VerticalDiffManager {
     streamId: string,
     toolCallId?: string,
   ) {
-    vscode.commands.executeCommand("setContext", "continue.diffVisible", true);
+    vscode.commands.executeCommand("setContext", "ethery.diffVisible", true);
 
     // Get the current editor fileUri/range
     let editor = vscode.window.activeTextEditor;
@@ -248,7 +248,7 @@ export class VerticalDiffManager {
 
     vscode.commands.executeCommand(
       "setContext",
-      "continue.streamingDiff",
+      "ethery.streamingDiff",
       true,
     );
 
@@ -270,7 +270,7 @@ export class VerticalDiffManager {
     } finally {
       vscode.commands.executeCommand(
         "setContext",
-        "continue.streamingDiff",
+        "ethery.streamingDiff",
         false,
       );
     }
@@ -297,7 +297,7 @@ export class VerticalDiffManager {
     toolCallId?: string;
     rulesToInclude: undefined | RuleWithSource[];
   }): Promise<string | undefined> {
-    vscode.commands.executeCommand("setContext", "continue.diffVisible", true);
+    vscode.commands.executeCommand("setContext", "ethery.diffVisible", true);
 
     let editor = vscode.window.activeTextEditor;
 
@@ -433,7 +433,7 @@ export class VerticalDiffManager {
 
     vscode.commands.executeCommand(
       "setContext",
-      "continue.streamingDiff",
+      "ethery.streamingDiff",
       true,
     );
 
@@ -482,7 +482,7 @@ export class VerticalDiffManager {
     } finally {
       vscode.commands.executeCommand(
         "setContext",
-        "continue.streamingDiff",
+        "ethery.streamingDiff",
         false,
       );
     }

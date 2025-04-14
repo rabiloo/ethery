@@ -62,4 +62,4 @@ Read the [contributing guide](https://github.com/continuedev/continue/blob/main/
 
 ## License
 
-[Apache 2.0 © 2023-2024 Continue Dev, Inc.](./LICENSE)
+[Apache 2.0 © 2025-2026 Rabiloo Co., Ltd.](./LICENSE)

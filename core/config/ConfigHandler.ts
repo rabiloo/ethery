@@ -268,7 +268,7 @@ export class ConfigHandler {
 
   async getLocalProfiles(options: LoadAssistantFilesOptions) {
     /**
-     * Users can define as many local assistants as they want in a `.continue/assistants` folder
+     * Users can define as many local assistants as they want in a `.ethery/assistants` folder
      */
     const localProfiles: ProfileLifecycleManager[] = [];
 

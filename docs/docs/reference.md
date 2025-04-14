@@ -14,9 +14,9 @@ from [the Hub](https://hub.continue.dev/explore/assistants) or locally
 - [Continue Hub](https://hub.continue.dev/explore/assistants) - YAML is stored on the hub and automatically synced to
   the extension
 - Locally
-  - in your global `.continue` folder (`~/.continue` on Mac, `%USERPROFILE%\.continue`) within `.continue/assistants`.
+  - in your global `.ethery` folder (`~/.ethery` on Mac, `%USERPROFILE%\.ethery`) within `.ethery/assistants`.
     The name of the file will be used as the display name of the assistant, e.g. `My Assistant.yaml`
-  - in your workspace in a `/.continue/assistants` folder, with the same naming convention
+  - in your workspace in a `/.ethery/assistants` folder, with the same naming convention
 
 :::info
 Config YAML replaces [`config.json`](./json-reference.md), which is deprecated. View the **[Migration Guide](./yaml-migration.md)**.

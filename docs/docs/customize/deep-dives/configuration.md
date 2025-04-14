@@ -17,8 +17,8 @@ Hub Assistants can be managed in [the Hub](https://hub.continue.dev). See [Editi
 
 Local user-level configuration is stored and can be edited in your home directory in `config.yaml`:
 
-- `~/.continue/config.yaml` (MacOS / Linux)
-- `%USERPROFILE%\.continue\config.yaml` (Windows)
+- `~/.ethery/config.yaml` (MacOS / Linux)
+- `%USERPROFILE%\.ethery\config.yaml` (Windows)
 
 To open this `config.yaml`, you need to open the assistants dropdown in the top-right portion of the chat input. On that dropdown beside the "Local Assistant" option, select the cog icon. It will open the local `config.yaml`.
 
@@ -37,8 +37,8 @@ View the `config.json` migration guide [here](../../yaml-migration.md)
 - [`config.json`](../../json-reference.md) - The original configuration format which is stored in a file at the same location as `config.yaml`
 - [`.continuerc.json`](#continuercjson) - Workspace-level configuration
 - [`config.ts`](#configts) - Advanced configuration (probably unnecessary) - a TypeScript file in your home directory that can be used to programmatically modify (_merged_) the `config.json` schema:
-  - `~/.continue/config.ts` (MacOS / Linux)
-  - `%USERPROFILE%\.continue\config.ts` (Windows)
+  - `~/.ethery/config.ts` (MacOS / Linux)
+  - `%USERPROFILE%\.ethery\config.ts` (Windows)
 
 ### `.continuerc.json`
 
@@ -57,7 +57,7 @@ Example
 
 ### `config.ts`
 
-`config.yaml` or `config.json` can handle the vast majority of necessary configuration, so we recommend using it whenever possible. However, if you need to programmatically extend Continue configuration, you can use a `config.ts` file, placed at `~/.continue/config.ts` (MacOS / Linux) or `%USERPROFILE%\.continue\config.ts` (Windows).
+`config.yaml` or `config.json` can handle the vast majority of necessary configuration, so we recommend using it whenever possible. However, if you need to programmatically extend Continue configuration, you can use a `config.ts` file, placed at `~/.ethery/config.ts` (MacOS / Linux) or `%USERPROFILE%\.ethery\config.ts` (Windows).
 
 `config.ts` must export a `modifyConfig` function, like:
 
