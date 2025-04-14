@@ -64,7 +64,7 @@ class Onboarding {
 
             step("Manually open the webview") {
                 // Manually open the webview
-                find<ComponentFixture>(byXpath("//div[@text='Continue']"), ofSeconds((10))).click()
+                find<ComponentFixture>(byXpath("//div[@text='Ethery']"), ofSeconds((10))).click()
 
                 waitFor(ofSeconds(10)) {
                     browser().isShowing

@@ -17,8 +17,8 @@ export function isLocalDefinitionFile(uri: string): boolean {
 
   const normalizedUri = URI.normalize(uri);
   return (
-    normalizedUri.includes(`/.continue/agents/`) ||
-    normalizedUri.includes(`/.continue/assistants/`)
+    normalizedUri.includes(`/.ethery/agents/`) ||
+    normalizedUri.includes(`/.ethery/assistants/`)
   );
 }
 

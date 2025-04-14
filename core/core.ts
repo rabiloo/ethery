@@ -133,7 +133,7 @@ export class Core {
     private readonly ide: IDE,
   ) {
     try {
-      // Ensure .continue directory is created
+      // Ensure .ethery directory is created
       migrateV1DevDataFiles();
 
       const ideInfoPromise = messenger.request("getIdeInfo", undefined);

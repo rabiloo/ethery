@@ -48,6 +48,6 @@ Highlight a block of code, describe your code changes, and a diff will be stream
 
 ## License
 
-[Apache 2.0 © 2023-2025 Continue Dev, Inc.](./LICENSE)
+[Apache 2.0 © 2025-2026 Rabiloo Co., Ltd.](./LICENSE)
 
 <!-- Plugin description end -->

@@ -176,6 +176,7 @@ export const ADDITIONAL_INDEXING_IGNORE_DIRS = [
   "bin/",
   ".pytest_cache/",
   ".vscode-test/",
+  ".ethery/",
   "__pycache__/",
   "site-packages/",
   ".gradle/",

@@ -73,7 +73,7 @@ export class GUIActions {
 
   public static toggleGui = async () => {
     return TestUtils.waitForSuccess(() =>
-      new Workbench().executeCommand("continue.focusContinueInput"),
+      new Workbench().executeCommand("ethery.focusContinueInput"),
     );
   };
 
