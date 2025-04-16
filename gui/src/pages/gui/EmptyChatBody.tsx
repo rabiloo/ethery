@@ -30,7 +30,7 @@ export function EmptyChatBody({
 
   return (
     <div className="mx-2 mt-2">
-      <ExploreHubCard />
+      {/*<ExploreHubCard />*/}
       <ConversationStarterCards />
     </div>
   );
