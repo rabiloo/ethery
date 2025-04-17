@@ -229,13 +229,13 @@ jobs:
           path: vsix-artifacts
           merge-multiple: true
 
-      # # 2. Publish the extension to VS Code Marketplace
-      # - name: Publish to VS Code Marketplace
-      #   run: |
-      #     cd extensions/vscode
-      #     npx vsce publish --pre-release --packagePath ../../vsix-artifacts/*.vsix
-      #   env:
-      #     VSCE_PAT: ${{ secrets.VSCE_TOKEN }}
+      # 2. Publish the extension to VS Code Marketplace
+      - name: Publish to VS Code Marketplace
+        run: |
+          cd extensions/vscode
+          npx vsce publish --pre-release --packagePath ../../vsix-artifacts/*.vsix
+        env:
+          VSCE_PAT: ${{ secrets.VSCE_TOKEN }}
 
       # # 3. Publish the extension to Open VSX Registry
       # - name: Publish (Open VSX Registry)
@@ -244,52 +244,52 @@ jobs:
       #     cd extensions/vscode
       #     npx ovsx publish --pre-release -p ${{ secrets.VSX_REGISTRY_TOKEN }} --packagePath ../../vsix-artifacts/*.vsix
 
-      # 4. Create PR with version bump
-      - name: Setup Node.js
-        uses: actions/setup-node@v4
-        with:
-          node-version-file: ".nvmrc"
+      # # 4. Create PR with version bump
+      # - name: Setup Node.js
+      #   uses: actions/setup-node@v4
+      #   with:
+      #     node-version-file: ".nvmrc"
 
-      - name: Create PR branch
-        run: |
-          BRANCH_NAME="chore/bump-vscode-version-$(date +%Y%m%d-%H%M%S)"
-          git checkout -b $BRANCH_NAME
-          echo "BRANCH_NAME=$BRANCH_NAME" >> $GITHUB_ENV
+      # - name: Create PR branch
+      #   run: |
+      #     BRANCH_NAME="chore/bump-vscode-version-$(date +%Y%m%d-%H%M%S)"
+      #     git checkout -b $BRANCH_NAME
+      #     echo "BRANCH_NAME=$BRANCH_NAME" >> $GITHUB_ENV
 
-      - name: Bump version in package.json
-        run: |
-          cd extensions/vscode
-          npm version patch --no-git-tag-version
-          VERSION=$(node -p "require('./package.json').version")
-          echo "NEW_VERSION=$VERSION" >> $GITHUB_ENV
-
-      - name: Create Pull Request
-        uses: peter-evans/create-pull-request@v7
-        with:
-          token: ${{ secrets.CI_GITHUB_TOKEN }}
-          commit-message: "chore: bump vscode extension version to ${{ env.NEW_VERSION }}"
-          title: "chore: bump vscode extension version to ${{ env.NEW_VERSION }}"
-          body: |
-            Automated PR to bump the VS Code extension version after successful pre-release publication.
-
-            - Bumped version in extensions/vscode/package.json to ${{ env.NEW_VERSION }}
-          branch: ${{ env.BRANCH_NAME }}
-          base: main
-          delete-branch: true
-
-      # 5. Update version in package.json
-      # - name: Update version in package.json
+      # - name: Bump version in package.json
       #   run: |
       #     cd extensions/vscode
-      #     npm version patch
-      # - name: Commit changes
-      #   run: |
-      #     git config --local user.email "action@github.com"
-      #     git config --local user.name "GitHub Action"
-      #     git commit -am "💚 Update package.json version [skip ci]"
+      #     npm version patch --no-git-tag-version
+      #     VERSION=$(node -p "require('./package.json').version")
+      #     echo "NEW_VERSION=$VERSION" >> $GITHUB_ENV
 
-      # - name: Push changes
-      #   uses: ad-m/github-push-action@master
+      # - name: Create Pull Request
+      #   uses: peter-evans/create-pull-request@v7
       #   with:
-      #     github_token: ${{ secrets.GITHUB_TOKEN }}
-      #     branch: ${{ github.ref }}
+      #     token: ${{ secrets.CI_GITHUB_TOKEN }}
+      #     commit-message: "chore: bump vscode extension version to ${{ env.NEW_VERSION }}"
+      #     title: "chore: bump vscode extension version to ${{ env.NEW_VERSION }}"
+      #     body: |
+      #       Automated PR to bump the VS Code extension version after successful pre-release publication.
+
+      #       - Bumped version in extensions/vscode/package.json to ${{ env.NEW_VERSION }}
+      #     branch: ${{ env.BRANCH_NAME }}
+      #     base: main
+      #     delete-branch: true
+
+      # # 5. Update version in package.json
+      # # - name: Update version in package.json
+      # #   run: |
+      # #     cd extensions/vscode
+      # #     npm version patch
+      # # - name: Commit changes
+      # #   run: |
+      # #     git config --local user.email "action@github.com"
+      # #     git config --local user.name "GitHub Action"
+      # #     git commit -am "💚 Update package.json version [skip ci]"
+
+      # # - name: Push changes
+      # #   uses: ad-m/github-push-action@master
+      # #   with:
+      # #     github_token: ${{ secrets.GITHUB_TOKEN }}
+      # #     branch: ${{ github.ref }}

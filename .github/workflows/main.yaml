@@ -232,13 +232,13 @@ jobs:
           path: vsix-artifacts
           merge-multiple: true
 
-      # # 2. Publish the extension to VS Code Marketplace
-      # - name: Publish to VS Code Marketplace
-      #   run: |
-      #     cd extensions/vscode
-      #     npx vsce publish --packagePath ../../vsix-artifacts/*.vsix
-      #   env:
-      #     VSCE_PAT: ${{ secrets.VSCE_TOKEN }}
+      # 2. Publish the extension to VS Code Marketplace
+      - name: Publish to VS Code Marketplace
+        run: |
+          cd extensions/vscode
+          npx vsce publish --packagePath ../../vsix-artifacts/*.vsix
+        env:
+          VSCE_PAT: ${{ secrets.VSCE_TOKEN }}
 
       # # 3. Publish the extension to Open VSX Registry
       # - name: Publish (Open VSX Registry)
