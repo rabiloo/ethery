@@ -1,6 +1,6 @@
 # ReplicateLLM
 
-Replicate 是一个很好的选项，对于新发布的语言模型或你通过他们的平台部署的模型。在 [这里](https://replicate.ai/) 注册一个帐号，复制你的 API key ，然后从 [Replicate Streaming 列表](https://replicate.com/collections/streaming-language-models) 选择任何模型。修改 `~/.continue/config.json` 看起来像这样：
+Replicate 是一个很好的选项，对于新发布的语言模型或你通过他们的平台部署的模型。在 [这里](https://replicate.ai/) 注册一个帐号，复制你的 API key ，然后从 [Replicate Streaming 列表](https://replicate.com/collections/streaming-language-models) 选择任何模型。修改 `~/.ethery/config.json` 看起来像这样：
 
 ```json title="config.json"
 {

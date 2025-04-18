@@ -278,7 +278,7 @@ export class ConfigHandler {
 
   async getAllLocalProfiles() {
     /**
-     * Users can define as many local assistants as they want in a `.continue/assistants` folder
+     * Users can define as many local assistants as they want in a `.ethery/assistants` folder
      */
     const assistantFiles = await getAllAssistantFiles(this.ide);
     const profiles = assistantFiles.map((assistant) => {

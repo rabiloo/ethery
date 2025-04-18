@@ -38,7 +38,7 @@ customCommands=[{
 
 为了做这个，放一个新的 `SlashCommand` 对象到 `slashCommands` 列表中。这个对象包含 "name" ，你用来触发斜杠命令的名称， "description" ，在下拉菜单中看到的描述，以及  "run" 。 `run` 函数是任何异步生成器，应该生成你想要流式输出到 UI 的字符串。作为函数的参数，你可以访问一个有实用工具的 `ContinueSDK` 对象，例如访问 IDE 中的当前信息/action ，当前语言模型，以及一些其他实用工具。例如，这是一个生成 commit 信息的斜杠命令：
 
-```typescript title="~/.continue/config.ts"
+```typescript title="~/.ethery/config.ts"
 export function modifyConfig(config: Config): Config {
   config.slashCommands?.push({
     name: "commit",

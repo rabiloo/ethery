@@ -40,7 +40,7 @@ Continue VS Code 扩展现在是 beta ， JetBrains 扩展现在是 Alpha 。如
 
 ### JetBrains
 
-打开 `~/.continue/logs/core.log` 。最近的日志可以在文件的底部找到。
+打开 `~/.ethery/logs/core.log` 。最近的日志可以在文件的底部找到。
 
 ## 下载最新的预览版
 

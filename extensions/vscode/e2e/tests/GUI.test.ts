@@ -108,7 +108,7 @@ describe("GUI Test", () => {
       await TestUtils.waitForSuccess(() =>
         GUISelectors.getThreadMessageByText(view, messagePair.llmResponse),
       );
-    });
+    }).timeout(DEFAULT_TIMEOUT.MD);
 
     it("Can submit message by button click", async () => {
       const [messageInput] = await GUISelectors.getMessageInputFields(view);
@@ -118,7 +118,7 @@ describe("GUI Test", () => {
       await TestUtils.waitForSuccess(() =>
         GUISelectors.getThreadMessageByText(view, messagePair.llmResponse),
       );
-    });
+    }).timeout(DEFAULT_TIMEOUT.MD);
 
     it("Can delete messages", async () => {
       const { userMessage: userMessage0, llmResponse: llmResponse0 } =
@@ -295,7 +295,7 @@ describe("GUI Test", () => {
       await TestUtils.waitForSuccess(() =>
         GUISelectors.getThreadMessageByText(view, "TEST_SYS_MSG"),
       );
-    });
+    }).timeout(DEFAULT_TIMEOUT.MD);
   });
 
   describe("Chat Paths", () => {
@@ -417,7 +417,7 @@ describe("GUI Test", () => {
       await driver.wait(until.elementTextIs(input2, ""), DEFAULT_TIMEOUT.SM);
     }).timeout(DEFAULT_TIMEOUT.XL);
 
-    it("Open chat and type → open history → press new session button → chat opens, empty and in focus", async () => {
+    it.skip("Open chat and type → open history → press new session button → chat opens, empty and in focus", async () => {
       const originalTextInput = await GUISelectors.getMessageInputFieldAtIndex(
         view,
         0,

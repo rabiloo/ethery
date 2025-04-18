@@ -1,12 +1,12 @@
 import { SessionMetadata } from "core";
 import MiniSearch from "minisearch";
 import React, { Fragment, useEffect, useMemo, useRef, useState } from "react";
-import Shortcut from '../gui/Shortcut';
+import Shortcut from "../gui/Shortcut";
 
-import { getFontSize, getMetaKeyLabel } from "../../util";
-import { HistoryTableRow } from "./HistoryTableRow";
 import { XMarkIcon } from "@heroicons/react/24/solid";
 import { useAppSelector } from "../../redux/hooks";
+import { getFontSize } from "../../util";
+import { HistoryTableRow } from "./HistoryTableRow";
 
 const parseDate = (date: string): Date => {
   let dateObj = new Date(date);
@@ -102,7 +102,6 @@ export function History() {
           No past sessions found. To start a new session, either click the "+"
           button or use the keyboard shortcut: <Shortcut>meta L</Shortcut>
         </div>
-
       )}
 
       <table className="w-full border-collapse border-spacing-0">
@@ -150,7 +149,7 @@ export function History() {
       </table>
       <br />
       <i className="ml-4 text-sm">
-        All session data is saved in ~/.continue/sessions
+        All session data is saved in ~/.ethery/sessions
       </i>
     </div>
   );

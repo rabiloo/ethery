@@ -276,7 +276,7 @@ Generate a shareable markdown transcript of your current chat history.
     {
       "name": "share",
       "description": "Export the current chat session to markdown",
-      "params": { "outputDir": "~/.continue/session-transcripts" }
+      "params": { "outputDir": "~/.ethery/session-transcripts" }
     }
   ]
 }

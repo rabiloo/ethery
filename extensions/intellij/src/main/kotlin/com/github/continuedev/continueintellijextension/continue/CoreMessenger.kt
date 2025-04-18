@@ -34,7 +34,7 @@ class CoreMessenger(
             writer?.write(message + "\r\n")
             writer?.flush()
         } catch (e: Exception) {
-            println("Error writing to Continue core: $e")
+            println("Error writing to Ethery core: $e")
         }
     }
 
