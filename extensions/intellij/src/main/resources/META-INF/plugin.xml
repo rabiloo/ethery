@@ -1,6 +1,6 @@
 <!-- Plugin Configuration File. Read more: https://plugins.jetbrains.com/docs/intellij/plugin-configuration-file.html -->
 <idea-plugin>
-    <id>com.github.continuedev.continueintellijextension</id>
+    <id>com.github.rabiloo.etheryintellijextension</id>
     <name>Ethery</name>
     <vendor url="https://www.rabiloo.com/">Rabiloo</vendor>
     <change-notes>
