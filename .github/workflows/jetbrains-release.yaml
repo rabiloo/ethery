@@ -257,7 +257,7 @@ jobs:
           echo "Contents of distributions folder:"
           ls
           echo "---"
-          FILENAME=`ls continue-intellij-extension-*.zip`
+          FILENAME=`ls ethery-intellij-extension-*.zip`
           echo "Filename=${FILENAME}"
           unzip "$FILENAME" -d content
 
@@ -274,37 +274,37 @@ jobs:
       - name: Upload artifact (darwin-arm64)
         uses: actions/upload-artifact@v4
         with:
-          name: continue-binary-darwin-arm64
+          name: ethery-binary-darwin-arm64
           path: ./binary/bin/darwin-arm64/
 
       - name: Upload artifact (darwin-x64)
         uses: actions/upload-artifact@v4
         with:
-          name: continue-binary-darwin-x64
+          name: ethery-binary-darwin-x64
           path: ./binary/bin/darwin-x64/
 
       - name: Upload artifact (win32-x64)
         uses: actions/upload-artifact@v4
         with:
-          name: continue-binary-win32-x64
+          name: ethery-binary-win32-x64
           path: ./binary/bin/win32-x64/
 
       - name: Upload artifact (win32-arm64)
         uses: actions/upload-artifact@v4
         with:
-          name: continue-binary-win32-arm64
+          name: ethery-binary-win32-arm64
           path: ./binary/bin/win32-arm64/
 
       - name: Upload artifact (linux-arm64)
         uses: actions/upload-artifact@v4
         with:
-          name: continue-binary-linux-arm64
+          name: ethery-binary-linux-arm64
           path: ./binary/bin/linux-arm64/
 
       - name: Upload artifact (linux-x64)
         uses: actions/upload-artifact@v4
         with:
-          name: continue-binary-linux-x64
+          name: ethery-binary-linux-x64
           path: ./binary/bin/linux-x64/
 
   test-binaries:
@@ -371,7 +371,7 @@ jobs:
       - name: Download binary artifact
         uses: actions/download-artifact@v4
         with:
-          name: continue-binary-${{ matrix.platform }}-${{ matrix.arch }}
+          name: ethery-binary-${{ matrix.platform }}-${{ matrix.arch }}
           path: ./binary/bin/${{ matrix.platform }}-${{ matrix.arch }}/
 
       # Set execute permissions for the binary (non-Windows)
@@ -394,7 +394,7 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: core-logs-${{ matrix.platform }}-${{ matrix.arch }}
-          path: ~/.continue/logs/core.log
+          path: ~/.ethery/logs/core.log
 
   # Run tests and upload a code coverage report
   test:
