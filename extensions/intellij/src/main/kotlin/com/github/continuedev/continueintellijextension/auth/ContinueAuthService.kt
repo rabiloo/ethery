@@ -4,6 +4,7 @@ import com.github.continuedev.continueintellijextension.error.ContinueSentryServ
 import com.github.continuedev.continueintellijextension.services.ContinueExtensionSettings
 import com.github.continuedev.continueintellijextension.services.ContinuePluginService
 import com.google.gson.Gson
+import com.intellij.credentialStore.CredentialAttributes
 import com.intellij.credentialStore.Credentials
 import com.intellij.ide.BrowserUtil
 import com.intellij.ide.passwordSafe.PasswordSafe
@@ -28,6 +29,7 @@ class ContinueAuthService {
 
     companion object {
         private const val CREDENTIALS_USER = "ContinueAuthUser"
+        private const val SERVICE_NAME = "com.github.continuedev.continueintellijextension"
         private const val ACCESS_TOKEN_KEY = "ContinueAccessToken"
         private const val REFRESH_TOKEN_KEY = "ContinueRefreshToken"
         private const val ACCOUNT_ID_KEY = "ContinueAccountId"
@@ -148,7 +150,7 @@ class ContinueAuthService {
 
     private fun retrieveSecret(key: String): String? {
         return try {
-            val attributes = createCredentialAttributes(key, CREDENTIALS_USER)
+            val attributes = CredentialAttributes("$SERVICE_NAME.$key", CREDENTIALS_USER)
             val passwordSafe: PasswordSafe = PasswordSafe.instance
 
             val credentials: Credentials? = passwordSafe[attributes!!]
@@ -162,7 +164,7 @@ class ContinueAuthService {
 
     private fun storeSecret(key: String, secret: String) {
         try {
-            val attributes = createCredentialAttributes(key, CREDENTIALS_USER)
+            val attributes = CredentialAttributes("$SERVICE_NAME.$key", CREDENTIALS_USER)
             val passwordSafe: PasswordSafe = PasswordSafe.instance
 
             val credentials = Credentials(CREDENTIALS_USER, secret)
