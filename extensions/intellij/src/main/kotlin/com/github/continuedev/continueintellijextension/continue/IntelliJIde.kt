@@ -49,7 +49,7 @@ class IntelliJIDE(
     private val ripgrep: String
 
     init {
-        val myPluginId = "com.github.continuedev.continueintellijextension"
+        val myPluginId = "com.github.rabiloo.etheryintellijextension"
         val pluginDescriptor =
             PluginManager.getPlugin(PluginId.getId(myPluginId)) ?: throw Exception("Plugin not found")
 
@@ -78,7 +78,7 @@ class IntelliJIDE(
             remoteName = "ssh"
         }
 
-        val pluginId = "com.github.continuedev.continueintellijextension"
+        val pluginId = "com.github.rabiloo.etheryintellijextension"
         val plugin = PluginManagerCore.getPlugin(PluginId.getId(pluginId))
         val extensionVersion = plugin?.version ?: "Unknown"
 
@@ -551,7 +551,7 @@ class IntelliJIDE(
             val deferred = CompletableDeferred<String?>()
             val icon = IconLoader.getIcon("/icons/continue.svg", javaClass)
 
-            val notification = NotificationGroupManager.getInstance().getNotificationGroup("Continue")
+            val notification = NotificationGroupManager.getInstance().getNotificationGroup("Ethery")
                 .createNotification(message, notificationType).setIcon(icon)
 
             val buttonTexts = otherParams.filterIsInstance<String>().toTypedArray()

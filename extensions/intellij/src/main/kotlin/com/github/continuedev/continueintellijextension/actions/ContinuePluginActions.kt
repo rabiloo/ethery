@@ -64,7 +64,7 @@ class RejectDiffAction : AnAction() {
 fun getContinuePluginService(project: Project?): ContinuePluginService? {
     if (project != null) {
         val toolWindowManager = ToolWindowManager.getInstance(project)
-        val toolWindow = toolWindowManager.getToolWindow("Continue")
+        val toolWindow = toolWindowManager.getToolWindow("Ethery")
 
         if (toolWindow != null) {
             if (!toolWindow.isVisible) {

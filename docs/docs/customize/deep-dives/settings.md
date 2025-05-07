@@ -29,6 +29,6 @@ Below that, the following settings which are not part of a configuration file ar
 - `Disable autocomplete in files`: List of comma-separated glob pattern to disable autocomplete in matching files. E.g., "\_/.md, \*/.txt"
 
 <!-- - `Use autocomplete cache`: If on, caches completions. -->
-<!-- - `Use Chromium for Docs Crawling`: Use Chromium to crawl docs locally. Useful if the default Cheerio crawler fails on sites that require JavaScript rendering. Downloads and installs Chromium to ~/.continue/.utils. Off by default -->
+<!-- - `Use Chromium for Docs Crawling`: Use Chromium to crawl docs locally. Useful if the default Cheerio crawler fails on sites that require JavaScript rendering. Downloads and installs Chromium to ~/.ethery/.utils. Off by default -->
 <!-- - `Codeblock Actions Position`: Sets the position for the actions that show when hovering over codeblocks. Defaults to `top` -->
-<!-- - `Workspace prompts path`: Where to find Prompt Files in a workspace - replaces the default .continue/prompts -->
+<!-- - `Workspace prompts path`: Where to find Prompt Files in a workspace - replaces the default .ethery/prompts -->

@@ -29,7 +29,7 @@ interface CustomContextProvider {
 - `description`: 上下文条目的一个较长的描述
 - `content`: 上下文条目的实际内容，将会发送给 LLM 作为上下文
 
-```typescript title="~/.continue/config.ts"
+```typescript title="~/.ethery/config.ts"
 const RagContextProvider: CustomContextProvider = {
   title: "rag",
   displayTitle: "RAG",
@@ -58,7 +58,7 @@ const RagContextProvider: CustomContextProvider = {
 
 它可以被添加到 `config.ts` 像这样：
 
-```typescript title="~/.continue/config.ts"
+```typescript title="~/.ethery/config.ts"
 export function modifyConfig(config: Config): Config {
   if (!config.contextProviders) {
     config.contextProviders = [];
@@ -78,7 +78,7 @@ export function modifyConfig(config: Config): Config {
 
 **"submenu"** 类型用来当你想要在下拉框显示一个可搜索条目列表。内置示例包含 "issue" 和 "folder" 。为了实现一个 "submenu" 上下文提供者，设置 `"type": "submenu"` 并实现 `loadSubmenuItems` 和 `getContextItems` 函数。这是一个例子，显示当前工作区所有 README 文件的列表：
 
-```typescript title="~/.continue/config.ts"
+```typescript title="~/.ethery/config.ts"
 const ReadMeContextProvider: CustomContextProvider = {
   title: "readme",
   displayTitle: "README",
@@ -149,7 +149,7 @@ function getFolderAndBasename(path: string): string {
 
 ## 导入外部模块
 
-为了包含外部的 Node 模块在你的 config.ts 中，在 `~/.continue` 文件夹运行 `npm install <module_name>` ，然后在 config.ts 中导入它们。
+为了包含外部的 Node 模块在你的 config.ts 中，在 `~/.ethery` 文件夹运行 `npm install <module_name>` ，然后在 config.ts 中导入它们。
 
 Continue 将使用 [esbuild](https://esbuild.github.io/) 打包你的 `config.ts` 和任何依赖到一个单独的 Javascript 文件。确切使用的配置可以在 [这里](https://github.com/continuedev/continue/blob/5c9874400e223bbc9786a8823614a2e501fbdaf7/extensions/vscode/src/ideProtocol.ts#L45-L52) 找到。
 
@@ -198,7 +198,7 @@ Continue 暴露一个 API ，从第三方 VSCode 扩展注册上下文提供者�
 }
 ```
 
-或者复制 `~/.continue/type/core/index.d.ts` 到你的扩展仓库。
+或者复制 `~/.ethery/type/core/index.d.ts` 到你的扩展仓库。
 
 然后，你可以使用 `registerCustomContextProvider` 函数注册你的上下文提供者。你定制的上下文提供者必须实现 `IContextProvider` 接口。
 这是一个例子：
@@ -240,7 +240,7 @@ class MyCustomProvider implements IContextProvider {
 const customProvider = new MyCustomProvider();
 
 // get Continue extension using vscode API
-const continueExt = vscode.extensions.getExtension("continue.continue");
+const continueExt = vscode.extensions.getExtension("rabiloo.ethery");
 
 // get the API from the extension
 const continueApi = continueExt?.exports;

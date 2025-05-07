@@ -44,6 +44,7 @@ import Nvidia from "./Nvidia";
 import Ollama from "./Ollama";
 import OpenAI from "./OpenAI";
 import OpenRouter from "./OpenRouter";
+import EmbeddingInference from "./Rabiloo";
 import { Relace } from "./Relace";
 import Replicate from "./Replicate";
 import SageMaker from "./SageMaker";
@@ -109,6 +110,7 @@ export const LLMClasses = [
   Scaleway,
   Relace,
   Inception,
+  EmbeddingInference,
 ];
 
 export async function llmFromDescription(

@@ -20,7 +20,7 @@ class CoreMessengerManager(
 
     init {
         coroutineScope.launch {
-            val myPluginId = "com.github.continuedev.continueintellijextension"
+            val myPluginId = "com.github.rabiloo.etheryintellijextension"
             val pluginDescriptor =
                 PluginManager.getPlugin(PluginId.getId(myPluginId)) ?: throw Exception("Plugin not found")
 

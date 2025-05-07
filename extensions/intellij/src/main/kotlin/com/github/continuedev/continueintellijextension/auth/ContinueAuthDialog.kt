@@ -13,13 +13,13 @@ class ContinueAuthDialog(private val useOnboarding: Boolean, private val onToken
 
     init {
         init()
-        title = "Continue authentication"
+        title = "Ethery authentication"
     }
 
     override fun createCenterPanel(): JComponent {
         val panel = JPanel(BorderLayout())
         val message =
-            if (useOnboarding) "After onboarding you will be shown an authentication token. Please enter it here:" else "Please enter your Continue authentication token:"
+            if (useOnboarding) "After onboarding you will be shown an authentication token. Please enter it here:" else "Please enter your Ethery authentication token:"
         panel.add(JBLabel(message), BorderLayout.NORTH)
         panel.add(tokenField, BorderLayout.CENTER)
         return panel

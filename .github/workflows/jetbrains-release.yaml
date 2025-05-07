@@ -37,51 +37,51 @@ jobs:
             echo "should_run=false" >> $GITHUB_OUTPUT
           fi
 
-  bump-version:
-    runs-on: ubuntu-latest
-    needs:
-      - check_release_name
-    if: github.event_name != 'workflow_dispatch' || github.event.inputs.publish_build == 'true'
-    permissions:
-      contents: write
-      pull-requests: write
-    steps:
-      # 0. Setup git
-      - name: Checkout
-        uses: actions/checkout@v4
+  # bump-version:
+  #   runs-on: ubuntu-latest
+  #   needs:
+  #     - check_release_name
+  #   if: github.event_name != 'workflow_dispatch' || github.event.inputs.publish_build == 'true'
+  #   permissions:
+  #     contents: write
+  #     pull-requests: write
+  #   steps:
+  #     # 0. Setup git
+  #     - name: Checkout
+  #       uses: actions/checkout@v4
 
-      - name: Set up Git
-        run: |
-          git config --local user.email "action@github.com"
-          git config --local user.name "GitHub Action"
+  #     - name: Set up Git
+  #       run: |
+  #         git config --local user.email "action@github.com"
+  #         git config --local user.name "GitHub Action"
 
-      - name: Create PR branch
-        run: |
-          BRANCH_NAME="chore/bump-jetbrains-version-$(date +%Y%m%d-%H%M%S)"
-          git checkout -b $BRANCH_NAME
-          echo "BRANCH_NAME=$BRANCH_NAME" >> $GITHUB_ENV
+  #     - name: Create PR branch
+  #       run: |
+  #         BRANCH_NAME="chore/bump-jetbrains-version-$(date +%Y%m%d-%H%M%S)"
+  #         git checkout -b $BRANCH_NAME
+  #         echo "BRANCH_NAME=$BRANCH_NAME" >> $GITHUB_ENV
 
-      - name: Bump version in gradle.properties
-        run: |
-          cd extensions/intelllij
-          awk '/pluginVersion=/{split($0,a,"="); split(a[2],b,"."); b[3]+=1; printf "%s=%s.%s.%s\n",a[1],b[1],b[2],b[3];next}1' gradle.properties > tmp && mv tmp gradle.properties
-          rm -rf tmp
-          NEW_VERSION=$(grep 'pluginVersion=' gradle.properties | cut -d'=' -f2)
-          echo "NEW_VERSION=$NEW_VERSION" >> $GITHUB_ENV
+  #     - name: Bump version in gradle.properties
+  #       run: |
+  #         cd extensions/intellij
+  #         awk '/pluginVersion=/{split($0,a,"="); split(a[2],b,"."); b[3]+=1; printf "%s=%s.%s.%s\n",a[1],b[1],b[2],b[3];next}1' gradle.properties > tmp && mv tmp gradle.properties
+  #         rm -rf tmp
+  #         NEW_VERSION=$(grep 'pluginVersion=' gradle.properties | cut -d'=' -f2)
+  #         echo "NEW_VERSION=$NEW_VERSION" >> $GITHUB_ENV
 
-      - name: Create Pull Request
-        uses: peter-evans/create-pull-request@v7
-        with:
-          token: ${{ secrets.CI_GITHUB_TOKEN }}
-          commit-message: "chore: bump jetbrains extension version to ${{ env.NEW_VERSION }}"
-          title: "chore: bump jetbrains extension version to ${{ env.NEW_VERSION }}"
-          body: |
-            Automated PR to bump the JetBrains extension version after successful pre-release publication.
+  #     - name: Create Pull Request
+  #       uses: peter-evans/create-pull-request@v7
+  #       with:
+  #         token: ${{ secrets.CI_GITHUB_TOKEN }}
+  #         commit-message: "chore: bump jetbrains extension version to ${{ env.NEW_VERSION }}"
+  #         title: "chore: bump jetbrains extension version to ${{ env.NEW_VERSION }}"
+  #         body: |
+  #           Automated PR to bump the JetBrains extension version after successful pre-release publication.
 
-            - Bumped version in extensions/intellij/gradle.properties to ${{ env.NEW_VERSION }}
-          branch: ${{ env.BRANCH_NAME }}
-          base: main
-          delete-branch: true
+  #           - Bumped version in extensions/intellij/gradle.properties to ${{ env.NEW_VERSION }}
+  #         branch: ${{ env.BRANCH_NAME }}
+  #         base: main
+  #         delete-branch: true
 
   # Prepare and publish the plugin to JetBrains Marketplace repository
   build:
@@ -99,13 +99,13 @@ jobs:
         with:
           ref: ${{ github.event.release.tag_name }}
 
-      - name: Import Apple certificate
-        uses: apple-actions/import-codesign-certs@v5
-        with:
-          keychain: ${{ github.run_id }}
-          keychain-password: ${{ github.run_id }}
-          p12-file-base64: ${{ secrets.APPLE_CERT_DATA }}
-          p12-password: ${{ secrets.APPLE_CERT_PASSWORD }}
+      # - name: Import Apple certificate
+      #   uses: apple-actions/import-codesign-certs@v5
+      #   with:
+      #     keychain: ${{ github.run_id }}
+      #     keychain-password: ${{ github.run_id }}
+      #     p12-file-base64: ${{ secrets.APPLE_CERT_DATA }}
+      #     p12-password: ${{ secrets.APPLE_CERT_PASSWORD }}
 
       # Validate wrapper
       - name: Gradle Wrapper Validation
@@ -235,6 +235,7 @@ jobs:
           PRIVATE_KEY_PASSWORD: ${{ secrets.JETBRAINS_PRIVATE_KEY_PASSWORD }}
           RELEASE_CHANNEL: eap
         run: ./gradlew publishPlugin
+        continue-on-error: true
 
       - name: Publish Stable Plugin
         if: github.event_name == 'release' || github.event.inputs.publish_build == 'true'
@@ -245,6 +246,7 @@ jobs:
           PRIVATE_KEY_PASSWORD: ${{ secrets.JETBRAINS_PRIVATE_KEY_PASSWORD }}
           RELEASE_CHANNEL: default
         run: ./gradlew publishPlugin
+        continue-on-error: true
 
       # Prepare plugin archive content for creating artifact
       - name: Prepare Plugin Artifact
@@ -255,7 +257,7 @@ jobs:
           echo "Contents of distributions folder:"
           ls
           echo "---"
-          FILENAME=`ls continue-intellij-extension-*.zip`
+          FILENAME=`ls ethery-intellij-extension-*.zip | grep -v -- '-signed'`
           echo "Filename=${FILENAME}"
           unzip "$FILENAME" -d content
 
@@ -272,37 +274,37 @@ jobs:
       - name: Upload artifact (darwin-arm64)
         uses: actions/upload-artifact@v4
         with:
-          name: continue-binary-darwin-arm64
+          name: ethery-binary-darwin-arm64
           path: ./binary/bin/darwin-arm64/
 
       - name: Upload artifact (darwin-x64)
         uses: actions/upload-artifact@v4
         with:
-          name: continue-binary-darwin-x64
+          name: ethery-binary-darwin-x64
           path: ./binary/bin/darwin-x64/
 
       - name: Upload artifact (win32-x64)
         uses: actions/upload-artifact@v4
         with:
-          name: continue-binary-win32-x64
+          name: ethery-binary-win32-x64
           path: ./binary/bin/win32-x64/
 
       - name: Upload artifact (win32-arm64)
         uses: actions/upload-artifact@v4
         with:
-          name: continue-binary-win32-arm64
+          name: ethery-binary-win32-arm64
           path: ./binary/bin/win32-arm64/
 
       - name: Upload artifact (linux-arm64)
         uses: actions/upload-artifact@v4
         with:
-          name: continue-binary-linux-arm64
+          name: ethery-binary-linux-arm64
           path: ./binary/bin/linux-arm64/
 
       - name: Upload artifact (linux-x64)
         uses: actions/upload-artifact@v4
         with:
-          name: continue-binary-linux-x64
+          name: ethery-binary-linux-x64
           path: ./binary/bin/linux-x64/
 
   test-binaries:
@@ -369,7 +371,7 @@ jobs:
       - name: Download binary artifact
         uses: actions/download-artifact@v4
         with:
-          name: continue-binary-${{ matrix.platform }}-${{ matrix.arch }}
+          name: ethery-binary-${{ matrix.platform }}-${{ matrix.arch }}
           path: ./binary/bin/${{ matrix.platform }}-${{ matrix.arch }}/
 
       # Set execute permissions for the binary (non-Windows)
@@ -392,7 +394,7 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: core-logs-${{ matrix.platform }}-${{ matrix.arch }}
-          path: ~/.continue/logs/core.log
+          path: ~/.ethery/logs/core.log
 
   # Run tests and upload a code coverage report
   test:

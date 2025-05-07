@@ -2,7 +2,7 @@
 
 OpenRouter 是一个对于商业的和开源的模型统一的接口，给你最好的模型，最好的价格。你可以在 [这里](https://openrouter.ai/signup) 注册，在 [keys 页面](https://openrouter.ai/keys) 创建你的 API key ，然后从 [支持模型列表](https://openrouter.ai/models) 中选择一个模型。
 
-修改 `~/.continue/config.json` 如下：
+修改 `~/.ethery/config.json` 如下：
 
 ```json title="config.json"
 {

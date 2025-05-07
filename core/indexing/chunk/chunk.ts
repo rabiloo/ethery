@@ -3,6 +3,8 @@ import { countTokensAsync } from "../../llm/countTokens.js";
 import { supportedLanguages } from "../../util/treeSitter.js";
 import { getUriFileExtension, getUriPathBasename } from "../../util/uri.js";
 
+import * as fs from 'fs';
+import { fileURLToPath } from 'url';
 import { basicChunker } from "./basic.js";
 import { codeChunker } from "./code.js";
 
@@ -85,6 +87,21 @@ export function shouldChunk(fileUri: string, contents: string): boolean {
   if (contents.length === 0) {
     return false;
   }
+  if (isBigFile(fileUri)) {
+    return false;
+  }
   const baseName = getUriPathBasename(fileUri);
   return baseName.includes(".");
+}
+
+export function isBigFile(fileUri: string): boolean {
+  const localPath = fileURLToPath(fileUri);
+  const stats = fs.statSync(localPath);
+  const fileSize= stats.size / 1024;
+  if (fileSize > 100) {
+    // if a file has size more than 100 kb then skip it 
+    // (same 4500 line code in file with 30 line same 1 kb)
+    return true
+  }
+  return false
 }
