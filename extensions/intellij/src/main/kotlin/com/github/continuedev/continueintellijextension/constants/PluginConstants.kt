@@ -7,5 +7,5 @@ object ContinueConstants {
     /**
      * The unique identifier for the Continue plugin.
      */
-    const val PLUGIN_ID = "com.github.continuedev.continueintellijextension"
+    const val PLUGIN_ID = "com.github.rabiloo.etheryintellijextension"
 }
