@@ -14,8 +14,8 @@ permissions:
 jobs:
   CLAAssistant:
     runs-on: ubuntu-latest
-    # Only run this workflow on the main repository (continuedev/continue)
-    if: github.repository == 'continuedev/continue'
+    # Only run this workflow on the main repository (rabiloo/ethery)
+    if: github.repository == 'rabiloo/ethery'
     steps:
       - name: "CLA Assistant"
         if: (contains(github.event.comment.body, 'recheck') || contains(github.event.comment.body, 'I have read the CLA Document and I hereby sign the CLA')) || github.event_name == 'pull_request_target'
@@ -24,7 +24,7 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
           path-to-signatures: "signatures/version1/cla.json"
-          path-to-document: "https://github.com/continuedev/continue/blob/main/docs/docs/CLA.md"
+          path-to-document: "https://github.com/rabiloo/ethery/blob/main/docs/docs/CLA.md"
           branch: cla-signatures
           allowlist: dependabot[bot]
           signed-commit-message: "CLA signed in $pullRequestNo"

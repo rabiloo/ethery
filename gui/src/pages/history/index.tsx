@@ -16,7 +16,7 @@ export default function HistoryPage() {
         showBorder
         onTitleClick={() => navigate("/")}
         title="Chat"
-        rightContent={<AccountButton />}
+//         rightContent={<AccountButton />}
       />
       <History />
     </div>

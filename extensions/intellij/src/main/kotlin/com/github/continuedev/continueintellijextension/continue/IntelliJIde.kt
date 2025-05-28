@@ -166,9 +166,9 @@ class IntelliJIDE(
             if (dir != null) {
                 val contents = dir.children.mapNotNull { it.toUriOrNull() }
 
-                // Find any .continuerc.json files
+                // Find any .etheryrc.json files
                 for (file in contents) {
-                    if (file.endsWith(".continuerc.json")) {
+                    if (file.endsWith(".etheryrc.json")) {
                         val fileContent = UriUtils.uriToFile(file).readText()
                         configs.add(fileContent)
                     }
@@ -518,7 +518,7 @@ class IntelliJIDE(
             val deferred = CompletableDeferred<String?>()
             val icon = IconLoader.getIcon("/icons/continue.svg", javaClass)
 
-            val notification = NotificationGroupManager.getInstance().getNotificationGroup("Continue")
+            val notification = NotificationGroupManager.getInstance().getNotificationGroup("Ethery")
                 .createNotification(message, notificationType).setIcon(icon)
 
             val buttonTexts = otherParams.filterIsInstance<String>().toTypedArray()

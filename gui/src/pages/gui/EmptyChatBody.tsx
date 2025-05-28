@@ -1,7 +1,11 @@
 import { ConversationStarterCards } from "../../components/ConversationStarters";
 import { ExploreHubCard } from "../../components/ExploreHubCard";
-import { OnboardingCard } from "../../components/OnboardingCard";
-import { PlatformOnboardingCard } from "../../components/OnboardingCard/platform/PlatformOnboardingCard";
+// import { OnboardingCard } from "../../components/OnboardingCard";
+// import { PlatformOnboardingCard } from "../../components/OnboardingCard/platform/PlatformOnboardingCard";
+import {
+  default as OnboardingCard,
+  default as PlatformOnboardingCard,
+} from "../../components/Empty";
 
 export interface EmptyChatBodyProps {
   showOnboardingCard?: boolean;
@@ -23,7 +27,7 @@ export function EmptyChatBody({ showOnboardingCard }: EmptyChatBodyProps) {
 
   return (
     <div className="mx-2 mt-2">
-      <ExploreHubCard />
+      {/*<ExploreHubCard />*/}
       <ConversationStarterCards />
     </div>
   );

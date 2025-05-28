@@ -10,7 +10,7 @@ export class ConfigJsonConverterCodeLensProvider
     _: vscode.CancellationToken,
   ): vscode.CodeLens[] | Thenable<vscode.CodeLens[]> {
     if (
-      !document.uri.fsPath.includes(".continue") ||
+      !document.uri.fsPath.includes(".ethery") ||
       !document.uri.fsPath.endsWith("config.json")
     ) {
       return [];
@@ -23,7 +23,7 @@ export class ConfigJsonConverterCodeLensProvider
     return [
       new vscode.CodeLens(new vscode.Range(0, 0, 0, 0), {
         title: "config.json is being deprecated. Convert to config.yaml",
-        command: "continue.convertConfigJsonToConfigYaml",
+        command: "ethery.convertConfigJsonToConfigYaml",
       }),
     ];
   }

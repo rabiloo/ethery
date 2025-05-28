@@ -58,7 +58,7 @@ const RuleCard: React.FC<RuleCardProps> = ({ rule }) => {
     if (rule.name) {
       return rule.name;
     } else {
-      if (rule.source === ".continuerules") {
+      if (rule.source === ".etheryrules") {
         return "Project rules";
       } else if (rule.source === "default-chat") {
         return "Default chat system message";

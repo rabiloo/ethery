@@ -24,7 +24,7 @@ function generateConfigYamlSchema() {
 
 function copyConfigSchema() {
   process.chdir(path.join(continueDir, "extensions", "vscode"));
-  // Modify and copy for .continuerc.json
+  // Modify and copy for .etheryrc.json
   const schema = JSON.parse(fs.readFileSync("config_schema.json", "utf8"));
   schema.$defs.SerializedContinueConfig.properties.mergeBehavior = {
     type: "string",
@@ -32,11 +32,11 @@ function copyConfigSchema() {
     default: "merge",
     title: "Merge behavior",
     markdownDescription:
-      "If set to 'merge', .continuerc.json will be applied on top of config.json (arrays and objects are merged). If set to 'overwrite', then every top-level property of .continuerc.json will overwrite that property from config.json.",
+      "If set to 'merge', .etheryrc.json will be applied on top of config.json (arrays and objects are merged). If set to 'overwrite', then every top-level property of .etheryrc.json will overwrite that property from config.json.",
     "x-intellij-html-description":
-      "<p>If set to <code>merge</code>, <code>.continuerc.json</code> will be applied on top of <code>config.json</code> (arrays and objects are merged). If set to <code>overwrite</code>, then every top-level property of <code>.continuerc.json</code> will overwrite that property from <code>config.json</code>.</p>",
+      "<p>If set to <code>merge</code>, <code>.etheryrc.json</code> will be applied on top of <code>config.json</code> (arrays and objects are merged). If set to <code>overwrite</code>, then every top-level property of <code>.etheryrc.json</code> will overwrite that property from <code>config.json</code>.</p>",
   };
-  fs.writeFileSync("continue_rc_schema.json", JSON.stringify(schema, null, 2));
+  fs.writeFileSync("ethery_rc_schema.json", JSON.stringify(schema, null, 2));
 
   // Copy config schemas to intellij
   fs.copyFileSync(
@@ -51,14 +51,14 @@ function copyConfigSchema() {
     ),
   );
   fs.copyFileSync(
-    "continue_rc_schema.json",
+    "ethery_rc_schema.json",
     path.join(
       "..",
       "intellij",
       "src",
       "main",
       "resources",
-      "continue_rc_schema.json",
+      "ethery_rc_schema.json",
     ),
   );
 }
@@ -464,7 +464,7 @@ async function installNodeModuleInTempDirAndCopyToCurrent(packageName, toCopy) {
   // Create a temporary directory for installing the package
   const adjustedName = packageName.replace(/@/g, "").replace("/", "-");
 
-  const tempDir = `/tmp/continue-node_modules-${adjustedName}`;
+  const tempDir = `/tmp/ethery-node_modules-${adjustedName}`;
   const currentDir = process.cwd();
 
   // Remove the dir we will be copying to

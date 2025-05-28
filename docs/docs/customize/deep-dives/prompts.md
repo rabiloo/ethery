@@ -59,13 +59,13 @@ All references will be attached as context items, rather than injected directly 
 
 ## Local `.prompt` files
 
-In addition to Prompt blocks on the Hub, you can also define prompts in local `.prompt` files, located in the `.continue/prompts` folder at the top level of your workspace. This is useful for quick iteration on prompts to test them out before pushing up to the Hub.
+In addition to Prompt blocks on the Hub, you can also define prompts in local `.prompt` files, located in the `.ethery/prompts` folder at the top level of your workspace. This is useful for quick iteration on prompts to test them out before pushing up to the Hub.
 
 ### Quick Start
 
 Below is a quick example of setting up a prompt file:
 
-1. Create a folder called `.continue/prompts` at the top level of your workspace
+1. Create a folder called `.ethery/prompts` at the top level of your workspace
 2. Add a file called `test.prompt` to this folder.
 3. Write the following contents to `test.prompt` and save.
 

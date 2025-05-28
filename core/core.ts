@@ -111,7 +111,7 @@ export class Core {
     private readonly messenger: IMessenger<ToCoreProtocol, FromCoreProtocol>,
     private readonly ide: IDE,
   ) {
-    // Ensure .continue directory is created
+    // Ensure .ethery directory is created
     migrateV1DevDataFiles();
 
     this.codebaseIndexingState = {
@@ -832,10 +832,10 @@ export class Core {
         }
 
         if (
-          uri.endsWith(".continuerc.json") ||
+          uri.endsWith(".etheryrc.json") ||
           uri.endsWith(".prompt") ||
           uri.endsWith(SYSTEM_PROMPT_DOT_FILE) ||
-          (uri.includes(".continue") && uri.endsWith(".yaml"))
+          (uri.includes(".ethery") && uri.endsWith(".yaml"))
         ) {
           await this.configHandler.reloadConfig();
         } else if (

@@ -78,7 +78,7 @@ export async function* chunkDocument({
 }
 
 export function shouldChunk(fileUri: string, contents: string): boolean {
-  if (contents.length > 1000000) {
+  if (contents.length > 200000) {
     // if a file has more than 1m characters then skip it
     return false;
   }

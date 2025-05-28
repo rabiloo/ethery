@@ -54,7 +54,7 @@ const ErrorPage: React.FC = () => {
         ) : (
           <ArrowPathIcon className="h-5 w-5" />
         )}
-        Continue
+        Ethery
       </Button>
 
       <p className="mb-0 mt-6 text-lg">

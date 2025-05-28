@@ -14,7 +14,7 @@ This file is for contribution guidelines specific to the JetBrains extension. Se
     - [Misc](#misc)
 - [Development Workflow](#development-workflow)
     - [Running the extension in debug mode](#running-the-extension-in-debug-mode)
-    - [Accessing files in the `.continue` directory](#accessing-files-in-the-continue-directory)
+    - [Accessing files in the `.ethery` directory](#accessing-files-in-the-continue-directory)
     - [Viewing logs](#viewing-logs)
     - [Reloading changes](#reloading-changes)
     - [Setting breakpoints](#setting-breakpoints)
@@ -82,10 +82,10 @@ Select the `Run Continue` task in the top right corner of the IDE and then selec
 
 This should open a new instance on IntelliJ with the extension installed.
 
-### Accessing files in the `.continue` directory
+### Accessing files in the `.ethery` directory
 
 When running the `Start Core Dev Server` task, we set the location of your Continue directory to
-`./extensions/.continue-debug`. This is to
+`./extensions/.ethery-debug`. This is to
 allow for changes to your `config.json` and other files during development, without affecting your actual configuration.
 
 ### Viewing logs

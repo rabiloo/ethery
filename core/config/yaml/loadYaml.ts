@@ -93,7 +93,7 @@ async function loadConfigYaml(options: {
     packageIdentifier,
   } = options;
 
-  // Add local .continue blocks
+  // Add local .ethery blocks
   const allLocalBlocks: PackageIdentifier[] = [];
   for (const blockType of BLOCK_TYPES) {
     const localBlocks = await getAllDotContinueDefinitionFiles(

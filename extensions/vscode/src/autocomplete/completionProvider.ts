@@ -279,7 +279,7 @@ export class ContinueCompletionProvider
         range,
         {
           title: "Log Autocomplete Outcome",
-          command: "continue.logAutocompleteOutcome",
+          command: "ethery.logAutocompleteOutcome",
           arguments: [input.completionId, this.completionProvider],
         },
       );

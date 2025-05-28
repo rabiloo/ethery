@@ -4,6 +4,7 @@ import com.github.continuedev.continueintellijextension.services.ContinueExtensi
 import com.github.continuedev.continueintellijextension.services.ContinuePluginService
 import com.github.continuedev.continueintellijextension.utils.Desktop
 import com.google.gson.Gson
+import com.intellij.credentialStore.CredentialAttributes
 import com.intellij.credentialStore.Credentials
 import com.intellij.ide.passwordSafe.PasswordSafe
 import com.intellij.ide.util.PropertiesComponent
@@ -11,7 +12,6 @@ import com.intellij.openapi.application.ApplicationManager
 import com.intellij.openapi.components.Service
 import com.intellij.openapi.components.service
 import com.intellij.openapi.project.Project
-import com.intellij.remoteServer.util.CloudConfigurationUtil.createCredentialAttributes
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
@@ -29,6 +29,7 @@ class ContinueAuthService {
     companion object {
         fun getInstance(): ContinueAuthService = service<ContinueAuthService>()
         private const val CREDENTIALS_USER = "ContinueAuthUser"
+        private const val SERVICE_NAME = "com.github.continuedev.continueintellijextension"
         private const val ACCESS_TOKEN_KEY = "ContinueAccessToken"
         private const val REFRESH_TOKEN_KEY = "ContinueRefreshToken"
         private const val ACCOUNT_ID_KEY = "ContinueAccountId"
@@ -173,7 +174,7 @@ class ContinueAuthService {
 
     private fun retrieveSecret(key: String): String? {
         return try {
-            val attributes = createCredentialAttributes(key, CREDENTIALS_USER)
+            val attributes = CredentialAttributes("$SERVICE_NAME.$key", CREDENTIALS_USER)
             val passwordSafe: PasswordSafe = PasswordSafe.instance
 
             val credentials: Credentials? = passwordSafe[attributes!!]
@@ -187,7 +188,7 @@ class ContinueAuthService {
 
     private fun storeSecret(key: String, secret: String) {
         try {
-            val attributes = createCredentialAttributes(key, CREDENTIALS_USER)
+            val attributes = CredentialAttributes("$SERVICE_NAME.$key", CREDENTIALS_USER)
             val passwordSafe: PasswordSafe = PasswordSafe.instance
 
             val credentials = Credentials(CREDENTIALS_USER, secret)

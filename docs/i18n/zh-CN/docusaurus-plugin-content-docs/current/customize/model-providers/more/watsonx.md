@@ -40,7 +40,7 @@ watsonx, 由 IBM 开发，提供不同的预训练 AI 基础模型，可以用�
 
 添加下面的配置到你的 `config.json` 文件来使用 watsonx 提供者。填写 `watsonxCreds` ，使用你在设置步骤中获取的认证信息。
 
-```json title="~/.continue/config.json"
+```json title="~/.ethery/config.json"
 {
   "models": [
     {
@@ -62,7 +62,7 @@ watsonx, 由 IBM 开发，提供不同的预训练 AI 基础模型，可以用�
 
 如果你使用一个自定义的端点，添加完整的 watsonx URL 到 `watsonxFullUrl` 。当设置了 `watsonxFullUrl` ， `watsonxUrl` 和 `watsonxApiVersion` 会被忽略。
 
-```json title="~/.continue/config.json"
+```json title="~/.ethery/config.json"
 {
   "models": [
     {
