@@ -122,7 +122,7 @@ export default async function doLoadConfig(options: {
   // Remove ability have undefined errors, just have an array
   errors = [...(errors ?? [])];
 
-  // Add rules from .continuerules files
+  // Add rules from .etheryrules files
   const { rules, errors: continueRulesErrors } =
     await getWorkspaceContinueRuleDotFiles(ide);
   newConfig.rules.unshift(...rules);

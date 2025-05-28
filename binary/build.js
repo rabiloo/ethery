@@ -86,7 +86,7 @@ async function installNodeModuleInTempDirAndCopyToCurrent(packageName, toCopy) {
   const tempDir = path.join(
     __dirname,
     "tmp",
-    `continue-node_modules-${adjustedName}`,
+    `ethery-node_modules-${adjustedName}`,
   );
   const currentDir = process.cwd();
 
@@ -301,7 +301,7 @@ async function downloadRipgrepForTarget(target, targetDir) {
     // Download and install ripgrep for the target
     await downloadRipgrepForTarget(target, targetDir);
 
-    // Informs the `continue-binary` of where to look for node_sqlite3.node
+    // Informs the `ethery-binary` of where to look for node_sqlite3.node
     // https://www.npmjs.com/package/bindings#:~:text=The%20searching%20for,file%20is%20found
     fs.writeFileSync(`${targetDir}/package.json`, "");
   }
@@ -314,7 +314,7 @@ async function downloadRipgrepForTarget(target, targetDir) {
     const exe = target.startsWith("win") ? ".exe" : "";
     const targetDir = `bin/${target}`;
     pathsToVerify.push(
-      `${targetDir}/continue-binary${exe}`,
+      `${targetDir}/ethery-binary${exe}`,
       `${targetDir}/index.node`, // @lancedb
       `${targetDir}/build/Release/node_sqlite3.node`,
       `${targetDir}/rg${exe}`, // ripgrep binary

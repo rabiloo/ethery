@@ -141,7 +141,7 @@ continue_server.dist
 Icon
 Icon?
 
-.continuerc.json
+.etheryrc.json
 .aider*
 
 notes.md
@@ -162,5 +162,5 @@ extensions/.ethery-debug/
 
 *.vsix
 
-.continuerules
+.etheryrules
 **/.ethery/assistants/

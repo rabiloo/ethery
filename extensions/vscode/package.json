@@ -62,7 +62,7 @@
       {
         "filenames": [
           "config.json",
-          ".continuerc.json"
+          ".etheryrc.json"
         ],
         "id": "jsonc"
       },
@@ -576,8 +576,8 @@
         "url": "./config_schema.json"
       },
       {
-        "fileMatch": ".continuerc.json",
-        "url": "./continue_rc_schema.json"
+        "fileMatch": ".etheryrc.json",
+        "url": "./ethery_rc_schema.json"
       },
       {
         "fileMatch": "**/config.yaml",

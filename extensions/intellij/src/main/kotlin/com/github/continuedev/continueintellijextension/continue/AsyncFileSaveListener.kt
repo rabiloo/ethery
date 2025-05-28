@@ -9,7 +9,7 @@ class AsyncFileSaveListener(private val continuePluginService: ContinuePluginSer
         ".ethery/config.json",
         ".ethery/config.ts",
         ".ethery/config.yaml",
-        ".continuerc.json"
+        ".etheryrc.json"
     )
 
     override fun prepareChange(events: MutableList<out VFileEvent>): AsyncFileListener.ChangeApplier? {

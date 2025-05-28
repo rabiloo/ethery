@@ -1507,7 +1507,7 @@ export interface RuleWithSource {
     | "model-agent-options"
     | "rules-block"
     | "json-systemMessage"
-    | ".continuerules";
+    | ".etheryrules";
   globs?: string | string[];
   rule: string;
   description?: string;
