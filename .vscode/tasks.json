@@ -21,7 +21,9 @@
       "label": "vscode-extension:build",
       "dependsOn": [
         "tsc:watch",
-        "vscode-extension:continue-ui:build",
+        // To build the React app that is used in the extension
+        "vscode-extension:ethery-ui:build",
+        // // To bundle the code the same way we do for publishing
         "vscode-extension:esbuild",
         "vscode-extension:esbuild-notify",
         "gui:dev"
@@ -48,7 +50,7 @@
     },
     {
       "label": "vscode-extension:esbuild",
-      "dependsOn": ["vscode-extension:continue-ui:build"],
+      "dependsOn": ["vscode-extension:ethery-ui:build"],
       "type": "npm",
       "script": "esbuild-watch",
       "path": "extensions/vscode",
@@ -105,7 +107,7 @@
       ]
     },
     {
-      "label": "vscode-extension:continue-ui:build",
+      "label": "vscode-extension:ethery-ui:build",
       "type": "shell",
       "command": "node",
       "args": ["${workspaceFolder}/extensions/vscode/scripts/prepackage.js"],

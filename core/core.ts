@@ -1152,13 +1152,15 @@ export class Core {
         }
 
         if (
-          uri.endsWith(".continuerc.json") ||
+          uri.endsWith(".etheryrc.json") ||
           uri.endsWith(".prompt") ||
           uri.endsWith(SYSTEM_PROMPT_DOT_FILE) ||
-          (uri.includes(".continue") &&
-            (uri.endsWith(".yaml") || uri.endsWith("yml"))) ||
-          BLOCK_TYPES.some((blockType) =>
-            uri.includes(`.continue/${blockType}`),
+          (uri.includes(".ethery") && uri.endsWith(".yaml")) ||
+          uri.endsWith(RULES_MARKDOWN_FILENAME) ||
+          BLOCK_TYPES.some(
+            (blockType) =>
+              uri.includes(`.ethery/${blockType}`) ||
+              uri.includes(`.ethery\\${blockType}`),
           )
         ) {
           await this.configHandler.reloadConfig(

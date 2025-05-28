@@ -64,9 +64,9 @@ describe("Test Suite", () => {
     const [platform, arch] = autodetectPlatformAndArch();
     const binaryDir = path.join(__dirname, "..", "bin", `${platform}-${arch}`);
     const exe = platform === "win32" ? ".exe" : "";
-    const binaryPath = path.join(binaryDir, `continue-binary${exe}`);
+    const binaryPath = path.join(binaryDir, `ethery-binary${exe}`);
     const expectedItems = [
-      `continue-binary${exe}`,
+      `ethery-binary${exe}`,
       `esbuild${exe}`,
       "index.node",
       "package.json",

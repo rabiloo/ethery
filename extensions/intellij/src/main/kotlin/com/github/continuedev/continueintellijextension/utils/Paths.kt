@@ -41,7 +41,7 @@ fun getContinueBinaryPath(): String {
     val targetPath = getContinueCorePath()
     val os = getOS()
     val exeSuffix = if (os == OS.WINDOWS) ".exe" else ""
-    return Paths.get(targetPath, "continue-binary$exeSuffix").toString()
+    return Paths.get(targetPath, "ethery-binary$exeSuffix").toString()
 }
 
 /**

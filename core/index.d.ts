@@ -1786,7 +1786,7 @@ export type RuleSource =
   | "rules-block"
   | "colocated-markdown"
   | "json-systemMessage"
-  | ".continuerules";
+  | ".etheryrules";
 
 export interface RuleWithSource {
   name?: string;
