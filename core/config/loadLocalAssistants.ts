@@ -67,14 +67,14 @@ export function getDotContinueSubDirs(
 ): string[] {
   let fullDirs: string[] = [];
 
-  // Workspace .continue/<subDirName>
+  // Workspace .ethery/<subDirName>
   if (options.includeWorkspace) {
     fullDirs = workspaceDirs.map((dir) =>
-      joinPathsToUri(dir, ".continue", subDirName),
+      joinPathsToUri(dir, ".ethery", subDirName),
     );
   }
 
-  // ~/.continue/<subDirName>
+  // ~/.ethery/<subDirName>
   if (options.includeGlobal) {
     fullDirs.push(localPathToUri(getGlobalFolderWithName(subDirName)));
   }
@@ -83,8 +83,8 @@ export function getDotContinueSubDirs(
 }
 
 /**
- * This method searches in both ~/.continue and workspace .continue
- * for all YAML files in the specified subdirctory, for example .continue/assistants or .continue/prompts
+ * This method searches in both ~/.ethery and workspace .ethery
+ * for all YAML files in the specified subdirctory, for example .ethery/assistants or .ethery/prompts
  */
 export async function getAllDotContinueDefinitionFiles(
   ide: IDE,

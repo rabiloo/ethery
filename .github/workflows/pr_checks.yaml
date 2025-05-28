@@ -667,7 +667,7 @@ jobs:
         env:
           DISPLAY: :99
 
-      - name: Delete continue from test extensions
+      - name: Delete ethery from test extensions
         run: |
           cd extensions/vscode
           rm -rf e2e/.test-extensions/ethery*

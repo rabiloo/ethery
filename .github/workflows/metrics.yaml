@@ -37,7 +37,7 @@ jobs:
         uses: github/issue-metrics@v3
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          SEARCH_QUERY: 'repo:continuedev/continue created:${{ env.last_month }} -reason:"not planned"'
+          SEARCH_QUERY: 'repo:rabiloo/ethery created:${{ env.last_month }} -reason:"not planned"'
 
       - name: Read metrics file content
         id: read-metrics

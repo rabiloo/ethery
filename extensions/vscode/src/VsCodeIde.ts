@@ -408,7 +408,7 @@ class VsCodeIde implements IDE {
         if (
           (type === vscode.FileType.File ||
             type === vscode.FileType.SymbolicLink) &&
-          filename === ".continuerc.json"
+          filename === ".etheryrc.json"
         ) {
           const contents = await this.readFile(
             vscode.Uri.joinPath(workspaceDir, filename).toString(),

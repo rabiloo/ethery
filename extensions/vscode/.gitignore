@@ -15,7 +15,7 @@ gui/**
 .devcontainer
 .github
 
-continue_rc_schema.json
+ethery_rc_schema.json
 
 e2e/_output
 e2e/.test-extensions

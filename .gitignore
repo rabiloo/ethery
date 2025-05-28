@@ -141,7 +141,7 @@ continue_server.dist
 Icon
 Icon?
 
-.continuerc.json
+.etheryrc.json
 .aider*
 
 notes.md
@@ -165,6 +165,6 @@ extensions/.ethery-debug/
 # intellij module library files
 *.iml
 
-.continuerules
+.etheryrules
 **/.ethery/assistants/
 keys

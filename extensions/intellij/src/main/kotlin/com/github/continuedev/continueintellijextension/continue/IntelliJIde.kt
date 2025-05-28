@@ -166,9 +166,9 @@ class IntelliJIDE(
             if (dir != null) {
                 val contents = dir.children.mapNotNull { it.toUriOrNull() }
 
-                // Find any .continuerc.json files
+                // Find any .etheryrc.json files
                 for (file in contents) {
-                    if (file.endsWith(".continuerc.json")) {
+                    if (file.endsWith(".etheryrc.json")) {
                         val fileContent = UriUtils.uriToFile(file).readText()
                         configs.add(fileContent)
                     }
