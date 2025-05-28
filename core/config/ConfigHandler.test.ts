@@ -39,9 +39,9 @@ describe.skip("Test the ConfigHandler and E2E config loading", () => {
     expect(config.systemMessage).toBe("SYSTEM");
   });
 
-  test.skip("should acknowledge override from .continuerc.json", async () => {
+  test.skip("should acknowledge override from .etheryrc.json", async () => {
     fs.writeFileSync(
-      path.join(TEST_DIR, ".continuerc.json"),
+      path.join(TEST_DIR, ".etheryrc.json"),
       JSON.stringify({ systemMessage: "SYSTEM2" }),
     );
     const config = await testConfigHandler.reloadConfig();

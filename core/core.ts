@@ -883,10 +883,10 @@ export class Core {
         }
 
         if (
-          uri.endsWith(".continuerc.json") ||
+          uri.endsWith(".etheryrc.json") ||
           uri.endsWith(".prompt") ||
           uri.endsWith(SYSTEM_PROMPT_DOT_FILE) ||
-          (uri.includes(".continue") && uri.endsWith(".yaml")) ||
+          (uri.includes(".ethery") && uri.endsWith(".yaml")) ||
           uri.endsWith(RULES_MARKDOWN_FILENAME)
         ) {
           await this.configHandler.reloadConfig();
