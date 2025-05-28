@@ -14,7 +14,7 @@ Continue 可以深度定制。这个主要通过编辑位于 `~/.ethery/config.j
 
 ## 每个工作区的配置
 
-如果你想要限制指定的配置到一个特定的工作区，你可以添加一个 `.continuerc.json` 到你的项目根目录。它有和 `config.json` 相同的 [定义](../reference.md) ，会自动地应用到本地 `config.json` 之上。
+如果你想要限制指定的配置到一个特定的工作区，你可以添加一个 `.etheryrc.json` 到你的项目根目录。它有和 `config.json` 相同的 [定义](../reference.md) ，会自动地应用到本地 `config.json` 之上。
 
 ## 可编程的配置
 

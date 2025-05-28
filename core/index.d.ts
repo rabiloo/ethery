@@ -1572,7 +1572,7 @@ export type RuleSource =
   | "model-agent-options"
   | "rules-block"
   | "json-systemMessage"
-  | ".continuerules";
+  | ".etheryrules";
 
 export interface RuleWithSource {
   name?: string;

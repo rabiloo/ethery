@@ -146,7 +146,7 @@ export function getConfigTsPath(): string {
       JSON.stringify({
         name: "continue-config",
         version: "1.0.0",
-        description: "My Continue Configuration",
+        description: "My Ethery Configuration",
         main: "config.js",
       }),
     );
@@ -197,7 +197,7 @@ export function getTsConfigPath(): string {
 
 export function getContinueRcPath(): string {
   // Disable indexing of the config folder to prevent infinite loops
-  const continuercPath = path.join(getContinueGlobalPath(), ".continuerc.json");
+  const continuercPath = path.join(getContinueGlobalPath(), ".etheryrc.json");
   if (!fs.existsSync(continuercPath)) {
     fs.writeFileSync(
       continuercPath,
