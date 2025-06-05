@@ -297,7 +297,7 @@ describe("GUI Test", () => {
       );
 
       expect(await statusMessage.getText()).contain(
-        "Continue wants to view the git diff",
+        "Ethery wants to view the git diff",
       );
     }).timeout(DEFAULT_TIMEOUT.MD * 100);
 
@@ -320,8 +320,8 @@ describe("GUI Test", () => {
 
       const text = await statusMessage.getText();
       expect(text).to.satisfy((value: string) => 
-        value.includes('Continue viewed the git diff') || 
-        value.includes('Continue wants to view the git diff')
+        value.includes('Ethery viewed the git diff') || 
+        value.includes('Ethery tried to view the git diff')
       );
     }).timeout(DEFAULT_TIMEOUT.XL);
 
@@ -344,8 +344,8 @@ describe("GUI Test", () => {
 
       const text = await statusMessage.getText();
       expect(text).to.satisfy((value: string) => 
-        value.includes('Continue tried to view the git diff') || 
-        value.includes('Continue wants to view the git diff')
+        value.includes('Ethery tried to view the git diff') || 
+        value.includes('Ethery wants to view the git diff')
       );
     }).timeout(DEFAULT_TIMEOUT.XL);
   });
