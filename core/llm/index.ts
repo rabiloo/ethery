@@ -938,13 +938,20 @@ export abstract class BaseLLM implements ILLM {
             );
             for await (const chunk of stream) {
               const result = fromChatCompletionChunk(chunk);
-              if (result) {
+              if (result && !this.isEmptyToolCallResult(result)) {
                 completion += result.content;
                 interaction?.logItem({
                   kind: "message",
                   message: result,
                 });
                 yield result;
+              } else if(result && this.isEmptyToolCallResult(result)) {
+                completion += result.content;
+                interaction?.logItem({
+                  kind: "message",
+                  message: result,
+                });
+                continue;
               }
             }
           }
@@ -1013,6 +1020,13 @@ export abstract class BaseLLM implements ILLM {
       completion,
       completionOptions,
     };
+  }
+
+  isEmptyToolCallResult(result: ChatMessage): boolean {
+    return 'toolCalls' in result &&
+          Array.isArray(result.toolCalls) &&
+          result.content.length === 0 &&
+          result.toolCalls.length === 0;
   }
 
   getBatchedChunks(chunks: string[]): string[][] {

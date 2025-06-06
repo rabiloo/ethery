@@ -331,7 +331,7 @@ export default function AssistantSelect() {
                 }}
               />
 
-              <div className="flex flex-row items-center">
+              {/* <div className="flex flex-row items-center">
                 <ListboxOption
                   className="w-full"
                   value={"new-assistant"}
@@ -348,7 +348,7 @@ export default function AssistantSelect() {
                     New Assistant
                   </div>
                 </ListboxOption>
-              </div>
+              </div> */}
 
               <div
                 className="my-0 h-[0.5px]"

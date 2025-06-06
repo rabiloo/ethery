@@ -1,4 +1,7 @@
-import { LLMOptions } from "../../index.js";
+import {
+  Chunk,
+  LLMOptions
+} from "../../index.js";
 
 import OpenAI from "./OpenAI.js";
 
@@ -38,6 +41,29 @@ class Vllm extends OpenAI {
         console.log(`Failed to list models for vLLM: ${e.message}`);
       });
   }
+
+  async rerank(query: string, chunks: Chunk[]): Promise<number[]> {
+        const resp = await this.fetch(new URL("score", this.apiBase), {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            model: this.model,
+            text_1: query,
+            text_2: chunks.map((chunk) => chunk.content),
+            encoding_format: "float",
+          }),
+        });
+    
+        if (!resp.ok) {
+          throw new Error(await resp.text());
+        }
+    
+        const data = (await resp.json()) as any;
+        const results = data.data.sort((a: any, b: any) => a.index - b.index);
+        return results.map((result: any) => result.score);
+      }
 }
 
 export default Vllm;

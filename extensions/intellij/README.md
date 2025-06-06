@@ -1,10 +1,10 @@
 <!-- Plugin description -->
 
-<h1 align="center">Continue</h1>
+<h1 align="center">Ethery</h1>
 
 <div align="center">
 
-[**Continue**](https://docs.continue.dev) enables developers to create, share, and use custom AI code assistants with our open-source [JetBrains](https://plugins.jetbrains.com/plugin/22707-continue-extension) extension and [hub of models, rules, prompts, docs, and other building blocks](https://hub.continue.dev).
+[**Ethery**](https://rabiloo.com) enables developers to create, share, and use custom AI code assistants with our open-source [JetBrains](https://plugins.jetbrains.com/plugin/22707-continue-extension) extension and [hub of models, rules, prompts, docs, and other building blocks](https://hub.continue.dev).
 
 </div>
 
@@ -20,7 +20,7 @@ You send it a task, including any relevant information, and it replies with the 
 
 [Autocomplete](https://continue.dev/docs/autocomplete/how-to-use-it) provides inline code suggestions as you type.
 
-To enable it, simply click the "Continue" button in the status bar at the bottom right of your IDE or ensure the "Enable Tab Autocomplete" option is checked in your IDE settings.
+To enable it, simply click the "Ethery" button in the status bar at the bottom right of your IDE or ensure the "Enable Tab Autocomplete" option is checked in your IDE settings.
 
 ## Edit
 
@@ -38,6 +38,6 @@ Agent equips the Chat model with the tools needed to handle a wide range of codi
 
 ## License
 
-[Apache 2.0 © 2023-2024 Continue Dev, Inc.](./LICENSE)
+[Apache 2.0 © 2025-2026 Rabiloo Co., Ltd.](./LICENSE)
 
 <!-- Plugin description end -->

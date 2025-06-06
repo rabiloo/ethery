@@ -1,3 +1,4 @@
+import { jsonrepair } from 'jsonrepair';
 import { ContextItem, Tool, ToolExtras } from "..";
 import { MCPManagerSingleton } from "../context/mcp/MCPManagerSingleton";
 import { canParseUrl } from "../util/url";
@@ -174,7 +175,9 @@ export async function callTool(
   errorMessage: string | undefined;
 }> {
   try {
-    const args = JSON.parse(callArgs || "{}");
+    let args;
+    callArgs = jsonrepair(callArgs);
+    args = JSON.parse(callArgs || "{}");
     const contextItems = tool.uri
       ? await callToolFromUri(tool.uri, args, extras)
       : await callBuiltInTool(tool.function.name, args, extras);

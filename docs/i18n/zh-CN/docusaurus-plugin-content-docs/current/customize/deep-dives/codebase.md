@@ -5,7 +5,7 @@ keywords: [交互, 嵌入, 重排器, 代码库, 试验性的]
 
 # @Codebase
 
-Continue 索引你的代码库，以便它可以之后自动地拉取你的工作区最相关的上下文。这是通过基于嵌入的检索和关键字搜索结合完成的。默认情况下，所有嵌入都是通过 `all-MiniLM-L6-v2` 本地计算的，保存在 `~/.continue/index` 。
+Continue 索引你的代码库，以便它可以之后自动地拉取你的工作区最相关的上下文。这是通过基于嵌入的检索和关键字搜索结合完成的。默认情况下，所有嵌入都是通过 `all-MiniLM-L6-v2` 本地计算的，保存在 `~/.ethery/index` 。
 
 目前，代码库检索功能可用在 "codebase" 和 "folder" 上下文提供者。你可以使用它们，通过在输入框输入 `@Codebase` 或 `@Folder` ，然后询问问题。输入框的内容将会与其他代码库（或目录）的嵌入进行比较，来决定相关的文件。
 
@@ -67,7 +67,7 @@ Continue 索引你的代码库，以便它可以之后自动地拉取你的工�
 
 Continue 遵守 `.gitignore` 文件，为了确定哪些文件不需要索引。如果你想要忽略更多的文件，你可以添加它们到 `.continueignore` 文件，它遵守和 `.gitignore` 完全相同的规则。
 
-如果你想要查看哪些文件被 Continue 索引，元数据存储在 `~/.continue/index/index.sqlite` 。你可以使用工具，比如 [DB Browser for SQLite](https://sqlitebrowser.org/) 查看这个文件是的 `tag_catalog` 表。
+如果你想要查看哪些文件被 Continue 索引，元数据存储在 `~/.ethery/index/index.sqlite` 。你可以使用工具，比如 [DB Browser for SQLite](https://sqlitebrowser.org/) 查看这个文件是的 `tag_catalog` 表。
 
 如果你需要强制刷新索引，重新加载 VS Code 窗口使用 `cmd/ctrl + shift + p` + "Reload Window" 。
 

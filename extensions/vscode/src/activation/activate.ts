@@ -21,7 +21,7 @@ export async function activateExtension(context: vscode.ExtensionContext) {
 
   const vscodeExtension = new VsCodeExtension(context);
 
-  // Load Continue configuration
+  // Load Ethery configuration
   if (!context.globalState.get("hasBeenInstalled")) {
     context.globalState.update("hasBeenInstalled", true);
     Telemetry.capture(
@@ -41,7 +41,7 @@ export async function activateExtension(context: vscode.ExtensionContext) {
         [path.join(
           context.extension.extensionUri.fsPath,
           "config-yaml-schema.json",
-        )]: [".continue/**/*.yaml"],
+        )]: [".ethery/**/*.yaml"],
       },
       vscode.ConfigurationTarget.Global,
     );

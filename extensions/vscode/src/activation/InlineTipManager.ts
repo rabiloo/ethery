@@ -72,7 +72,7 @@ export class InlineTipManager {
   private static instance: InlineTipManager;
 
   private readonly excludedURIPrefixes = ["output:", "vscode://inline-chat"];
-  private readonly hideCommand = "continue.hideInlineTip";
+  private readonly hideCommand = "ethery.hideInlineTip";
   private svgTooltip: vscode.Uri | undefined = undefined;
 
   private debounceTimer: NodeJS.Timeout | undefined;
