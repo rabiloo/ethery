@@ -89,7 +89,8 @@ type RequiredLLMOptions =
   | "embeddingId"
   | "maxEmbeddingChunkSize"
   | "maxEmbeddingBatchSize"
-  | "completionOptions";
+  | "completionOptions"
+  | "embeddingInstruct";
 
 export interface ILLM
   extends Omit<LLMOptions, RequiredLLMOptions>,
@@ -639,6 +640,7 @@ export interface LLMOptions {
   embeddingId?: string;
   maxEmbeddingChunkSize?: number;
   maxEmbeddingBatchSize?: number;
+  embeddingInstruct?: string;
 
   // Cloudflare options
   accountId?: string;
@@ -1187,6 +1189,8 @@ export interface JSONEmbedOptions {
   requestOptions?: RequestOptions;
   maxEmbeddingChunkSize?: number;
   maxEmbeddingBatchSize?: number;
+  embeddingInstruct?: string;
+
 
   // AWS options
   profile?: string;

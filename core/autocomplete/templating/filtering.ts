@@ -137,26 +137,6 @@ export const getSnippets = (
     }))
     .sort((a, b) => a.priority - b.priority);
 
-  // Log the snippet order for debugging - uncomment if needed
-  /* console.log(
-    'Snippet processing order:',
-    snippetOrder
-      .map(({ key, priority }) => `${key} (priority: ${priority})`).join("\n")
-  ); */
-
-  // Convert configs to prioritized snippets
-  let prioritizedSnippets = snippetOrder
-    .flatMap(({ key, priority }) =>
-      snippets[key].map(snippet => ({ snippet, priority }))
-    )
-    .sort((a, b) => a.priority - b.priority)
-    .map(({ snippet }) => snippet);
-
-  // Exclude Continue's own output as it makes it super-hard for users to test the autocomplete feature
-  // while looking at the prompts in the Continue's output
-  prioritizedSnippets = prioritizedSnippets.filter((snippet) =>
-    !(snippet as AutocompleteCodeSnippet).filepath?.startsWith("output:extension-output-Rabiloo.ethery"));
-
   const finalSnippets = [];
   let remainingTokenCount = getRemainingTokenCount(helper);
 

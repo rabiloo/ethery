@@ -69,7 +69,7 @@ describe("Rule colocation glob matching", () => {
       name: "Root Rule",
       rule: "Follow project standards",
       source: "rules-block",
-      ruleFile: "/path/to/repo/.continue/rules.md",
+      ruleFile: "/path/to/repo/.ethery/rules.md",
       // No restriction, should apply to all files
     };
 

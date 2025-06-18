@@ -253,11 +253,7 @@ export class VerticalDiffManager {
       );
     }
 
-    vscode.commands.executeCommand(
-      "setContext",
-      "ethery.streamingDiff",
-      true,
-    );
+    vscode.commands.executeCommand("setContext", "ethery.streamingDiff", true);
 
     try {
       this.logDiffs = await diffHandler.run(diffStream);

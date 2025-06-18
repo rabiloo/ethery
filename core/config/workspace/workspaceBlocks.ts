@@ -52,8 +52,8 @@ function getContentsForNewBlock(blockType: BlockType): ConfigYaml {
     case "docs":
       configYaml.docs = [
         {
-          name: "New docs",
-          startUrl: "https://docs.continue.dev",
+          name: "Ethery docs",
+          startUrl: "https://docs.ethery.dev",
         },
       ];
       break;

@@ -655,7 +655,7 @@ Select the \`GPT-4o\` model below to complete your provider configuration, but n
 .\\server.exe -c 4096 --host 0.0.0.0 -t 16 --mlock -m models/codellama-7b-instruct.Q8_0.gguf
 \`\`\`
 
-After it's up and running, you can start using Continue.`,
+After it's up and running, you can start using Ethery.`,
     icon: "llamacpp.png",
     tags: [ModelProviderTags.Local, ModelProviderTags.OpenSource],
     packages: openSourceModels,

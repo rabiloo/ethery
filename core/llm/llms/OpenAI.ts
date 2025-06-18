@@ -337,6 +337,16 @@ class OpenAI extends BaseLLM {
       }
       return;
     }
+    if (
+    options.reasoning === false &&
+    options.model?.toLowerCase().startsWith("qwen")) 
+    {
+      messages.forEach(message => {
+        if (message.role === 'user') {
+          message.content += ' \\no_think';
+        }
+      });
+    }
 
     const body = this._convertArgs(options, messages);
 

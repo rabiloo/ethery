@@ -80,6 +80,7 @@ export const embedOptionsSchema = z.object({
   maxChunkSize: z.number().optional(),
   maxBatchSize: z.number().optional(),
   embeddingPrefixes: embeddingPrefixesSchema.optional(),
+  instruct: z.string().optional()
 });
 export type EmbedOptions = z.infer<typeof embedOptionsSchema>;
 

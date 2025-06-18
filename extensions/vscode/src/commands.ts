@@ -418,9 +418,7 @@ const getCommandsMap: (
     "ethery.viewHistory": () => {
       vscode.commands.executeCommand("ethery.navigateTo", "/history", true);
     },
-    "ethery.focusContinueSessionId": async (
-      sessionId: string | undefined,
-    ) => {
+    "ethery.focusContinueSessionId": async (sessionId: string | undefined) => {
       if (!sessionId) {
         sessionId = await vscode.window.showInputBox({
           prompt: "Enter the Session ID",

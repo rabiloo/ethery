@@ -218,7 +218,7 @@ class ContinueExtensionConfigurable : Configurable {
     }
 
     override fun getDisplayName(): String {
-        return "Continue Extension Settings"
+        return "Ethery Extension Settings"
     }
 }
 

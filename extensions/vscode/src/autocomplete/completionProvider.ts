@@ -44,7 +44,7 @@ export class ContinueCompletionProvider
     if (await handleLLMError(e)) {
       return;
     }
-    let message = "Continue Autocomplete Error";
+    let message = "Ethery Autocomplete Error";
     if (e instanceof Error) {
       message += `: ${e.message}`;
     }

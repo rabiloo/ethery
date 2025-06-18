@@ -111,7 +111,7 @@ describe("LocalPlatformClient", () => {
       utilPaths.getContinueDotEnv = getContinueDotEnv;
     });
 
-    test("should be able to get secrets from ~/.continue/.env files", async () => {
+    test("should be able to get secrets from ~/.ethery/.env files", async () => {
       const localPlatformClient = new LocalPlatformClient(
         null,
         testControlPlaneClient,
@@ -127,7 +127,7 @@ describe("LocalPlatformClient", () => {
   });
 
   describe("should be able to get secrets from workspace .env files", () => {
-    test("should get secrets from <workspace>/.continue/.env and <workspace>/.env", async () => {
+    test("should get secrets from <workspace>/.ethery/.env and <workspace>/.env", async () => {
       const originalIdeFileExists = testIde.fileExists;
       testIde.fileExists = vi.fn(async (fileUri: string) =>
         fileUri.includes(".env") ? true : originalIdeFileExists(fileUri),
@@ -140,14 +140,14 @@ describe("LocalPlatformClient", () => {
         "dotenv-" + Math.floor(Math.random() * 100);
 
       testIde.readFile = vi.fn(async (fileUri: string) => {
-        // fileUri should contain .continue/.env and not .env
-        if (fileUri.match(/.*\.continue\/\.env.*/gi)?.length) {
+        // fileUri should contain .ethery/.env and not .env
+        if (fileUri.match(/.*\.ethery\/\.env.*/gi)?.length) {
           return (
             envKeyValuesString.split("\n")[0] + randomValueForContinueDirDotEnv
           );
         }
-        // filUri should contain .env and not .continue/.env
-        else if (fileUri.match(/.*(?<!\.continue\/)\.env.*/gi)?.length) {
+        // filUri should contain .env and not .ethery/.env
+        else if (fileUri.match(/.*(?<!\.ethery\/)\.env.*/gi)?.length) {
           return (
             envKeyValuesString.split("\n")[1] + randomValueForWorkspaceDotEnv
           );
@@ -181,7 +181,7 @@ describe("LocalPlatformClient", () => {
       expect(dotEnvSecretValue).toContain(randomValueForWorkspaceDotEnv);
     });
 
-    test("should first get secrets from <workspace>/.continue/.env and then <workspace>/.env", async () => {
+    test("should first get secrets from <workspace>/.ethery/.env and then <workspace>/.env", async () => {
       const originalIdeFileExists = testIde.fileExists;
       testIde.fileExists = vi.fn(async (fileUri: string) =>
         fileUri.includes(".env") ? true : originalIdeFileExists(fileUri),
@@ -194,14 +194,14 @@ describe("LocalPlatformClient", () => {
 
       const originalIdeReadFile = testIde.readFile;
       testIde.readFile = vi.fn(async (fileUri: string) => {
-        // fileUri should contain .continue/.env and not .env
-        if (fileUri.match(/.*\.continue\/\.env.*/gi)?.length) {
+        // fileUri should contain .ethery/.env and not .env
+        if (fileUri.match(/.*\.ethery\/\.env.*/gi)?.length) {
           return (
             envKeyValuesString.split("\n")[0] + randomValueForContinueDirDotEnv
           );
         }
-        // filUri should contain .env and not .continue/.env
-        else if (fileUri.match(/.*(?<!\.continue\/)\.env.*/gi)?.length) {
+        // filUri should contain .env and not .ethery/.env
+        else if (fileUri.match(/.*(?<!\.ethery\/)\.env.*/gi)?.length) {
           return (
             envKeyValuesString.split("\n")[0] + randomValueForWorkspaceDotEnv
           );
@@ -220,7 +220,7 @@ describe("LocalPlatformClient", () => {
       expect(
         (resolvedFQSNs[0] as SecretResult & { value: unknown })?.value,
       ).toContain(secretValue);
-      // we check that workspace <workspace>.continue/.env does not override the <workspace>/.env secret
+      // we check that workspace <workspace>.ethery/.env does not override the <workspace>/.env secret
       expect(
         (resolvedFQSNs[0] as SecretResult & { value: unknown })?.value,
       ).toContain(randomValueForContinueDirDotEnv);

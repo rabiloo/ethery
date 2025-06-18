@@ -450,9 +450,7 @@ export function Chat() {
           </div>
           <FatalErrorIndicator />
           {!hasDismissedExploreDialog && <ExploreDialogWatcher />}
-          {history.length === 0 && (
-            <EmptyChatBody showOnboardingCard={onboardingCard.show} />
-          )}
+          {history.length === 0 && <EmptyChatBody showOnboardingCard={false} />}
         </div>
       </div>
     </>

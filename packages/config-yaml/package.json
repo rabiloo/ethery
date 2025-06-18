@@ -20,7 +20,7 @@
     "build": "tsc",
     "generate-schema": "tsc && node dist/scripts/generateJsonSchema.js"
   },
-  "author": "Continue Dev, Inc.",
+  "author": "Rabiloo Co., Ltd",
   "license": "Apache-2.0",
   "dependencies": {
     "@continuedev/config-types": "file:../config-types",

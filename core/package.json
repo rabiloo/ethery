@@ -13,7 +13,7 @@
     "sentry:sourcemaps": "sentry-cli sourcemaps inject --org continue-xd --project continue ./dist && sentry-cli sourcemaps upload --org continue-xd --project continue ./dist"
   },
   "type": "module",
-  "author": "Continue Dev, Inc",
+  "author": "Rabiloo Co., Ltd",
   "license": "Apache-2.0",
   "devDependencies": {
     "@babel/preset-env": "^7.24.7",
