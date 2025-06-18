@@ -1,7 +1,7 @@
 import {
   BoltIcon,
   CircleStackIcon,
-  Cog6ToothIcon
+  Cog6ToothIcon,
 } from "@heroicons/react/24/outline";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";

@@ -27,7 +27,7 @@ describe("getFileContent", () => {
     const docsResult = getFileContent("docs");
     expect(docsResult).toContain("name: New doc");
     expect(docsResult).toContain("docs:");
-    expect(docsResult).toContain("startUrl: https://docs.continue.dev");
+    expect(docsResult).toContain("startUrl: https://docs.ethery.dev");
 
     const promptsResult = getFileContent("prompts");
     expect(promptsResult).toContain("name: New prompt");

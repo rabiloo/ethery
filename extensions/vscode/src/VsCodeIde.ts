@@ -154,8 +154,7 @@ class VsCodeIde implements IDE {
       version: vscode.version,
       remoteName: vscode.env.remoteName || "local",
       extensionVersion:
-        vscode.extensions.getExtension("rabiloo.ethery")?.packageJSON
-          .version,
+        vscode.extensions.getExtension("rabiloo.ethery")?.packageJSON.version,
     });
   }
 

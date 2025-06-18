@@ -27,7 +27,7 @@ export function constructMcpSlashCommand(
       const messages: ChatMessage[] = mcpMessages.map((msg) => {
         if (msg.content.type !== "text") {
           throw new Error(
-            "Continue currently only supports text prompts through MCP",
+            "Ethery currently only supports text prompts through MCP",
           );
         }
         return {

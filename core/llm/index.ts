@@ -950,7 +950,7 @@ export abstract class BaseLLM implements ILLM {
                   message: result,
                 });
                 yield result;
-              } else if(result && this.isEmptyToolCallResult(result)) {
+              } else if (result && this.isEmptyToolCallResult(result)) {
                 completion += result.content;
                 interaction?.logItem({
                   kind: "message",
@@ -1028,10 +1028,12 @@ export abstract class BaseLLM implements ILLM {
   }
 
   isEmptyToolCallResult(result: ChatMessage): boolean {
-    return 'toolCalls' in result &&
-          Array.isArray(result.toolCalls) &&
-          result.content.length === 0 &&
-          result.toolCalls.length === 0;
+    return (
+      "toolCalls" in result &&
+      Array.isArray(result.toolCalls) &&
+      result.content.length === 0 &&
+      result.toolCalls.length === 0
+    );
   }
 
   getBatchedChunks(chunks: string[]): string[][] {
