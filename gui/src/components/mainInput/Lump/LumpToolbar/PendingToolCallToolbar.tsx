@@ -49,7 +49,7 @@ export function PendingToolCallToolbar() {
           onClick={() => dispatch(callCurrentTool())}
           data-testid="accept-tool-call-button"
         >
-          {getMetaKeyLabel()} ⏎ Continue
+          {getMetaKeyLabel()} ⏎ Ethery
         </EnterButton>
       </div>
     </Container>

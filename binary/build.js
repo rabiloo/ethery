@@ -173,7 +173,7 @@ async function downloadRipgrepForTarget(target, targetDir) {
       {
         name: "binary",
         version: "1.0.0",
-        author: "Continue Dev, Inc",
+        author: "Rabiloo Co., Ltd",
         license: "Apache-2.0",
       },
       undefined,

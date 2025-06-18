@@ -18,7 +18,7 @@ export class LocalPlatformClient implements PlatformClient {
   ) {}
 
   /**
-   * searches for the first valid secret file in order of ~/.continue/.env, <workspace>/.continue/.env, <workspace>/.env
+   * searches for the first valid secret file in order of ~/.ethery/.env, <workspace>/.ethery/.env, <workspace>/.env
    */
   private async findSecretInEnvFiles(
     fqsn: FQSN,
@@ -63,7 +63,7 @@ export class LocalPlatformClient implements PlatformClient {
       for (const folder of workspaceDirs) {
         const envFilePath = joinPathsToUri(
           folder,
-          insideContinue ? ".continue" : "",
+          insideContinue ? ".ethery" : "",
           ".env",
         );
         try {

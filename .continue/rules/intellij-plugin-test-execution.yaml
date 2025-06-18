@@ -7,9 +7,9 @@ rules:
       Run IntelliJ plugin tests using Gradle with the fully qualified test class or method name:
       ```bash
       # Run test class
-      ./gradlew test --tests "com.github.continuedev.continueintellijextension.unit.ApplyToFileHandlerTest"
+      ./gradlew test --tests "com.github.rabiloo.etheryintellijextension.unit.ApplyToFileHandlerTest"
 
       # Run specific test method
-      ./gradlew test --tests "com.github.continuedev.continueintellijextension.unit.ApplyToFileHandlerTest.should*"
+      ./gradlew test --tests "com.github.rabiloo.etheryintellijextension.unit.ApplyToFileHandlerTest.should*"
       ```
     globs: extensions/intellij/**/*Test.kt

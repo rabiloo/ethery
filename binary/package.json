@@ -1,7 +1,7 @@
 {
   "name": "binary",
   "version": "1.0.0",
-  "author": "Continue Dev, Inc",
+  "author": "Rabiloo Co., Ltd",
   "description": "",
   "main": "out/index.js",
   "bin": "out/index.js",

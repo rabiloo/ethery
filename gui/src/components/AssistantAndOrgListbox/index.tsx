@@ -18,9 +18,7 @@ import {
   Transition,
   useFontSize,
 } from "../ui";
-import { AccountOption } from "./AccountOption";
 import { AssistantOptions } from "./AssistantOptions";
-import { ScopeSelect } from "./ScopeSelect";
 import { SelectedAssistantButton } from "./SelectedAssistantButton";
 
 export function AssistantAndOrgListbox() {
@@ -135,7 +133,7 @@ export function AssistantAndOrgListbox() {
                   <label className="text-vsc-foreground font-semibold">
                     Organization
                   </label>
-                  <ScopeSelect />
+                  {/* <ScopeSelect /> */}
                 </div>
               </div>
             )}
@@ -146,7 +144,7 @@ export function AssistantAndOrgListbox() {
 
             {/* Bottom Actions */}
             <div className="border-border border-x-0 border-b-0 border-t border-solid">
-              <ListboxOption
+              {/* <ListboxOption
                 value="new-assistant"
                 fontSizeModifier={-2}
                 className="border-border border-b px-2 py-1.5"
@@ -158,7 +156,7 @@ export function AssistantAndOrgListbox() {
                 >
                   <PlusIcon className="mr-1 h-3 w-3" /> New Assistant
                 </span>
-              </ListboxOption>
+              </ListboxOption> */}
 
               <ListboxOption
                 value="new-assistant"
@@ -184,7 +182,7 @@ export function AssistantAndOrgListbox() {
                 </span>
               </ListboxOption>
 
-              <AccountOption onClose={close} />
+              {/* <AccountOption onClose={close} /> */}
 
               <div
                 className="text-description border-border flex items-center justify-between gap-1.5 border-x-0 border-b-0 border-t border-solid px-2 py-2"
