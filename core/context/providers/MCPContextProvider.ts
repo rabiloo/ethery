@@ -83,7 +83,7 @@ class MCPContextProvider extends BaseContextProvider {
         const content = resource.text;
         if (typeof content !== "string") {
           throw new Error(
-            "Continue currently only supports text resources from MCP",
+            "Ethery currently only supports text resources from MCP",
           );
         }
 

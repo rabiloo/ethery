@@ -25,7 +25,7 @@ export default function ResponseActions({
       {isTruncated && (
         <HeaderButtonWithToolTip
           tabIndex={-1}
-          text="Continue generation"
+          text="Ethery generation"
           onClick={onContinueGeneration}
         >
           <BarsArrowDownIcon className="h-3.5 w-3.5 text-gray-500" />

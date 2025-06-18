@@ -12,7 +12,7 @@
     "lint:fix": "eslint . --ext ts --fix"
   },
   "type": "module",
-  "author": "Continue Dev, Inc",
+  "author": "Rabiloo Co., Ltd",
   "license": "Apache-2.0",
   "devDependencies": {
     "@babel/preset-env": "^7.24.7",

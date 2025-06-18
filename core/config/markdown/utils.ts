@@ -5,7 +5,7 @@ import {
 import { joinPathsToUri } from "../../util/uri";
 
 /**
- * Creates the file path for a rule in the workspace .continue/rules directory
+ * Creates the file path for a rule in the workspace .ethery/rules directory
  */
 export function createRuleFilePath(
   workspaceDir: string,
@@ -14,7 +14,7 @@ export function createRuleFilePath(
   const safeRuleName = sanitizeRuleName(ruleName);
   return joinPathsToUri(
     workspaceDir,
-    ".continue",
+    ".ethery",
     "rules",
     `${safeRuleName}.${RULE_FILE_EXTENSION}`,
   );

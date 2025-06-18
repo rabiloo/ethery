@@ -1,6 +1,6 @@
 import { usePostHog } from "posthog-js/react";
-import { setDialogMessage } from "../../redux/slices/uiSlice";
 import { useAppDispatch } from "../../redux/hooks";
+import { setDialogMessage } from "../../redux/slices/uiSlice";
 
 export default function FeedbackDialog() {
   const posthog = usePostHog();
@@ -8,7 +8,7 @@ export default function FeedbackDialog() {
 
   return (
     <div className="p-4 text-center">
-      👋 Thanks for using Continue. We are always trying to improve and love
+      👋 Thanks for using Ethery. We are always trying to improve and love
       hearing from users. If you're interested in speaking, enter your name and
       email. We won't use this information for anything other than reaching out.
       <br />

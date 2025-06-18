@@ -1,17 +1,17 @@
 import { IndexingProgressUpdate } from "core";
+import { usePostHog } from "posthog-js/react";
 import { useContext, useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
-import { IdeMessengerContext } from "../../../context/IdeMessenger";
-import { isJetBrains } from "../../../util";
-import { useWebviewListener } from "../../../hooks/useWebviewListener";
-import IndexingProgressBar from "./IndexingProgressBar";
-import IndexingProgressIndicator from "./IndexingProgressIndicator";
-import IndexingProgressTitleText from "./IndexingProgressTitleText";
-import IndexingProgressSubtext from "./IndexingProgressSubtext";
-import { usePostHog } from "posthog-js/react";
 import ConfirmationDialog from "../../../components/dialogs/ConfirmationDialog";
-import { setShowDialog, setDialogMessage } from "../../../redux/slices/uiSlice";
+import { IdeMessengerContext } from "../../../context/IdeMessenger";
+import { useWebviewListener } from "../../../hooks/useWebviewListener";
+import { setDialogMessage, setShowDialog } from "../../../redux/slices/uiSlice";
+import { isJetBrains } from "../../../util";
+import IndexingProgressBar from "./IndexingProgressBar";
 import IndexingProgressErrorText from "./IndexingProgressErrorText";
+import IndexingProgressIndicator from "./IndexingProgressIndicator";
+import IndexingProgressSubtext from "./IndexingProgressSubtext";
+import IndexingProgressTitleText from "./IndexingProgressTitleText";
 
 export function getProgressPercentage(
   progress: IndexingProgressUpdate["progress"],
@@ -64,7 +64,7 @@ function IndexingProgress() {
               "Your index appears corrupted. We recommend clearing and rebuilding it, " +
               "which may take time for large codebases.\n\n" +
               "For a faster rebuild without clearing data, press 'Shift + Command + P' to open " +
-              "the Command Palette, and type out 'Continue: Force Codebase Re-Indexing'"
+              "the Command Palette, and type out 'Ethery: Force Codebase Re-Indexing'"
             }
             onConfirm={() => {
               posthog.capture("rebuild_index_clicked");

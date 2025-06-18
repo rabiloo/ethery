@@ -408,9 +408,7 @@ export function Chat() {
             </div>
           </div>
           {!hasDismissedExploreDialog && <ExploreDialogWatcher />}
-          {history.length === 0 && (
-            <EmptyChatBody showOnboardingCard={onboardingCard.show} />
-          )}
+          {history.length === 0 && <EmptyChatBody showOnboardingCard={false} />}
         </div>
       </div>
     </>
