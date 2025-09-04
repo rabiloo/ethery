@@ -9,15 +9,15 @@ import { getLicenseKeyData } from "./mdm/mdm";
 
 export const EXTENSION_NAME = "ethery";
 
-const WORKOS_CLIENT_ID_PRODUCTION = "client_01J0FW6XN8N2XJAECF7NE0Y65J";
-const WORKOS_CLIENT_ID_STAGING = "client_01J0FW6XCPMJMQ3CG51RB4HBZQ";
+const WORKOS_CLIENT_ID_PRODUCTION = "client_01JZW4TB19N7XNM322R9V62696";
+const WORKOS_CLIENT_ID_STAGING = "client_01JZW4TB19N7XNM322R9V62696";
 
 const PRODUCTION_HUB_ENV: ControlPlaneEnv = {
-  DEFAULT_CONTROL_PLANE_PROXY_URL: "https://api.continue.dev/",
-  CONTROL_PLANE_URL: "https://api.continue.dev/",
+  DEFAULT_CONTROL_PLANE_PROXY_URL: "https://ethery.rabiloo.net/",
+  CONTROL_PLANE_URL: "http://localhost:8000/",
   AUTH_TYPE: AuthType.WorkOsProd,
   WORKOS_CLIENT_ID: WORKOS_CLIENT_ID_PRODUCTION,
-  APP_URL: "https://hub.continue.dev/",
+  APP_URL: "http://localhost:3000/",
 };
 
 const STAGING_ENV: ControlPlaneEnv = {
@@ -66,7 +66,7 @@ export function getControlPlaneEnvSync(
       AUTH_TYPE: AuthType.OnPrem,
       DEFAULT_CONTROL_PLANE_PROXY_URL: apiUrl,
       CONTROL_PLANE_URL: apiUrl,
-      APP_URL: "https://hub.continue.dev/",
+      APP_URL: "https://ethery.rabiloo.net/",
     };
   }
 

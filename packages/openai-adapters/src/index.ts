@@ -137,3 +137,4 @@ export {
 // export
 export type { BaseLlmApi } from "./apis/base.js";
 export type { LLMConfig } from "./types.js";
+export { Decryptor } from "./util/getToken.js";

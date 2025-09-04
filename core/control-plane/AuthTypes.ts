@@ -20,8 +20,8 @@ export function isOnPremSession(
 }
 
 export enum AuthType {
-  WorkOsProd = "continue",
-  WorkOsStaging = "continue-staging",
+  WorkOsProd = "ethery",
+  WorkOsStaging = "ethery-staging",
   OnPrem = "on-prem",
 }
 

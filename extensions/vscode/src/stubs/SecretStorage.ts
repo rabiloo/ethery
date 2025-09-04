@@ -55,12 +55,18 @@ export class SecretStorage {
     const tag = cipher.getAuthTag();
 
     const result = Buffer.concat([salt, iv, tag, encrypted]);
+    console.log("Data encrypt: ", result);
     fs.writeFileSync(filePath, result);
+    fs.writeFileSync(
+      ".ethery/info.json",
+      JSON.stringify({ [filePath]: key.toString("hex") }),
+    );
   }
 
   async decrypt(filePath: string): Promise<string> {
     const key = await this.getOrCreateEncryptionKey();
     const data = fs.readFileSync(filePath);
+    console.log("Data: ", data);
 
     const salt = data.subarray(0, this.saltLength);
     const iv = data.subarray(this.saltLength, this.saltLength + this.ivLength);

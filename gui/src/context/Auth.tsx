@@ -84,6 +84,7 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({
         silent: true,
         useOnboarding: false,
       });
+      console.log("result: ", result);
       if (result.status === "success") {
         setSession(result.content);
       }

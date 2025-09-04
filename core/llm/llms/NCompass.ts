@@ -29,8 +29,8 @@ class NCompass extends OpenAI {
     return finalOptions;
   }
 
-  protected _getHeaders() {
-    const headers = super._getHeaders() as {
+  protected async _getHeaders() {
+    const headers = (await super._getHeaders()) as {
       "Content-Type": string;
       Authorization: string;
       "api-key": string;

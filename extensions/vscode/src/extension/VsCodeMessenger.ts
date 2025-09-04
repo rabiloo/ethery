@@ -23,8 +23,8 @@ import { addCurrentSelectionToEdit } from "../quickEdit/AddCurrentSelection";
 import EditDecorationManager from "../quickEdit/EditDecorationManager";
 import {
   getControlPlaneSessionInfo,
-  WorkOsAuthProvider,
-} from "../stubs/WorkOsAuthProvider";
+  Oauth2ProxyProvider,
+} from "../stubs/Oauth2ProxyProvider";
 import { handleLLMError } from "../util/errorHandling";
 import { showTutorial } from "../util/tutorial";
 import { getExtensionUri } from "../util/vscode";
@@ -82,7 +82,7 @@ export class VsCodeMessenger {
     private readonly ide: VsCodeIde,
     private readonly verticalDiffManagerPromise: Promise<VerticalDiffManager>,
     private readonly configHandlerPromise: Promise<ConfigHandler>,
-    private readonly workOsAuthProvider: WorkOsAuthProvider,
+    private readonly oauth2ProxyProvider: Oauth2ProxyProvider,
     private readonly editDecorationManager: EditDecorationManager,
     private readonly context: vscode.ExtensionContext,
     private readonly vsCodeExtension: VsCodeExtension,
@@ -364,9 +364,11 @@ export class VsCodeMessenger {
       );
     });
     this.onWebviewOrCore("logoutOfControlPlane", async (msg) => {
-      const sessions = await this.workOsAuthProvider.getSessions();
+      const sessions = await this.oauth2ProxyProvider.getSessions();
       await Promise.all(
-        sessions.map((session) => workOsAuthProvider.removeSession(session.id)),
+        sessions.map((session) =>
+          this.oauth2ProxyProvider.removeSession(session.id),
+        ),
       );
       vscode.commands.executeCommand(
         "setContext",
