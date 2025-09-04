@@ -57,9 +57,18 @@ export const PROVIDER_TOOL_SUPPORT: Record<string, (model: string) => boolean> =
       const lower = model.toLowerCase();
       // https://platform.openai.com/docs/guides/function-calling#models-supporting-function-calling
       if (
-        lower.startsWith("gpt-4") ||
-        lower.startsWith("gpt-5") ||
-        lower.startsWith("o3")
+        model.toLowerCase().startsWith("gpt-4") ||
+        model.toLowerCase().startsWith("o3") ||
+        model.toLowerCase().startsWith("glm-4") ||
+        model.toLowerCase().startsWith("mistra") ||
+        model.toLowerCase().startsWith("qwen") ||
+        model.toLowerCase().startsWith("google") ||
+        model.toLowerCase().startsWith("deepseek") ||
+        model.toLowerCase().startsWith("tencent") ||
+        model.toLowerCase().startsWith("x-ai") ||
+        model.toLowerCase().startsWith("meta") ||
+        model.toLowerCase().startsWith("alibaba") ||
+        model.toLowerCase().startsWith("Devstral")
       ) {
         return true;
       }

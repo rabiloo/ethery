@@ -49,13 +49,13 @@ async function loadRules(ide: IDE) {
   const rules: RuleWithSource[] = [];
   const errors = [];
 
-  // Add rules from .continuerules files
+  // Add rules from .etheryrules files
   const { rules: yamlRules, errors: continueRulesErrors } =
     await getWorkspaceContinueRuleDotFiles(ide);
   rules.unshift(...yamlRules);
   errors.push(...continueRulesErrors);
 
-  // Add rules from markdown files in .continue/rules
+  // Add rules from markdown files in .ethery/rules
   const { rules: markdownRules, errors: markdownRulesErrors } =
     await loadMarkdownRules(ide);
   rules.unshift(...markdownRules);

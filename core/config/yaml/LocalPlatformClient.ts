@@ -18,7 +18,7 @@ export class LocalPlatformClient implements PlatformClient {
   ) {}
 
   /**
-   * searches for the first valid secret file in order of ~/.continue/.env, <workspace>/.continue/.env, <workspace>/.env
+   * searches for the first valid secret file in order of ~/.ethery/.env, <workspace>/.ethery/.env, <workspace>/.env
    */
   private async findSecretInEnvFiles(
     fqsn: FQSN,
@@ -48,7 +48,7 @@ export class LocalPlatformClient implements PlatformClient {
       return dotEnv[fqsn.secretName];
     } catch (error) {
       console.warn(
-        `Error reading ~/.continue/.env file: ${error instanceof Error ? error.message : String(error)}`,
+        `Error reading ~/.ethery/.env file: ${error instanceof Error ? error.message : String(error)}`,
       );
       return undefined;
     }
@@ -63,7 +63,7 @@ export class LocalPlatformClient implements PlatformClient {
       for (const folder of workspaceDirs) {
         const envFilePath = joinPathsToUri(
           folder,
-          insideContinue ? ".continue" : "",
+          insideContinue ? ".ethery" : "",
           ".env",
         );
         try {
@@ -79,7 +79,7 @@ export class LocalPlatformClient implements PlatformClient {
           console.warn(
             `Error reading workspace .env file at ${envFilePath}: ${error instanceof Error ? error.message : String(error)}`,
           );
-          // Continue to next workspace folder
+          // Ethery to next workspace folder
         }
       }
 

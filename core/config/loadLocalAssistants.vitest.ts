@@ -13,11 +13,11 @@ describe("ASSISTANTS getAllDotContinueDefinitionFiles with fileExtType option", 
 
     // Add test files to the test directory
     addToTestDir([
-      ".continue/assistants/",
-      [".continue/assistants/assistant1.yaml", "yaml content 1"],
-      [".continue/assistants/assistant2.yml", "yaml content 2"],
-      [".continue/assistants/assistant3.md", "markdown content 1"],
-      [".continue/assistants/assistant4.txt", "txt content"],
+      ".ethery/assistants/",
+      [".ethery/assistants/assistant1.yaml", "yaml content 1"],
+      [".ethery/assistants/assistant2.yml", "yaml content 2"],
+      [".ethery/assistants/assistant3.md", "markdown content 1"],
+      [".ethery/assistants/assistant4.txt", "txt content"],
     ]);
   });
 
@@ -136,9 +136,9 @@ describe("ASSISTANTS getAllDotContinueDefinitionFiles with fileExtType option", 
     walkDirCache.invalidate();
     setUpTestDir();
     addToTestDir([
-      ".continue/assistants/",
-      [".continue/assistants/nonmatch1.txt", "txt content"],
-      [".continue/assistants/nonmatch2.json", "json content"],
+      ".ethery/assistants/",
+      [".ethery/assistants/nonmatch1.txt", "txt content"],
+      [".ethery/assistants/nonmatch2.json", "json content"],
     ]);
 
     const options: LoadAssistantFilesOptions = {
@@ -195,9 +195,9 @@ describe("ASSISTANTS getAllDotContinueDefinitionFiles with fileExtType option", 
   it("should filter by file extension case sensitively", async () => {
     // Add files with uppercase extensions
     addToTestDir([
-      [".continue/assistants/assistant5.YAML", "uppercase yaml"],
-      [".continue/assistants/assistant6.YML", "uppercase yml"],
-      [".continue/assistants/assistant7.MD", "uppercase md"],
+      [".ethery/assistants/assistant5.YAML", "uppercase yaml"],
+      [".ethery/assistants/assistant6.YML", "uppercase yml"],
+      [".ethery/assistants/assistant7.MD", "uppercase md"],
     ]);
 
     const yamlOptions: LoadAssistantFilesOptions = {

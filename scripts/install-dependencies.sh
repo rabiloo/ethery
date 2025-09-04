@@ -33,6 +33,12 @@ npm install
 echo "Building packages (fetch, openai-adapters, config-yaml)..."
 node ./scripts/build-packages.js
 
+echo "Building openai-adapter..."
+pushd packages/openai-adapters
+npm install
+npm run build
+popd
+
 echo "Installing Core extension dependencies..."
 pushd core
 ## This flag is set because we pull down Chromium at runtime

@@ -52,8 +52,8 @@ function getContentsForNewBlock(blockType: BlockType): ConfigYaml {
     case "docs":
       configYaml.docs = [
         {
-          name: "New docs",
-          startUrl: "https://docs.continue.dev",
+          name: "Ethery docs",
+          startUrl: "https://docs.ethery.dev",
         },
       ];
       break;
@@ -130,7 +130,7 @@ export async function createNewWorkspaceBlockFile(
     );
   }
 
-  const baseDirUri = joinPathsToUri(workspaceDirs[0], `.continue/${blockType}`);
+  const baseDirUri = joinPathsToUri(workspaceDirs[0], `.ethery/${blockType}`);
 
   const fileUri = await findAvailableFilename(
     baseDirUri,

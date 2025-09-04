@@ -106,6 +106,7 @@ declare global {
     embeddingId: string;
     maxEmbeddingChunkSize: number;
     maxEmbeddingBatchSize: number;
+    embeddingInstruct: string;
   
     complete(
       prompt: string,
@@ -543,6 +544,7 @@ declare global {
     embeddingId?: string;
     maxEmbeddingChunkSize?: number;
     maxEmbeddingBatchSize?: number;
+    embeddingInstruct: string;
   
     // Cloudflare options
     accountId?: string;
@@ -973,6 +975,7 @@ declare global {
   
     // GCP and Watsonx Options
     projectId?: string;
+    embeddingInstruct?: string;
   }
   
   export interface EmbeddingsProviderDescription extends EmbedOptions {

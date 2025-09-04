@@ -539,8 +539,8 @@ class IntelliJIDE(
 
             val deferred = CompletableDeferred<String?>()
 
-            val notification = NotificationGroupManager.getInstance().getNotificationGroup("Continue")
-                .createNotification(message, notificationType).setIcon(Icons.Continue)
+            val notification = NotificationGroupManager.getInstance().getNotificationGroup("Ethery")
+                .createNotification(message, notificationType).setIcon(icon)
 
             val buttonTexts = otherParams.filterIsInstance<String>().toTypedArray()
             buttonTexts.forEach { buttonText ->

@@ -9,7 +9,6 @@ import {
 import Handlebars from "handlebars";
 
 import { DevDataSqliteDb } from "../data/devdataSqlite.js";
-import { Logger } from "../util/Logger.js";
 import { DataLogger } from "../data/log.js";
 import {
   CacheBehavior,
@@ -31,6 +30,7 @@ import {
   TemplateType,
   Usage,
 } from "../index.js";
+import { Logger } from "../util/Logger.js";
 import mergeJson from "../util/merge.js";
 import { renderChatMessage } from "../util/messageContent.js";
 import { isOllamaInstalled } from "../util/ollamaHelper.js";
@@ -187,6 +187,7 @@ export abstract class BaseLLM implements ILLM {
   embeddingId: string;
   maxEmbeddingChunkSize: number;
   maxEmbeddingBatchSize: number;
+  embeddingInstruct: string;
 
   //URI to local block defining this LLM
   sourceFile?: string;
@@ -294,6 +295,7 @@ export abstract class BaseLLM implements ILLM {
 
     this.autocompleteOptions = options.autocompleteOptions;
     this.sourceFile = options.sourceFile;
+    this.embeddingInstruct = options.embeddingInstruct ?? "";
   }
 
   get contextLength() {
@@ -1013,6 +1015,16 @@ export abstract class BaseLLM implements ILLM {
     let usage: Usage | undefined = undefined;
 
     try {
+      if (
+        completionOptions.reasoning === false &&
+        completionOptions.model?.toLowerCase().startsWith("qwen")) 
+        {
+          messages.forEach(message => {
+            if (message.role === 'user') {
+              message.content += ' \\no_think';
+            }
+          });
+        }
       if (this.templateMessages) {
         for await (const chunk of this._streamComplete(
           prompt,
@@ -1058,6 +1070,13 @@ export abstract class BaseLLM implements ILLM {
                   message: result,
                 });
                 yield result;
+              } else if (result && this.isEmptyToolCallResult(result)) {
+                completion += this._formatChatMessage(result);
+                interaction?.logItem({
+                  kind: "message",
+                  message: result,
+                });
+                continue;
               }
             }
           }
@@ -1147,6 +1166,15 @@ export abstract class BaseLLM implements ILLM {
     };
   }
 
+  isEmptyToolCallResult(result: ChatMessage): boolean {
+    return (
+      "toolCalls" in result &&
+      Array.isArray(result.toolCalls) &&
+      result.content.length === 0 &&
+      result.toolCalls.length === 0
+    );
+  }
+
   getBatchedChunks(chunks: string[]): string[][] {
     const batchedChunks = [];
 
@@ -1170,6 +1198,9 @@ export abstract class BaseLLM implements ILLM {
           const embeddings = await withExponentialBackoff<number[][]>(
             async () => {
               if (this.shouldUseOpenAIAdapter("embed") && this.openaiAdapter) {
+                if (batch.length == 1 && this.embeddingInstruct != '') {
+                  batch[0] = `Instruct: ${this.embeddingInstruct} Query: ${batch[0]}`
+                }
                 const result = await this.openaiAdapter.embed({
                   model: this.model,
                   input: batch,

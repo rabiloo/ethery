@@ -23,8 +23,8 @@ import { addCurrentSelectionToEdit } from "../quickEdit/AddCurrentSelection";
 import EditDecorationManager from "../quickEdit/EditDecorationManager";
 import {
   getControlPlaneSessionInfo,
-  WorkOsAuthProvider,
-} from "../stubs/WorkOsAuthProvider";
+  Oauth2ProxyProvider,
+} from "../stubs/Oauth2ProxyProvider";
 import { handleLLMError } from "../util/errorHandling";
 import { showTutorial } from "../util/tutorial";
 import { getExtensionUri } from "../util/vscode";
@@ -82,7 +82,7 @@ export class VsCodeMessenger {
     private readonly ide: VsCodeIde,
     private readonly verticalDiffManagerPromise: Promise<VerticalDiffManager>,
     private readonly configHandlerPromise: Promise<ConfigHandler>,
-    private readonly workOsAuthProvider: WorkOsAuthProvider,
+    private readonly oauth2ProxyProvider: Oauth2ProxyProvider,
     private readonly editDecorationManager: EditDecorationManager,
     private readonly context: vscode.ExtensionContext,
     private readonly vsCodeExtension: VsCodeExtension,
@@ -104,7 +104,7 @@ export class VsCodeMessenger {
     });
 
     this.onWebview("toggleDevTools", (msg) => {
-      vscode.commands.executeCommand("continue.viewLogs");
+      vscode.commands.executeCommand("ethery.viewLogs");
     });
     this.onWebview("reloadWindow", (msg) => {
       vscode.commands.executeCommand("workbench.action.reloadWindow");
@@ -113,12 +113,12 @@ export class VsCodeMessenger {
       vscode.commands.executeCommand("workbench.action.focusActiveEditorGroup");
     });
     this.onWebview("toggleFullScreen", (msg) => {
-      vscode.commands.executeCommand("continue.toggleFullScreen");
+      vscode.commands.executeCommand("ethery.toggleFullScreen");
     });
 
     this.onWebview("acceptDiff", async ({ data: { filepath, streamId } }) => {
       await vscode.commands.executeCommand(
-        "continue.acceptDiff",
+        "ethery.acceptDiff",
         filepath,
         streamId,
       );
@@ -126,7 +126,7 @@ export class VsCodeMessenger {
 
     this.onWebview("rejectDiff", async ({ data: { filepath, streamId } }) => {
       await vscode.commands.executeCommand(
-        "continue.rejectDiff",
+        "ethery.rejectDiff",
         filepath,
         streamId,
       );
@@ -364,13 +364,15 @@ export class VsCodeMessenger {
       );
     });
     this.onWebviewOrCore("logoutOfControlPlane", async (msg) => {
-      const sessions = await this.workOsAuthProvider.getSessions();
+      const sessions = await this.oauth2ProxyProvider.getSessions();
       await Promise.all(
-        sessions.map((session) => workOsAuthProvider.removeSession(session.id)),
+        sessions.map((session) =>
+          this.oauth2ProxyProvider.removeSession(session.id),
+        ),
       );
       vscode.commands.executeCommand(
         "setContext",
-        "continue.isSignedInToControlPlane",
+        "ethery.isSignedInToControlPlane",
         false,
       );
     });

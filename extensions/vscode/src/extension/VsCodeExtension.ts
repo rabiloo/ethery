@@ -29,11 +29,11 @@ import { registerAllPromptFilesCompletionProviders } from "../lang-server/prompt
 import EditDecorationManager from "../quickEdit/EditDecorationManager";
 import { QuickEdit } from "../quickEdit/QuickEditQuickPick";
 import { setupRemoteConfigSync } from "../stubs/activation";
-import { UriEventHandler } from "../stubs/uriHandler";
 import {
   getControlPlaneSessionInfo,
-  WorkOsAuthProvider,
-} from "../stubs/WorkOsAuthProvider";
+  Oauth2ProxyProvider,
+} from "../stubs/Oauth2ProxyProvider";
+import { UriEventHandler } from "../stubs/uriHandler";
 import { Battery } from "../util/battery";
 import { FileSearch } from "../util/FileSearch";
 import { VsCodeIdeUtils } from "../util/ideUtils";
@@ -77,7 +77,7 @@ export class VsCodeExtension {
   webviewProtocolPromise: Promise<VsCodeWebviewProtocol>;
   private core: Core;
   private battery: Battery;
-  private workOsAuthProvider: WorkOsAuthProvider;
+  private oauth2ProxyProvider: Oauth2ProxyProvider;
   private fileSearch: FileSearch;
   private uriHandler = new UriEventHandler();
   private completionProvider: ContinueCompletionProvider;
@@ -86,10 +86,12 @@ export class VsCodeExtension {
 
   constructor(context: vscode.ExtensionContext) {
     // Register auth provider
-    this.workOsAuthProvider = new WorkOsAuthProvider(context, this.uriHandler);
-
-    void this.workOsAuthProvider.refreshSessions();
-    context.subscriptions.push(this.workOsAuthProvider);
+    this.oauth2ProxyProvider = new Oauth2ProxyProvider(
+      context,
+      this.uriHandler,
+    );
+    this.oauth2ProxyProvider.refreshSessions();
+    context.subscriptions.push(this.oauth2ProxyProvider);
 
     this.editDecorationManager = new EditDecorationManager(context);
 
@@ -172,7 +174,7 @@ export class VsCodeExtension {
     // Sidebar
     context.subscriptions.push(
       vscode.window.registerWebviewViewProvider(
-        "continue.continueGUIView",
+        "ethery.continueGUIView",
         this.sidebar,
         {
           webviewOptions: { retainContextWhenHidden: true },
@@ -192,7 +194,7 @@ export class VsCodeExtension {
       this.ide,
       verticalDiffManagerPromise,
       configHandlerPromise,
-      this.workOsAuthProvider,
+      this.oauth2ProxyProvider,
       this.editDecorationManager,
       context,
       this,
@@ -353,7 +355,7 @@ export class VsCodeExtension {
 
     context.subscriptions.push(
       vscode.window.registerWebviewViewProvider(
-        "continue.continueConsoleView",
+        "ethery.continueConsoleView",
         this.consoleView,
       ),
     );
@@ -465,7 +467,7 @@ export class VsCodeExtension {
       if (e.provider.id === env.AUTH_TYPE) {
         void vscode.commands.executeCommand(
           "setContext",
-          "continue.isSignedInToControlPlane",
+          "ethery.isSignedInToControlPlane",
           true,
         );
 
@@ -476,7 +478,7 @@ export class VsCodeExtension {
       } else {
         void vscode.commands.executeCommand(
           "setContext",
-          "continue.isSignedInToControlPlane",
+          "ethery.isSignedInToControlPlane",
           false,
         );
 

@@ -50,7 +50,7 @@ function autodetectPlatformAndArch() {
   return [platform, arch];
 }
 
-const CONTINUE_GLOBAL_DIR = path.join(__dirname, "..", ".continue");
+const CONTINUE_GLOBAL_DIR = path.join(__dirname, "..", ".ethery");
 if (fs.existsSync(CONTINUE_GLOBAL_DIR)) {
   fs.rmSync(CONTINUE_GLOBAL_DIR, { recursive: true, force: true });
 }
@@ -64,9 +64,9 @@ describe("Test Suite", () => {
     const [platform, arch] = autodetectPlatformAndArch();
     const binaryDir = path.join(__dirname, "..", "bin", `${platform}-${arch}`);
     const exe = platform === "win32" ? ".exe" : "";
-    const binaryPath = path.join(binaryDir, `continue-binary${exe}`);
+    const binaryPath = path.join(binaryDir, `ethery-binary${exe}`);
     const expectedItems = [
-      `continue-binary${exe}`,
+      `ethery-binary${exe}`,
       `esbuild${exe}`,
       "index.node",
       "package.json",
@@ -156,7 +156,7 @@ describe("Test Suite", () => {
     expect(resp).toBe("pong");
   });
 
-  it("should create .continue directory at the specified location with expected files", async () => {
+  it("should create .ethery directory at the specified location with expected files", async () => {
     expect(fs.existsSync(CONTINUE_GLOBAL_DIR)).toBe(true);
 
     // Many of the files are only created when trying to load the config

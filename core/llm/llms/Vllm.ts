@@ -26,7 +26,7 @@ class Vllm extends OpenAI {
     super(options);
 
     if (options.model === "AUTODETECT") {
-      this._setupCompletionOptions();
+      void this._setupCompletionOptions();
     }
   }
 
@@ -56,10 +56,10 @@ class Vllm extends OpenAI {
     throw new Error("vLLM rerank requires OpenAI adapter");
   }
 
-  private _setupCompletionOptions() {
+  private async _setupCompletionOptions() {
     this.fetch(this._getEndpoint("models"), {
       method: "GET",
-      headers: this._getHeaders(),
+      headers: await this._getHeaders(),
     })
       .then(async (response) => {
         if (response.status !== 200) {

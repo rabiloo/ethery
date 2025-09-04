@@ -1,22 +1,24 @@
 import {
-  ChatCompletionCreateParams,
-  ChatCompletionMessageParam,
+    ChatCompletionCreateParams,
+    ChatCompletionMessageParam,
 } from "openai/resources/index";
 
 import { streamSse } from "@continuedev/fetch";
 import {
-  ChatMessage,
-  CompletionOptions,
-  LLMOptions,
-  Tool,
+    ChatMessage,
+    CompletionOptions,
+    LLMOptions,
+    Tool,
 } from "../../index.js";
 import { renderChatMessage } from "../../util/messageContent.js";
 import { BaseLLM } from "../index.js";
 import {
-  fromChatCompletionChunk,
-  LlmApiRequestType,
-  toChatBody,
+    fromChatCompletionChunk,
+    LlmApiRequestType,
+    toChatBody,
 } from "../openaiTypeConverters.js";
+
+import { Decryptor } from "@continuedev/openai-adapters";
 
 const NON_CHAT_MODELS = [
   "text-davinci-002",
@@ -171,12 +173,53 @@ class OpenAI extends BaseLLM {
     return finalOptions;
   }
 
-  protected _getHeaders() {
-    return {
+  protected async _getHeaders() {
+    let token = null;
+
+    // Try to load token from encrypted file with better error handling
+    try {
+      const decryptor = new Decryptor();
+      const decryptedContent = decryptor.decryptFile(".ethery/info.json");
+      token = JSON.parse(decryptedContent);
+      console.log("Token loaded successfully from .ethery/info.json");
+    } catch (error) {
+      console.warn("Failed to load token from .ethery/info.json:", error);
+
+      // If decryption fails, try to use the API key directly
+      if (this.apiKey) {
+        console.log("Using provided API key instead of encrypted token");
+        token = this.apiKey;
+      } else {
+        console.warn("No API key available and token decryption failed");
+        token = null;
+      }
+    }
+
+    const headers: Record<string, string> = {
       "Content-Type": "application/json",
-      Authorization: `Bearer ${this.apiKey}`,
+      Authorization: `Bearer ${this.apiKey ? this.apiKey : token}`,
       "api-key": this.apiKey ?? "", // For Azure
     };
+
+    // Try to load authentication cookies from VSCode extension
+    try {
+      // Check if we're running in VSCode extension context
+      if (typeof require !== "undefined") {
+        const {
+          loadAuthenticationCookies,
+        } = require("../extensions/vscode/src/oauth/authenticatedFetch");
+        const cookies = await loadAuthenticationCookies();
+        if (cookies) {
+          headers["Cookie"] = `_oauth2_proxy=${cookies}`;
+          console.log("Added OAuth2-Proxy authentication cookies to request");
+        }
+      }
+    } catch (error) {
+      // Silently ignore if not in VSCode extension context or cookies not available
+      console.debug("Authentication cookies not available:", error);
+    }
+
+    return headers;
   }
 
   protected async _complete(
@@ -297,7 +340,7 @@ class OpenAI extends BaseLLM {
 
     const response = await this.fetch(this._getEndpoint("completions"), {
       method: "POST",
-      headers: this._getHeaders(),
+      headers: await this._getHeaders(),
       body: JSON.stringify({
         ...args,
         stream: true,
@@ -337,12 +380,22 @@ class OpenAI extends BaseLLM {
       }
       return;
     }
+    if (
+      options.reasoning === false &&
+      options.model?.toLowerCase().startsWith("qwen")
+    ) {
+      messages.forEach((message) => {
+        if (message.role === "user") {
+          message.content += " \\no_think";
+        }
+      });
+    }
 
     const body = this._convertArgs(options, messages);
 
     const response = await this.fetch(this._getEndpoint("chat/completions"), {
       method: "POST",
-      headers: this._getHeaders(),
+      headers: await this._getHeaders(),
       body: JSON.stringify({
         ...body,
         ...this.extraBodyProperties(),
@@ -406,7 +459,7 @@ class OpenAI extends BaseLLM {
   async listModels(): Promise<string[]> {
     const response = await this.fetch(this._getEndpoint("models"), {
       method: "GET",
-      headers: this._getHeaders(),
+      headers: await this._getHeaders(),
     });
 
     const data = await response.json();
@@ -437,11 +490,7 @@ class OpenAI extends BaseLLM {
         model: this.model,
         ...this.extraBodyProperties(),
       }),
-      headers: {
-        Authorization: `Bearer ${this.apiKey}`,
-        "Content-Type": "application/json",
-        "api-key": this.apiKey ?? "", // For Azure
-      },
+      headers: await this._getHeaders(),
     });
 
     if (!resp.ok) {

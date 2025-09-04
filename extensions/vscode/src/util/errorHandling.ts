@@ -40,11 +40,11 @@ export async function handleLLMError(error: unknown): Promise<boolean> {
     if (val === "Download Ollama") {
       vscode.env.openExternal(vscode.Uri.parse("https://ollama.ai/download"));
     } else if (val === "Start Ollama") {
-      vscode.commands.executeCommand("continue.startLocalOllama");
+      vscode.commands.executeCommand("ethery.startLocalOllama");
     } else if (val === "Install Model" && "llm" in error) {
       //Eventually, we might be able to support installing models for other LLM providers than Ollama
       vscode.commands.executeCommand(
-        "continue.installModel",
+        "ethery.installModel",
         modelName,
         error.llm,
       );

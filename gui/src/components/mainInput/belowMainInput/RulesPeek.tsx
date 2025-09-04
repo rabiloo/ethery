@@ -36,7 +36,7 @@ const getSourceLabel = (rule: RuleWithSource): string => {
       }
     case "json-systemMessage":
       return "System Message";
-    case ".continuerules":
+    case ".etheryrules":
       return "Project Rules";
     default:
       return rule.source;

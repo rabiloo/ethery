@@ -19,7 +19,7 @@ class Mistral extends OpenAI {
   private async autodetectApiKeyType(): Promise<MistralApiKeyType> {
     const mistralResp = await fetch("https://api.mistral.ai/v1/models", {
       method: "GET",
-      headers: this._getHeaders(),
+      headers: await this._getHeaders(),
     });
     if (mistralResp.status === 401) {
       return "codestral";

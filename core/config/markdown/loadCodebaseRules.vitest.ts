@@ -36,7 +36,7 @@ describe("loadCodebaseRules", () => {
     "src/redux/rules.md",
     "src/components/rules.md",
     "src/utils/helper.ts", // Non-rules file
-    ".continue/rules.md", // This should also be loaded
+    ".ethery/rules.md", // This should also be loaded
   ];
 
   // Mock rule content
@@ -46,7 +46,7 @@ describe("loadCodebaseRules", () => {
       '---\nglobs: "**/*.{ts,tsx}"\n---\n# Redux Rules\nUse Redux Toolkit',
     "src/components/rules.md":
       '---\nglobs: ["**/*.tsx", "**/*.jsx"]\n---\n# Component Rules\nUse functional components',
-    ".continue/rules.md": "# Global Rules\nFollow project guidelines",
+    ".ethery/rules.md": "# Global Rules\nFollow project guidelines",
   };
 
   // Mock converted rules
@@ -71,11 +71,11 @@ describe("loadCodebaseRules", () => {
       source: "colocated-markdown",
       ruleFile: "src/components/rules.md",
     },
-    ".continue/rules.md": {
+    ".ethery/rules.md": {
       name: "Global Rules",
       rule: "Follow project guidelines",
       source: "colocated-markdown",
-      ruleFile: ".continue/rules.md",
+      ruleFile: ".ethery/rules.md",
     },
   };
 
@@ -126,7 +126,7 @@ describe("loadCodebaseRules", () => {
     expect(mockIde.readFile).toHaveBeenCalledWith("src/rules.md");
     expect(mockIde.readFile).toHaveBeenCalledWith("src/redux/rules.md");
     expect(mockIde.readFile).toHaveBeenCalledWith("src/components/rules.md");
-    expect(mockIde.readFile).toHaveBeenCalledWith(".continue/rules.md");
+    expect(mockIde.readFile).toHaveBeenCalledWith(".ethery/rules.md");
 
     // Should convert all rules
     expect(markdownToRule).toHaveBeenCalledTimes(4);
@@ -136,7 +136,7 @@ describe("loadCodebaseRules", () => {
     expect(rules).toContainEqual(mockConvertedRules["src/rules.md"]);
     expect(rules).toContainEqual(mockConvertedRules["src/redux/rules.md"]);
     expect(rules).toContainEqual(mockConvertedRules["src/components/rules.md"]);
-    expect(rules).toContainEqual(mockConvertedRules[".continue/rules.md"]);
+    expect(rules).toContainEqual(mockConvertedRules[".ethery/rules.md"]);
 
     // Should not have errors
     expect(errors).toHaveLength(0);
@@ -157,7 +157,7 @@ describe("loadCodebaseRules", () => {
     expect(rules).toHaveLength(3);
     expect(rules).toContainEqual(mockConvertedRules["src/rules.md"]);
     expect(rules).toContainEqual(mockConvertedRules["src/components/rules.md"]);
-    expect(rules).toContainEqual(mockConvertedRules[".continue/rules.md"]);
+    expect(rules).toContainEqual(mockConvertedRules[".ethery/rules.md"]);
 
     // Should have one error
     expect(errors).toHaveLength(1);

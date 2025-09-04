@@ -95,6 +95,9 @@ async function modelConfigToBaseLLM({
   if (model.embedOptions?.maxChunkSize) {
     options.maxEmbeddingChunkSize = model.embedOptions.maxChunkSize;
   }
+  if (model.embedOptions?.instruct) {
+    options.embeddingInstruct = model.embedOptions.instruct;
+  }
 
   // These are params that are at model config level in JSON
   // But we decided to move to nested `env` in YAML

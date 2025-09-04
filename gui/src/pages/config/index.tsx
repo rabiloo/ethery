@@ -2,7 +2,6 @@ import {
   BoltIcon,
   CircleStackIcon,
   Cog6ToothIcon,
-  QuestionMarkCircleIcon,
 } from "@heroicons/react/24/outline";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
@@ -10,7 +9,6 @@ import { PageHeader } from "../../components/PageHeader";
 import { useNavigationListener } from "../../hooks/useNavigationListener";
 import { fontSize } from "../../util";
 import { AccountButton } from "./AccountButton";
-import { HelpCenterSection } from "./HelpCenterSection";
 import { IndexingSettingsSection } from "./IndexingSettingsSection";
 import KeyboardShortcuts from "./KeyboardShortcuts";
 import { UserSettingsForm } from "./UserSettingsForm";
@@ -40,14 +38,14 @@ function ConfigPage() {
       component: <IndexingSettingsSection />,
       icon: <CircleStackIcon className="xs:h-4 xs:w-4 h-3 w-3 flex-shrink-0" />,
     },
-    {
-      id: "help",
-      label: "Help",
-      component: <HelpCenterSection />,
-      icon: (
-        <QuestionMarkCircleIcon className="xs:h-4 xs:w-4 h-3 w-3 flex-shrink-0" />
-      ),
-    },
+    // {
+    //   id: "help",
+    //   label: "Help",
+    //   component: <HelpCenterSection />,
+    //   icon: (
+    //     <QuestionMarkCircleIcon className="xs:h-4 xs:w-4 h-3 w-3 flex-shrink-0" />
+    //   ),
+    // },
     {
       id: "shortcuts",
       label: "Shortcuts",

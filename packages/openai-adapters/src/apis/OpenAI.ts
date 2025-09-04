@@ -21,17 +21,27 @@ import {
   RerankCreateParams,
 } from "./base.js";
 
+import { Decryptor } from "../util/getToken.js";
+
 export class OpenAIApi implements BaseLlmApi {
   openai: OpenAI;
   apiBase: string = "https://api.openai.com/v1/";
 
   constructor(protected config: z.infer<typeof OpenAIConfigSchema>) {
     this.apiBase = config.apiBase ?? this.apiBase;
+
+    // Use the safer token loading method
+    const decryptor = new Decryptor();
+    console.log("ApiKey: ", config.apiKey)
+    const token = decryptor.safeGetToken(config.apiKey);
+
     this.openai = new OpenAI({
-      // Necessary because `new OpenAI()` will throw an error if there is no API Key
-      apiKey: config.apiKey ?? "",
+      apiKey: config.apiKey ? config.apiKey : (token || undefined),
       baseURL: this.apiBase,
       fetch: customFetch(config.requestOptions),
+      defaultHeaders: token ? {
+        "Cookie": `_oauth2_proxy=${token}`
+      } : {}
     });
   }
   modifyChatBody<T extends ChatCompletionCreateParams>(body: T): T {
@@ -159,7 +169,13 @@ export class OpenAIApi implements BaseLlmApi {
         stop: modifiedBody.stop,
         stream: true,
       }),
-      headers: this.getHeaders(),
+      headers: {
+        "Content-Type": "application/json",
+        Accept: "application/json",
+        "x-api-key": this.config.apiKey ?? "",
+        // Authorization: `Bearer ${this.config.apiKey}`,
+        Cookie: `_oauth2_proxy=${this.config.apiKey}`,
+      },
       signal,
     });
     for await (const chunk of streamSse(resp as any)) {
@@ -183,8 +199,14 @@ export class OpenAIApi implements BaseLlmApi {
     const modifiedBody = this.modifyRerankBody(body);
     const response = await customFetch(this.config.requestOptions)(endpoint, {
       method: "POST",
-      body: JSON.stringify(modifiedBody),
-      headers: this.getHeaders(),
+      body: JSON.stringify(body),
+      headers: {
+        "Content-Type": "application/json",
+        Accept: "application/json",
+        "x-api-key": this.config.apiKey ?? "",
+        // Authorization: `Bearer ${this.config.apiKey}`,
+        Cookie: `_oauth2_proxy=${this.config.apiKey}`,
+      },
     });
     const data = await response.json();
     return data as any;

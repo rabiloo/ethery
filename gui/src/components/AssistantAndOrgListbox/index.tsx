@@ -1,8 +1,7 @@
 import {
   ArrowPathIcon,
   ArrowRightEndOnRectangleIcon,
-  ArrowRightStartOnRectangleIcon,
-  PlusIcon,
+  ArrowRightStartOnRectangleIcon
 } from "@heroicons/react/24/outline";
 import { AuthType, isOnPremSession } from "core/control-plane/AuthTypes";
 import { useContext, useEffect, useRef } from "react";
@@ -158,7 +157,7 @@ export function AssistantAndOrgListbox() {
 
             {/* Bottom Actions */}
             <div className="border-border border-x-0 border-b-0 border-t border-solid">
-              <ListboxOption
+              {/* <ListboxOption
                 value="new-assistant"
                 fontSizeModifier={-2}
                 className="border-border border-b px-2 py-1.5"
@@ -170,7 +169,7 @@ export function AssistantAndOrgListbox() {
                 >
                   <PlusIcon className="mr-1 h-3 w-3" /> New Agent
                 </span>
-              </ListboxOption>
+              </ListboxOption> */}
 
               <ListboxOption
                 value="reload-assistant"
