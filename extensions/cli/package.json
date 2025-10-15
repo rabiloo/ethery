@@ -122,7 +122,7 @@
     "eslint-plugin-unused-imports": "^4.1.4",
     "execa": "^9.6.0",
     "express": "^5.1.0",
-    "happy-dom": "^18.0.1",
+    "happy-dom": "^20.0.2",
     "ink-testing-library": "^4.0.0",
     "jsdom": "^26.1.0",
     "nock": "^14.0.5",
